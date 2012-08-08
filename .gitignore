@@ -1,6 +1,55 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-bin
-obj
+# global patterns
+testMain
 
-# mstest test results
-TestResults
+# commonly used editors
+# vim
+*.swp
+# Eclipse
+*.project
+*.cproject
+
+# generated files etc
+config.cache
+config.status
+config.log
+*.d
+*.depend
+*.pc
+*.P
+*.mode1v3
+*.pbxuser
+*.[oa]
+*.l[oa]
+*.so
+*.so.*
+*.dylib
+*.lineno
+*.py[co]
+*.ver
+*.rej
+*.orig
+*.bak
+
+# Windows specific generated files
+*.exp
+*.ilk
+*.ncb
+*.pdb
+*.suo
+*.sdf
+*.opensdf
+*.vcproj.*.user
+*.vcxproj.*.user
+*.vcxproj.user
+*.obj
+*.idb
+*ReSharper*
+*.idb
+
+libdvblinkremote/build
+libdvblinkremote/docs/html
+libdvblinkremote/docs/latex
+libdvblinkremote/lib
+libdvblinkremote/include
+libdvblinkremote/project/VS2010Express/Debug
+libdvblinkremote/project/VS2010Express/Release
