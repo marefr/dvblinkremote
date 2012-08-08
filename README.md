@@ -1,10 +1,8 @@
 # DVBLink Remote Library
-
-## libdvblinkremote
-A pure C++ DVBLink Remote API library.
+A pure C++ DVBLink Remote API static library.
 
 ## dvblinkremote
-A command line tool for interacting with a DVBLink Connect! Server using the DVBLink Remote API.
+A command line tool for interacting with a DVBLink Connect! Server using the DVBLink Remote API. This tool are using the libdvblinkremote.
 
 ## More Information
 For more information, please see [DVBLogic official homepage](http://www.dvblogic.com/) and [DVBLink Remote API documentation](http://188.121.56.29//download/dvblink_remote_api.htm).
