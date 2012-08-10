@@ -46,6 +46,16 @@ config.log
 *ReSharper*
 *.idb
 
+# dvblinkremote
+dvblinkremote/build
+dvblinkremote/docs/html
+dvblinkremote/docs/latex
+dvblinkremote/lib
+dvblinkremote/include
+dvblinkremote/project/VS2010Express/Debug
+dvblinkremote/project/VS2010Express/Release
+
+# libdvblinkremote
 libdvblinkremote/build
 libdvblinkremote/docs/html
 libdvblinkremote/docs/latex
