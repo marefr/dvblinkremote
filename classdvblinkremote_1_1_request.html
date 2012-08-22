@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: DVBLink Remote API Library</title>
+<title>libdvblinkremote: dvblinkremote::Request Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -42,9 +42,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -63,6 +63,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -75,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('index.html','');});
+$(document).ready(function(){initNavTree('classdvblinkremote_1_1_request.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -94,16 +102,39 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DVBLink Remote API Library </div>  </div>
+<div class="title">dvblinkremote::Request Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A C++ DVBLink Remote API library.For more information, please see <a href="http://www.dvblogic.com/">DVBLogic official homepage</a> and <a href="http://188.121.56.29//download/dvblink_remote_api.htm">DVBLink Remote API documentation</a>. </p>
+
+<p>Base class for DVBLink Client requests.  
+ <a href="classdvblinkremote_1_1_request.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for dvblinkremote::Request:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classdvblinkremote_1_1_request.png" usemap="#dvblinkremote::Request_map" alt=""/>
+  <map id="dvblinkremote::Request_map" name="dvblinkremote::Request_map">
+<area href="classdvblinkremote_1_1_add_schedule_request.html" title="Abstract base class for add schedule requests." alt="dvblinkremote::AddScheduleRequest" shape="rect" coords="253,56,496,80"/>
+<area href="classdvblinkremote_1_1_epg_search_request.html" title="Class for defining an electronic program guide (EPG) search request." alt="dvblinkremote::EpgSearchRequest" shape="rect" coords="253,112,496,136"/>
+<area href="classdvblinkremote_1_1_get_channels_request.html" title="Class for defining a get channels request." alt="dvblinkremote::GetChannelsRequest" shape="rect" coords="253,168,496,192"/>
+<area href="classdvblinkremote_1_1_get_parental_status_request.html" title="Class for get parental status requests." alt="dvblinkremote::GetParentalStatusRequest" shape="rect" coords="253,224,496,248"/>
+<area href="classdvblinkremote_1_1_get_recordings_request.html" title="Class for get recordings requests." alt="dvblinkremote::GetRecordingsRequest" shape="rect" coords="253,280,496,304"/>
+<area href="classdvblinkremote_1_1_remove_recording_request.html" title="Class for remove recording requests." alt="dvblinkremote::RemoveRecordingRequest" shape="rect" coords="253,336,496,360"/>
+<area href="classdvblinkremote_1_1_remove_schedule_request.html" title="Class for remove schedule requests." alt="dvblinkremote::RemoveScheduleRequest" shape="rect" coords="253,392,496,416"/>
+<area href="classdvblinkremote_1_1_set_parental_lock_request.html" title="Class for set parental lock requests." alt="dvblinkremote::SetParentalLockRequest" shape="rect" coords="253,448,496,472"/>
+<area href="classdvblinkremote_1_1_stop_stream_request.html" title="Class for stop stream requests." alt="dvblinkremote::StopStreamRequest" shape="rect" coords="253,504,496,528"/>
+<area href="classdvblinkremote_1_1_stream_request.html" title="Abstract base class for stream requests." alt="dvblinkremote::StreamRequest" shape="rect" coords="253,560,496,584"/>
+</map>
+ </div></div>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Base class for DVBLink Client requests. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:15 for libdvblinkremote by
+    <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_request.html">Request</a></li>
+    <li class="footer">Generated on Wed Aug 22 2012 22:01:10 for libdvblinkremote by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
