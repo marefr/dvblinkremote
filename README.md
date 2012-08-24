@@ -7,6 +7,10 @@ A command line tool for interacting with a DVBLink Connect! Server using the DVB
 ## More Information
 For more information, please see [DVBLogic official homepage](http://www.dvblogic.com/) and [DVBLink Remote API documentation](http://188.121.56.29//download/dvblink_remote_api.htm).
 
+## 3rd party dependencies
+[libcurl](http://curl.haxx.se/libcurl/)  
+[TinyXML-2](https://github.com/leethomason/tinyxml2)  
+
 ## License (MIT)
 
 Copyright (c) 2012 Marcus Efraimsson
