@@ -137,6 +137,21 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::RemoveRecording(const Remove
   return status;
 }
 
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::RemoveObject(const RemoveObjectRequest& request)
+{
+	Response* response = new Response();
+	DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_REMOVE_OBJECT_CMD, request, *response);
+	delete response;
+
+	return status;
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetSchedules(const GetSchedulesRequest& request, ScheduleList& response)
+{
+	return GetData(DVBLINK_REMOTE_GET_SCHEDULES_CMD, request, response);
+}
+
 DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::AddSchedule(const AddScheduleRequest& request)
 {
   Response* response = new Response();
@@ -163,6 +178,11 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetParentalStatus(const GetP
 DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::SetParentalLock(const SetParentalLockRequest& request, ParentalStatus& response)
 {
   return GetData(DVBLINK_REMOTE_SET_PARENTAL_LOCK_CMD, request, response);
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetObject(const GetObjectRequest& request, GetObjectResult& response )
+{
+	return GetData(DVBLINK_REMOTE_GET_OBJECT_CMD, request,response);
 }
 
 std::string DVBLinkRemoteCommunication::GetUrl()

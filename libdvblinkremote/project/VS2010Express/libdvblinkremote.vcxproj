@@ -55,10 +55,14 @@
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>libcurl.lib;tinyxml2.lib;ws2_32.lib; wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -67,7 +71,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -75,7 +80,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>libcurld.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcurl.lib;tinyxml2.lib;ws2_32.lib; wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
     </Lib>
     <ProjectReference>
@@ -86,7 +91,9 @@
       </Command>
     </CustomBuildStep>
     <PostBuildEvent>
-      <Command>COPY /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\..\..\dvblinkremote\lib\$(TargetName)$(TargetExt)"
+      <Command>if not  exist "$(SolutionDir)..\..\..\dvblinkremote\lib\" mkdir "$(SolutionDir)..\..\..\dvblinkremote\lib\"
+COPY /Y "$(OutDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\..\..\dvblinkremote\lib\$(TargetName)$(TargetExt)"
+if not  exist "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\" mkdir "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\"
 COPY /Y "$(SolutionDir)..\..\src\curlhttpclient.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\curlhttpclient.h"
 COPY /Y "$(SolutionDir)..\..\src\dvblinkremote.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\dvblinkremote.h"
 COPY /Y "$(SolutionDir)..\..\src\dvblinkremotehttp.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\dvblinkremotehttp.h"
@@ -106,17 +113,21 @@ COPY /Y "$(SolutionDir)..\..\src\version.h" "$(SolutionDir)..\..\..\dvblinkremot
     <ClCompile Include="..\..\src\dvblinkremote.cpp" />
     <ClCompile Include="..\..\src\epg.cpp" />
     <ClCompile Include="..\..\src\generic_response.cpp" />
+    <ClCompile Include="..\..\src\get_object_request.cpp" />
     <ClCompile Include="..\..\src\get_recordings_request.cpp" />
     <ClCompile Include="..\..\src\curlhttpclient.cpp" />
+    <ClCompile Include="..\..\src\get_schedules_request.cpp" />
     <ClCompile Include="..\..\src\http_live_stream_request.cpp" />
     <ClCompile Include="..\..\src\parental_lock.cpp" />
     <ClCompile Include="..\..\src\program.cpp" />
     <ClCompile Include="..\..\src\raw_http_stream_request.cpp" />
     <ClCompile Include="..\..\src\raw_udp_stream_request.cpp" />
     <ClCompile Include="..\..\src\recording.cpp" />
+    <ClCompile Include="..\..\src\remove_object_request.cpp" />
     <ClCompile Include="..\..\src\remove_recording_request.cpp" />
     <ClCompile Include="..\..\src\remove_schedule_request.cpp" />
     <ClCompile Include="..\..\src\rtp_stream_request.cpp" />
+    <ClCompile Include="..\..\src\schedule.cpp" />
     <ClCompile Include="..\..\src\stop_stream_request.cpp" />
     <ClCompile Include="..\..\src\stream.cpp" />
     <ClCompile Include="..\..\src\stream_request.cpp" />

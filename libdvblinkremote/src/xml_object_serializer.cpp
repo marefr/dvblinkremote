@@ -54,6 +54,10 @@ bool XmlObjectSerializerFactory::Serialize(const std::string& dvbLinkCommand, co
     requestSerializer = (XmlObjectSerializer<Request>*)new RemoveRecordingRequestSerializer();
     result = ((RemoveRecordingRequestSerializer*)requestSerializer)->WriteObject(serializedData, (RemoveRecordingRequest&)request);
   }
+  else if (dvbLinkCommand == DVBLINK_REMOTE_GET_SCHEDULES_CMD) {
+	  requestSerializer = (XmlObjectSerializer<Request>*)new GetSchedulesRequestSerializer();
+	  result = ((GetSchedulesRequestSerializer*)requestSerializer)->WriteObject(serializedData, (GetSchedulesRequest&)request);
+  }
   else if (dvbLinkCommand == DVBLINK_REMOTE_ADD_SCHEDULE_CMD) {
     requestSerializer = (XmlObjectSerializer<Request>*)new AddScheduleRequestSerializer();
     result = ((AddScheduleRequestSerializer*)requestSerializer)->WriteObject(serializedData, (AddScheduleRequest&)request);
@@ -69,6 +73,14 @@ bool XmlObjectSerializerFactory::Serialize(const std::string& dvbLinkCommand, co
   else if (dvbLinkCommand == DVBLINK_REMOTE_SET_PARENTAL_LOCK_CMD) {
     requestSerializer = (XmlObjectSerializer<Request>*)new SetParentalLockRequestSerializer();
     result = ((SetParentalLockRequestSerializer*)requestSerializer)->WriteObject(serializedData, (SetParentalLockRequest&)request);
+  }
+  else if (dvbLinkCommand == DVBLINK_REMOTE_GET_OBJECT_CMD) {
+	  requestSerializer = (XmlObjectSerializer<Request>*)new GetObjectRequestSerializer();
+	  result = ((GetObjectRequestSerializer*)requestSerializer)->WriteObject(serializedData, (GetObjectRequest&)request);
+  }  
+  else if (dvbLinkCommand == DVBLINK_REMOTE_REMOVE_OBJECT_CMD) {
+	  requestSerializer = (XmlObjectSerializer<Request>*)new RemoveObjectRequestSerializer();
+	  result = ((RemoveObjectRequestSerializer*)requestSerializer)->WriteObject(serializedData, (RemoveObjectRequest&)request);
   }
   else {
     result = false;
@@ -103,14 +115,23 @@ bool XmlObjectSerializerFactory::Deserialize(const std::string& dvbLinkCommand, 
     responseSerializer = (XmlObjectSerializer<Response>*)new GetRecordingsResponseSerializer();
     result = ((GetRecordingsResponseSerializer*)responseSerializer)->ReadObject((RecordingList&)response, serializedData);
   }
+  else if (dvbLinkCommand == DVBLINK_REMOTE_GET_SCHEDULES_CMD) {
+	  responseSerializer = (XmlObjectSerializer<Response>*)new GetSchedulesResponseSerializer();
+	  result = ((GetSchedulesResponseSerializer*)responseSerializer)->ReadObject((ScheduleList&)response, serializedData);
+  }
   else if (dvbLinkCommand == DVBLINK_REMOTE_SET_PARENTAL_LOCK_CMD || dvbLinkCommand == DVBLINK_REMOTE_GET_PARENTAL_STATUS_CMD) {
       responseSerializer = (XmlObjectSerializer<Response>*)new ParentalStatusSerializer();
       result = ((ParentalStatusSerializer*)responseSerializer)->ReadObject((ParentalStatus&)response, serializedData);
   }
+  else if (dvbLinkCommand == DVBLINK_REMOTE_GET_OBJECT_CMD) {
+	  responseSerializer = (XmlObjectSerializer<Response>*)new GetObjectResponseSerializer();
+	  result = ((GetObjectResponseSerializer*)responseSerializer)->ReadObject((GetObjectResult&)response, serializedData);
+  }
   else if (dvbLinkCommand == DVBLINK_REMOTE_ADD_SCHEDULE_CMD || 
            dvbLinkCommand == DVBLINK_REMOTE_REMOVE_SCHEDULE_CMD ||
            dvbLinkCommand == DVBLINK_REMOTE_REMOVE_RECORDING_CMD || 
-           dvbLinkCommand == DVBLINK_REMOTE_STOP_CHANNEL_CMD) {
+           dvbLinkCommand == DVBLINK_REMOTE_STOP_CHANNEL_CMD ||
+		   dvbLinkCommand == DVBLINK_REMOTE_REMOVE_OBJECT_CMD) {
     result = true;
   }
   else {

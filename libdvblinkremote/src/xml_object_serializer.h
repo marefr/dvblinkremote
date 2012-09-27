@@ -163,6 +163,35 @@ namespace dvblinkremoteserialization {
     bool WriteObject(std::string& serializedData, StopStreamRequest& objectGraph);
   };
 
+
+  class GetSchedulesRequestSerializer : public XmlObjectSerializer<GetSchedulesRequest>
+  {
+  public:
+	  GetSchedulesRequestSerializer() : XmlObjectSerializer<GetSchedulesRequest>() { }
+	  bool WriteObject(std::string& serializedData, GetSchedulesRequest& objectGraph);
+  };
+
+
+  class GetSchedulesResponseSerializer : public XmlObjectSerializer<ScheduleList>
+  {
+  public:
+	  GetSchedulesResponseSerializer() : XmlObjectSerializer<ScheduleList>() { }
+	  bool ReadObject(ScheduleList& object, const std::string& xml);
+
+  private:
+	  class GetSchedulesResponseXmlDataDeserializer : public tinyxml2::XMLVisitor
+	  {
+	  private:
+		  GetSchedulesResponseSerializer& m_parent;
+		  ScheduleList& m_scheduleList;
+
+	  public:
+		  GetSchedulesResponseXmlDataDeserializer(GetSchedulesResponseSerializer& parent, ScheduleList& scheduleList);
+		  ~GetSchedulesResponseXmlDataDeserializer();
+		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+	  };
+  };
+
   class AddScheduleRequestSerializer : public XmlObjectSerializer<AddScheduleRequest>
   {
   public:
@@ -231,6 +260,62 @@ namespace dvblinkremoteserialization {
     SetParentalLockRequestSerializer() : XmlObjectSerializer<SetParentalLockRequest>() { }
     bool WriteObject(std::string& serializedData, SetParentalLockRequest& objectGraph);
   };
+
+  class RemoveObjectRequestSerializer : public XmlObjectSerializer<RemoveObjectRequest>
+  {
+  public:
+	  RemoveObjectRequestSerializer() : XmlObjectSerializer<RemoveObjectRequest>() { }
+	  bool WriteObject(std::string& serializedData, RemoveObjectRequest& objectGraph);
+  };
+
+
+  class GetObjectRequestSerializer : public XmlObjectSerializer<GetObjectRequest>
+  {
+  public:
+	  GetObjectRequestSerializer() : XmlObjectSerializer<GetObjectRequest>() { }
+	  bool WriteObject(std::string& serializedData, GetObjectRequest& objectGraph);
+  };
+
+  class GetObjectResponseSerializer : public XmlObjectSerializer<GetObjectResult>
+  {
+  public:
+	  GetObjectResponseSerializer() : XmlObjectSerializer<GetObjectResult>() { }
+	  bool ReadObject(GetObjectResult& object, const std::string& xml);
+
+  private:
+	  
+	  class ContainerXmlDataDeserializer : public tinyxml2::XMLVisitor
+	  {
+	  private:
+		  GetObjectResponseSerializer& m_parent;
+		  ContainerList& m_containers;
+
+	  public:
+		  ContainerXmlDataDeserializer(GetObjectResponseSerializer& parent, ContainerList& containers);
+		  ~ContainerXmlDataDeserializer();
+		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+	  };
+
+	  class ItemXmlDataDeserializer : public tinyxml2::XMLVisitor
+	  {
+	  private:
+		  GetObjectResponseSerializer& m_parent;
+		  ItemList& m_items;
+
+	  public:
+		  ItemXmlDataDeserializer(GetObjectResponseSerializer& parent, ItemList& items);
+		  ~ItemXmlDataDeserializer();
+		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+	  };
+  };
+
+
+  class VideoInfoSerializer
+  {
+  public:
+	  static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::VideoInfo& videoinfo);
+  };
+
 
   template<class T>
   XmlObjectSerializer<T>::XmlObjectSerializer() 

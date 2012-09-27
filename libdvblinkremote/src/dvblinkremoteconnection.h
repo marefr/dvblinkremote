@@ -44,10 +44,13 @@ namespace dvblinkremote
     DVBLinkRemoteStatusCode StopChannel(const StopStreamRequest& request);
     DVBLinkRemoteStatusCode GetRecordings(const GetRecordingsRequest& request, RecordingList& response);
     DVBLinkRemoteStatusCode RemoveRecording(const RemoveRecordingRequest& request);
+	DVBLinkRemoteStatusCode GetSchedules(const GetSchedulesRequest& request, ScheduleList& response);
     DVBLinkRemoteStatusCode AddSchedule(const AddScheduleRequest& request);
     DVBLinkRemoteStatusCode RemoveSchedule(const RemoveScheduleRequest& request);
     DVBLinkRemoteStatusCode GetParentalStatus(const GetParentalStatusRequest& request, ParentalStatus& response);
     DVBLinkRemoteStatusCode SetParentalLock(const SetParentalLockRequest& request, ParentalStatus& response);
+	DVBLinkRemoteStatusCode GetObject(const GetObjectRequest& request, GetObjectResult & response );
+    DVBLinkRemoteStatusCode RemoveObject(const RemoveObjectRequest& request);
     void GetLastError(std::string& err);
 
   private:

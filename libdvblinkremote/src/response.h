@@ -25,12 +25,15 @@
  
 #include <string>
 #include <vector>
+#include "request.h"
 
 namespace dvblinkremote {
   /** 
     * Base class for DVBLink Client responses.
     */
   class Response { };
+
+  enum ChannelType {RD_CHANNEL_TV = 0, RD_CHANNEL_RADIO = 1, RD_CHANNEL_OTHER = 2};
 
   /**
     * Represent a DVBLink channel.
@@ -43,10 +46,11 @@ namespace dvblinkremote {
       * @param id a constant string reference representing the generic identifier of the channel.
       * @param dvbLinkId a constant long representing the DVBLink identifier of the channel.
       * @param name a constant string reference representing the name of the channel.
+	  * @param type of channel TV = 0, RADIO = 1, OTHER = 2
       * @param number an optional constant integer representing the number of the channel.
       * @param subNumber an optional constant integer representing the sub-number of the channel.
       */
-    Channel(const std::string& id, const long dvbLinkId, const std::string& name, const int number = -1, const int subNumber = -1);
+    Channel(const std::string& id, const long dvbLinkId, const std::string& name, const ChannelType type, const int number = -1, const int subNumber = -1);
 
     /**
       * Initializes a new instance of the dvblinkremote::Channel class by coping another 
@@ -87,6 +91,11 @@ namespace dvblinkremote {
       * Represents the sub-number of the channel.
       */
     int SubNumber;
+
+	/**
+	  * Represents the type of channel
+	  */
+	ChannelType Type;
     
   private:
     std::string m_id;
@@ -475,6 +484,307 @@ namespace dvblinkremote {
       */
     ~RecordingList();
   };
+
+
+  enum DayMask{SUN = 1, MON = 2, TUE = 4, WED = 8, THU = 16, FRI = 32, SAT = 64, DAILY = 255};
+  enum ScheduleType{Manual=0, EPG = 1};
+
+
+  //TODO: PAE: Use inheritance instead
+/**
+    * Represent a schedule.
+    */
+  class Schedule
+  {
+  public:
+	  //TODO: PAE Add description
+    /**
+      * Initializes a new instance of the dvblinkremote::Schedule class, by epg
+      * @param id a constant string reference representing the identifier of the schedule.
+      */  
+    Schedule(const std::string& id, const std::string& channelId, const std::string& programId,const Program* program,  const int recordingsToKeep, const std::string& userParam = "", const bool forceAdd = false, const bool repeat = false, const bool newOnly = false,const bool recordSeriesAnyTime = false);
+    
+	//TODO: PAE Add description
+	Schedule(const std::string& id, const std::string& channelId, const std::string& title,const long startTime, const int duration, const  DayMask dayMask,  const int recordingsToKeep, const std::string& userParam = "", const bool forceAdd = false);
+
+
+    /**
+      * Initializes a new instance of the dvblinkremote::Recording class by coping another 
+      * dvblinkremote::Recording instance.
+      * @param recording a dvblinkremote::Schedule reference.
+      */
+    Schedule(Schedule& schedule);
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~Schedule();
+
+    /**
+      * Gets the identifier of the schedule.
+      * @return Schedule identifier
+      */
+    std::string& GetID();
+    
+    /**
+      * Gets the userparam identifier of the schedule.
+      * @return userparam
+      */
+    std::string& GetUserParam();
+    
+    /**
+      * Gets the channel identifier of the schedule.
+      * @return Schedule channel identifier
+      */
+    std::string& GetChannelID();
+
+    /**
+      * Gets the program identifier of the schedule.
+      * @return Program identifier
+      */
+    std::string& GetProgramID();
+
+    /**
+      * Gets the title of the schedule.
+      * @return Title
+      */
+    std::string& GetTitle();
+
+
+    /**
+      * Represents if the schedule is defined using Manual information or EPG
+      */
+    ScheduleType Type;
+
+	/**
+	  * If true this flag indicates that schedule has to be added even if there are timer conflicts
+	  */
+	bool ForcedAdd;
+
+	/**
+	  * Indicates whether to record program series
+	  */
+	bool Repeat;
+
+	/**
+	  * Indicates that only new programs have to be recorded
+	  */
+	bool NewOnly;
+
+	/**
+	  * Indicates whether to record only series starting around original program start time or any of them
+	  */
+	bool RecordSeriesAnytime;
+
+	/**
+	  * Indicates the start time of the schedule
+	  */
+	long StartTime;
+
+	/**
+	  * Indicates the duration of the schedule
+	  */
+	int Duration;
+
+	/**
+	  * Indicates which days the schedule takes effect
+	  */
+	DayMask Mask;
+
+	/**
+	  * Indicatates for series recording how many recordings to keep (1,2,3,4,5,6,7,10; 0 ? keep all)
+	  */
+	bool RecordingsToKeep;
+
+	
+    /**
+      * Gets the program of the recording.
+      * @return Recording program
+      */
+    Program& GetProgram();
+
+  private:
+    std::string m_id;
+    std::string m_userParam;
+    std::string m_channelId;
+    std::string m_programId;
+    std::string m_title;
+	Program* m_program;
+  };
+
+
+
+   /**
+    * Represent a strongly typed list of schedules which is used as output 
+    * parameter for the DVBLinkClient::GetSchedules method.
+    * @see Schedule::Schedule()
+    * @see DVBLinkClient::GetSchedules()
+    */
+  class ScheduleList : public Response, public std::vector<Schedule*>
+  {
+  public:
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~ScheduleList();
+  };
+
+
+
+   //TODO: PAE: Missing description
+  class Item
+  {
+  public:
+	  Item(const ITEM_TYPE type);
+	  ITEM_TYPE Type;
+
+  };
+
+  class VideoInfo
+  {
+  public :
+	  std::string Title;
+	  long StartTime;
+	  long Duration;
+	  std::string ShortDescription;
+	  std::string SubTitle;
+	  std::string Language;
+	  std::string Actors;
+	  std::string Directors;
+	  std::string Writers;
+	  std::string Producers;
+	  std::string Guests;
+	  std::string Keywords;
+	  std::string Image;
+	  int Year;
+	  int EpisodeNumber;
+	  int SeasonNumber;
+	  int Rating;
+	  int MaximumRating;
+	  bool IsHdtv;
+	  bool IsPremiere;
+	  bool IsRepeat;
+	  bool IsSeries;
+	  bool IsCatAction;
+	  bool IsCatComedy;
+	  bool IsCatDocumentary;
+	  bool IsCatDrama;
+	  bool IsCatEducational;
+	  bool IsCatHorror;
+	  bool IsCatKids;
+	  bool IsCatMovie;
+	  bool IsCatMusic;
+	  bool IsCatNews;
+	  bool IsCatReality;
+	  bool IsCatRomance;
+	  bool IsCatScifi;
+	  bool IsCatSerial;
+	  bool IsCatSoap;
+	  bool IsCatSpecial;
+	  bool IsCatSports;
+	  bool IsCatThriller;
+	  bool IsCatAdult;
+  
+  };
+
+
+
+
+  enum RECORDEDTV_STATE {RECORDEDTV_STATE_IN_PROGRESS = 0, RECORDEDTV_STATE_ERROR = 1, RECORDEDTV_STATE_FORCED_TO_COMPLETION = 2, RECORDEDTV_STATE_COMPLETED = 3};
+
+
+   //TODO: PAE: Missing description
+  class Video : public Item {
+  public :
+	  Video(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const bool canBeDeleted, const long size, const long creationTime);
+
+	  std::string ObjectID;
+	  std::string ParentID;
+	  std::string Url;
+	  std::string Thumbnail;
+	  bool CanBeDeleted;
+	  long Size;
+	  long CreationTime;
+	  VideoInfo VInfo;
+
+  };
+
+  //TODO: PAE: Missing description
+  class RecordedTV : public Video
+  {
+  public :
+	  RecordedTV(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const std::string& channelName, const bool canBeDeleted, const long size, const long creationTime, const int channelNumber, const int channelSubnumber, const RECORDEDTV_STATE state);
+
+	  std::string ChannelName;
+	  int ChannelNumber;
+	  int ChannelSubnumber;
+	  RECORDEDTV_STATE State;
+  };
+
+   //TODO: PAE: Missing description
+  class Audio : public Item
+  {
+  public:
+	  Audio();
+
+  };
+
+   //TODO: PAE: Missing description
+  class Image : public Item
+  {
+  public :
+	  Image();
+  };
+
+  enum CONTAINER_TYPE {CONTAINER_TYPE_CONTAINER_UNKNOWN = -1,CONTAINER_TYPE_CONTAINER_SOURCE = 0, CONTAINER_TYPE_CONTAINER_TYPE = 1, CONTAINER_TYPE_CONTAINER_CATEGORY = 2, CONTAINER_TYPE_CONTAINER_GROUP = 3};
+
+  enum CONTENT_TYPE{CONTENT_TYPE_ITEM_UNKNOWN = -1, CONTENT_TYPE_ITEM_RECORDED_TV = 0, CONTENT_TYPE_ITEM_VIDEO = 1, CONTENT_TYPE_ITEM_AUDIO = 2, CONTENT_TYPE_ITEM_IMAGE = 3};
+
+
+   //TODO: PAE: Missing description
+  class Container
+  {
+
+  public :
+	  Container(const std::string& objectId, const std::string& parentId, const std::string& name, const std::string& description, const std::string& logo, const std::string& sourceId, const CONTAINER_TYPE containerType, const CONTENT_TYPE contentType, const int totalCount);
+
+	  std::string ObjectID;
+	  std::string ParentID;
+	  std::string Name;
+	  std::string Description;
+	  std::string Logo;
+	  std::string SourceId;
+	  CONTAINER_TYPE ContainerType;
+	  CONTENT_TYPE ContentType;
+	  int TotalCount;
+  };
+   //TODO: PAE: Missing description
+  class ContainerList :  public std::vector<Container*>
+  {
+  public:
+	  ContainerList();
+	 ~ContainerList(); 
+  };
+   //TODO: PAE: Missing description
+  class ItemList :  public std::vector<Item*>
+  {
+  public:
+	  ItemList();
+	  ~ItemList(); 
+  };
+
+  //TODO: PAE: Missing description
+  class GetObjectResult : public Response
+  {
+  public :
+	  GetObjectResult();
+     ~GetObjectResult();
+	 ContainerList Containers;
+	 ItemList Items;
+  };
+
+  
+  
 
   /**
   * Represent parental status which is used as output parameter for the 

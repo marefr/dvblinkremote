@@ -38,6 +38,7 @@ bool AddScheduleRequestSerializer::WriteObject(std::string& serializedData, AddS
     rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "force_add", objectGraph.ForceAdd));
   }
 
+  //TODO: PAE: Update to dvblink api 0.2
   if (objectGraph.GetScheduleType() == objectGraph.SCHEDULE_TYPE_MANUAL) {
     AddManualScheduleRequest& addManualScheduleRequest = (AddManualScheduleRequest&)objectGraph;
 
@@ -55,12 +56,25 @@ bool AddScheduleRequestSerializer::WriteObject(std::string& serializedData, AddS
   if (objectGraph.GetScheduleType() == objectGraph.SCHEDULE_TYPE_BY_EPG) {
     AddScheduleByEpgRequest& addScheduleByEpgRequest = (AddScheduleByEpgRequest&)objectGraph;
 
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addScheduleByEpgRequest.GetChannelID()));
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "program_id", addScheduleByEpgRequest.GetProgramID()));
+	tinyxml2::XMLElement* byepg = GetXmlDocument().NewElement("by_epg");
+	rootElement->InsertEndChild(byepg);
+    byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addScheduleByEpgRequest.GetChannelID()));
+    byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "program_id", addScheduleByEpgRequest.GetProgramID()));
+
+	byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "recordings_to_keep", addScheduleByEpgRequest.RecordingsToKeep));
 
     if (addScheduleByEpgRequest.Repeat) {
-      rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "repeat", addScheduleByEpgRequest.Repeat));
+      byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "repeat", addScheduleByEpgRequest.Repeat));
     }
+
+	if (addScheduleByEpgRequest.NewOnly) {
+		byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "new_only", addScheduleByEpgRequest.NewOnly));
+	}
+
+	if (addScheduleByEpgRequest.RecordSeriesAnytime) {
+		byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "record_series_anytime", addScheduleByEpgRequest.RecordSeriesAnytime));
+	}
+
   }    
 
   tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    

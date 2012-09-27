@@ -28,10 +28,11 @@
 using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
-Channel::Channel(const std::string& id, const long dvbLinkId, const std::string& name, const int number, const int subNumber) 
+Channel::Channel(const std::string& id, const long dvbLinkId, const std::string& name, const ChannelType type, const int number, const int subNumber) 
   : m_id(id), 
     m_dvbLinkId(dvbLinkId), 
-    m_name(name), 
+    m_name(name),
+	Type(type),
     Number(number), 
     SubNumber(subNumber)
 {
@@ -42,6 +43,7 @@ Channel::Channel(Channel& channel)
   : m_id(channel.GetID()), 
     m_dvbLinkId(channel.GetDvbLinkID()), 
     m_name(channel.GetName()), 
+	Type(channel.Type),
     Number(channel.Number), 
     SubNumber(channel.SubNumber)
 {
@@ -138,8 +140,9 @@ bool GetChannelsResponseSerializer::GetChannelsResponseXmlDataDeserializer::Visi
     std::string channelName = Util::GetXmlFirstChildElementText(&element, "channel_name");
     int channelNumber = Util::GetXmlFirstChildElementTextAsInt(&element, "channel_number");
     int channelSubNumber = Util::GetXmlFirstChildElementTextAsInt(&element, "channel_subnumber");
+	ChannelType type = (ChannelType)Util::GetXmlFirstChildElementTextAsInt(&element, "channel_type");
 
-    Channel* channel = new Channel(channelId, channelDvbLinkId, channelName, channelNumber, channelSubNumber);
+    Channel* channel = new Channel(channelId, channelDvbLinkId, channelName,type, channelNumber, channelSubNumber);
     m_channelList.push_back(channel);
 
     return false;

@@ -25,10 +25,10 @@
 
 using namespace dvblinkremote;
 
-AddManualScheduleRequest::AddManualScheduleRequest(const std::string& channelId, const long startTime, const long duration, const long dayMask)
-  : AddScheduleRequest(SCHEDULE_TYPE_MANUAL, channelId), m_startTime(startTime), m_duration(duration), m_dayMask(dayMask)
+AddManualScheduleRequest::AddManualScheduleRequest(const std::string& channelId, const long startTime, const long duration, const long dayMask, const std::string& title)
+  : AddScheduleRequest(SCHEDULE_TYPE_MANUAL, channelId), m_startTime(startTime), m_duration(duration), m_dayMask(dayMask), Title(title)
 {
-  Title = "";
+
 }
 
 AddManualScheduleRequest::~AddManualScheduleRequest()

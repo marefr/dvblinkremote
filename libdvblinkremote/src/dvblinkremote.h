@@ -116,6 +116,11 @@ namespace dvblinkremote
   const std::string DVBLINK_REMOTE_GET_RECORDINGS_CMD = "get_recordings";
 
   /**
+    * A constant string representing the DVBLink command for retrieving schedules. 
+    */
+  const std::string DVBLINK_REMOTE_GET_SCHEDULES_CMD = "get_schedules";
+
+  /**
     * A constant string representing the DVBLink command for adding a recording schedule. 
     */
   const std::string DVBLINK_REMOTE_ADD_SCHEDULE_CMD = "add_schedule";
@@ -139,6 +144,17 @@ namespace dvblinkremote
     * A constant string representing the DVBLink command for retrieving parental lock status. 
     */
   const std::string DVBLINK_REMOTE_GET_PARENTAL_STATUS_CMD = "get_parental_status";
+
+  /**
+    * A constant string representing the DVBLink command for retrieving objects. 
+    */
+  const std::string DVBLINK_REMOTE_GET_OBJECT_CMD = "get_object";
+
+  /**
+    * A constant string representing the DVBLink command for removing a object. 
+    */
+  const std::string DVBLINK_REMOTE_REMOVE_OBJECT_CMD = "remove_object";
+
 
   /**
     * A constant string representing a Real Time Transport Protocol stream type for Android devices.
@@ -297,6 +313,15 @@ namespace dvblinkremote
     virtual DVBLinkRemoteStatusCode RemoveRecording(const RemoveRecordingRequest& request) = 0;
 
     /**
+      * Gets a list of all schedules.
+      * @param[in]      request   A constant GetSchedulesRequest reference representing the get schedules request criterias.
+      * @param[in,out]  response  A ScheduleList reference that will be populated with Schedule objects.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetSchedules(const GetSchedulesRequest& request, ScheduleList& response) = 0;
+
+
+    /**
       * Add a schedule.
       * @param[in] request A constant AddScheduleRequest reference representing the add schedule request criterias.
       * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
@@ -325,6 +350,12 @@ namespace dvblinkremote
       * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
       */
     virtual DVBLinkRemoteStatusCode SetParentalLock(const SetParentalLockRequest& request, ParentalStatus& response) = 0;
+
+	//TODO: PAE: Missing description
+	virtual DVBLinkRemoteStatusCode RemoveObject(const RemoveObjectRequest& request) = 0;
+
+	//TODO: PAE: Missing description
+	virtual DVBLinkRemoteStatusCode GetObject(const GetObjectRequest& request, GetObjectResult & response ) = 0;
 
     /**
       * Gets a description of the last occured error.
