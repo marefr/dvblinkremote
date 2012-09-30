@@ -28,9 +28,9 @@
 #include <cctype>
 #include "command_interpreter.h"
 #include "util.h"
-#include "libdvblinkremote\dvblinkremote.h"
-#include "libdvblinkremote\dvblinkremotehttp.h"
-#include "libdvblinkremote\curlhttpclient.h"
+#include "dvblinkremote.h"
+#include "dvblinkremotehttp.h"
+#include "curlhttpclient.h"
 
 using namespace dvblinkremote;
 using namespace dvblinkremotehttp;

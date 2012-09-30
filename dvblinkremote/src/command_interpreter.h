@@ -24,7 +24,7 @@
 #pragma once
 
 #include <string>
-#include "libdvblinkremote\dvblinkremote.h"
+#include "dvblinkremote.h"
 
 class CommandInterpreter
 {

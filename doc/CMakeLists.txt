@@ -1,0 +1,19 @@
+# include doxygen documentation
+SET (WITH_APIDOC FALSE CACHE BOOL "Determines whether the libdvblinkremote API doxygen documentation should be built")
+
+SET(DVBLINKREMOTE_DOC_FILES ${DVBLINKREMOTE_DOC_FILES} mainpage.dox)
+
+IF(WITH_APIDOC)
+	FIND_PACKAGE(Doxygen)
+	IF(DOXYGEN_FOUND)
+		CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake_templates/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+		ADD_CUSTOM_TARGET(apidoc ALL
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+            DEPENDS ${DVBLINKREMOTE_LIBRARY_NAME}
+            COMMENT "Generating API documentation" VERBATIM)
+		INSTALL(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/api/html/ DESTINATION ${DVBLINKREMOTE_DOC_DIR}/api)
+	ELSE(DOXYGEN_FOUND)
+		MESSAGE(STATUS "API documentation not built - Doxygen not found")
+	ENDIF(DOXYGEN_FOUND)
+ENDIF(WITH_APIDOC)
