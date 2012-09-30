@@ -46,6 +46,9 @@ config.log
 *ReSharper*
 *.idb
 
+# build
+build
+
 # dvblinkremote
 dvblinkremote/build
 dvblinkremote/docs/html
