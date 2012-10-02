@@ -21,36 +21,29 @@
  *
  ***************************************************************************/
 
-#include "request.h"
+#pragma once
 
-using namespace dvblinkremote;
+#include <string>
 
-AddManualScheduleRequest::AddManualScheduleRequest(const std::string& channelId, const long startTime, const long duration, const long dayMask, const std::string& title)
-  : AddScheduleRequest(SCHEDULE_TYPE_MANUAL, channelId), 
-    m_startTime(startTime), 
-    m_duration(duration), 
-    m_dayMask(dayMask), 
-    Title(title)
-{
+/**
+  * Namespace for serialization specific functionality in the DVBLink Remote API library.
+  */
+namespace dvblinkremoteserialization {
+  /**
+    * A constant string representing the XML declaration part for XML data used in all requests 
+    * in the DVBLink Remote API library.
+    */
+  const std::string DVBLINK_REMOTE_SERIALIZATION_XML_DECLARATION = "xml version=\"1.0\" encoding=\"utf-8\" ";
 
-}
+  /**
+    * A constant string representing the xmlns:i namespace of the XML root node part off every 
+    * requests made in the DVBLink Remote API library.
+    */
+  const std::string DVBLINK_REMOTE_SERIALIZATION_XML_I_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance";
 
-AddManualScheduleRequest::~AddManualScheduleRequest()
-{
-
-}
-
-long AddManualScheduleRequest::GetStartTime() 
-{ 
-  return m_startTime; 
-}
-
-long AddManualScheduleRequest::GetDuration() 
-{ 
-  return m_duration; 
-}
-    
-long AddManualScheduleRequest::GetDayMask() 
-{ 
-  return m_dayMask; 
-}
+  /**
+    * A constant string representing the xmlns namespace of the XML root node part off every 
+    * requests made in the DVBLink Remote API library.
+    */
+  const std::string DVBLINK_REMOTE_SERIALIZATION_XML_NAMESPACE = "http://www.dvblogic.com";
+};

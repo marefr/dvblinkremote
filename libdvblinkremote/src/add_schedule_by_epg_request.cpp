@@ -26,7 +26,11 @@
 using namespace dvblinkremote;
 
 AddScheduleByEpgRequest::AddScheduleByEpgRequest(const std::string& channelId, const std::string& programId, const bool repeat, const bool newOnly, const bool recordSeriesAnytime)
-  : AddScheduleRequest(SCHEDULE_TYPE_BY_EPG, channelId), m_programId(programId), Repeat(repeat), NewOnly(newOnly), RecordSeriesAnytime(recordSeriesAnytime)
+  : AddScheduleRequest(SCHEDULE_TYPE_BY_EPG, channelId), 
+    m_programId(programId), 
+    Repeat(repeat), 
+    NewOnly(newOnly), 
+    RecordSeriesAnytime(recordSeriesAnytime)
 {
 
 }

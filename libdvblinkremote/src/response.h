@@ -33,8 +33,6 @@ namespace dvblinkremote {
     */
   class Response { };
 
-  enum ChannelType {RD_CHANNEL_TV = 0, RD_CHANNEL_RADIO = 1, RD_CHANNEL_OTHER = 2};
-
   /**
     * Represent a DVBLink channel.
     */
@@ -42,15 +40,24 @@ namespace dvblinkremote {
   {
   public:
     /**
+      * An enum for channel types.
+      */
+    enum DVBLinkChannelType {
+      CHANNEL_TYPE_TV = 0,
+      CHANNEL_TYPE_RADIO = 1,
+      CHANNEL_TYPE_OTHER = 2	
+    };
+
+    /**
       * Initializes a new instance of the dvblinkremote::Channel class.
       * @param id a constant string reference representing the generic identifier of the channel.
       * @param dvbLinkId a constant long representing the DVBLink identifier of the channel.
       * @param name a constant string reference representing the name of the channel.
-	  * @param type of channel TV = 0, RADIO = 1, OTHER = 2
+      * @param type a constant DVBLinkChannelType instance representing the type of the channel.
       * @param number an optional constant integer representing the number of the channel.
       * @param subNumber an optional constant integer representing the sub-number of the channel.
       */
-    Channel(const std::string& id, const long dvbLinkId, const std::string& name, const ChannelType type, const int number = -1, const int subNumber = -1);
+    Channel(const std::string& id, const long dvbLinkId, const std::string& name, const DVBLinkChannelType type, const int number = -1, const int subNumber = -1);
 
     /**
       * Initializes a new instance of the dvblinkremote::Channel class by coping another 
@@ -83,6 +90,12 @@ namespace dvblinkremote {
     std::string& GetName();
 
     /**
+      * Gets the type of the channel.
+      * @return ChannelType instance reference
+      */
+    DVBLinkChannelType& GetChannelType();
+
+    /**
       * Represents the number of the channel.
       */
     int Number;
@@ -92,15 +105,16 @@ namespace dvblinkremote {
       */
     int SubNumber;
 
-	/**
-	  * Represents the type of channel
-	  */
-	ChannelType Type;
+    /**
+      * Represents if a child lock is active or not for the channel.
+      */
+    bool ChildLock;
     
   private:
     std::string m_id;
     long m_dvbLinkId;
     std::string m_name;
+    DVBLinkChannelType m_type;
   };
 
   /**
@@ -123,50 +137,37 @@ namespace dvblinkremote {
   };
 
   /**
-    * Represent a program in an electronic program guide (EPG).
+    * Represent basic information for a multimedia.
     */
-  class Program
+  class MultimediaInfo
   {
   public:
     /**
-      * Initializes a new instance of the dvblinkremote::Program class.
+      * Initializes a new instance of the dvblinkremote::MultimediaInfo class.
       */
-    Program();
+    MultimediaInfo();
 
     /**
-      * Initializes a new instance of the dvblinkremote::Program class.
-      * @param id a constant string reference representing the identifier of the program.
+      * Initializes a new instance of the dvblinkremote::MultimediaInfo class.
       * @param title a constant string reference representing the title of the program.
       * @param startTime a constant long representing the start time of the program.
       * @param duration a constant long representing the duration of the program.
       * \remark startTime and duration is the number of seconds, counted from 
       * UNIX epoc: 00:00:00 UTC on 1 January 1970.
       */
-    Program(const std::string& id, const std::string& title, const long startTime, const long duration);
+    MultimediaInfo(const std::string& title, const long startTime, const long duration);
 
     /**
-      * Initializes a new instance of the dvblinkremote::Program class by coping another 
-      * dvblinkremote::Program instance.
-      * @param program a dvblinkremote::Program reference.
+      * Initializes a new instance of the dvblinkremote::MultimediaInfo class by coping another 
+      * dvblinkremote::MultimediaInfo instance.
+      * @param multimediaInfo a dvblinkremote::MultimediaInfo reference.
       */
-    Program(Program& program);
-    
-    /**
-      * Destructor for cleaning up allocated memory.
-      */
-    ~Program();
+    MultimediaInfo(MultimediaInfo& multimediaInfo);
 
     /**
-      * Gets the identifier of the program.
-      * @return Program identifier
+      * Pure virtual destructor for cleaning up allocated memory.
       */
-    std::string& GetID();
-
-    /**
-      * Sets the identifier of the program.
-      * @param id a constant string reference representing the identifier of the program.
-      */
-    void SetID(const std::string& id);
+    virtual ~MultimediaInfo() = 0;
 
     /**
       * Gets the title of the program.
@@ -216,11 +217,11 @@ namespace dvblinkremote {
     std::string Guests;
     std::string Keywords;
     std::string Image;
-    int Year;
-    int EpisodeNumber;
-    int SeasonNumber;
-    int Rating;
-    int MaximumRating;
+    long Year;
+    long EpisodeNumber;
+    long SeasonNumber;
+    long Rating;
+    long MaximumRating;
     bool IsHdtv;
     bool IsPremiere;
     bool IsRepeat;
@@ -248,10 +249,59 @@ namespace dvblinkremote {
     bool IsCatAdult;
 
   private:
-    std::string m_id;
     std::string m_title;
     long m_startTime;
     long m_duration;
+  };
+
+  /**
+    * Represent a program in an electronic program guide (EPG).
+    */
+  class Program : MultimediaInfo
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::Program class.
+      */
+    Program();
+
+    /**
+      * Initializes a new instance of the dvblinkremote::Program class.
+      * @param id a constant string reference representing the identifier of the program.
+      * @param title a constant string reference representing the title of the program.
+      * @param startTime a constant long representing the start time of the program.
+      * @param duration a constant long representing the duration of the program.
+      * \remark startTime and duration is the number of seconds, counted from 
+      * UNIX epoc: 00:00:00 UTC on 1 January 1970.
+      */
+    Program(const std::string& id, const std::string& title, const long startTime, const long duration);
+
+    /**
+      * Initializes a new instance of the dvblinkremote::Program class by coping another 
+      * dvblinkremote::Program instance.
+      * @param program a dvblinkremote::Program reference.
+      */
+    Program(Program& program);
+    
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~Program();
+
+    /**
+      * Gets the identifier of the program.
+      * @return Program identifier
+      */
+    std::string& GetID();
+
+    /**
+      * Sets the identifier of the program.
+      * @param id a constant string reference representing the identifier of the program.
+      */
+    void SetID(const std::string& id);
+
+  private:
+    std::string m_id;
   };
 
   /**
@@ -497,15 +547,15 @@ namespace dvblinkremote {
   class Schedule
   {
   public:
-	  //TODO: PAE Add description
+    //TODO: PAE Add description
     /**
       * Initializes a new instance of the dvblinkremote::Schedule class, by epg
       * @param id a constant string reference representing the identifier of the schedule.
       */  
     Schedule(const std::string& id, const std::string& channelId, const std::string& programId,const Program* program,  const int recordingsToKeep, const std::string& userParam = "", const bool forceAdd = false, const bool repeat = false, const bool newOnly = false,const bool recordSeriesAnyTime = false);
     
-	//TODO: PAE Add description
-	Schedule(const std::string& id, const std::string& channelId, const std::string& title,const long startTime, const int duration, const  DayMask dayMask,  const int recordingsToKeep, const std::string& userParam = "", const bool forceAdd = false);
+  //TODO: PAE Add description
+  Schedule(const std::string& id, const std::string& channelId, const std::string& title,const long startTime, const int duration, const  DayMask dayMask,  const int recordingsToKeep, const std::string& userParam = "", const bool forceAdd = false);
 
 
     /**
@@ -556,47 +606,47 @@ namespace dvblinkremote {
       */
     ScheduleType Type;
 
-	/**
-	  * If true this flag indicates that schedule has to be added even if there are timer conflicts
-	  */
-	bool ForcedAdd;
+  /**
+    * If true this flag indicates that schedule has to be added even if there are timer conflicts
+    */
+  bool ForcedAdd;
 
-	/**
-	  * Indicates whether to record program series
-	  */
-	bool Repeat;
+  /**
+    * Indicates whether to record program series
+    */
+  bool Repeat;
 
-	/**
-	  * Indicates that only new programs have to be recorded
-	  */
-	bool NewOnly;
+  /**
+    * Indicates that only new programs have to be recorded
+    */
+  bool NewOnly;
 
-	/**
-	  * Indicates whether to record only series starting around original program start time or any of them
-	  */
-	bool RecordSeriesAnytime;
+  /**
+    * Indicates whether to record only series starting around original program start time or any of them
+    */
+  bool RecordSeriesAnytime;
 
-	/**
-	  * Indicates the start time of the schedule
-	  */
-	long StartTime;
+  /**
+    * Indicates the start time of the schedule
+    */
+  long StartTime;
 
-	/**
-	  * Indicates the duration of the schedule
-	  */
-	int Duration;
+  /**
+    * Indicates the duration of the schedule
+    */
+  int Duration;
 
-	/**
-	  * Indicates which days the schedule takes effect
-	  */
-	DayMask Mask;
+  /**
+    * Indicates which days the schedule takes effect
+    */
+  DayMask Mask;
 
-	/**
-	  * Indicatates for series recording how many recordings to keep (1,2,3,4,5,6,7,10; 0 ? keep all)
-	  */
-	bool RecordingsToKeep;
+  /**
+    * Indicatates for series recording how many recordings to keep (1,2,3,4,5,6,7,10; 0 ? keep all)
+    */
+  bool RecordingsToKeep;
 
-	
+  
     /**
       * Gets the program of the recording.
       * @return Recording program
@@ -609,10 +659,8 @@ namespace dvblinkremote {
     std::string m_channelId;
     std::string m_programId;
     std::string m_title;
-	Program* m_program;
+  Program* m_program;
   };
-
-
 
    /**
     * Represent a strongly typed list of schedules which is used as output 
@@ -629,61 +677,59 @@ namespace dvblinkremote {
     ~ScheduleList();
   };
 
-
-
    //TODO: PAE: Missing description
   class Item
   {
   public:
-	  Item(const ITEM_TYPE type);
-	  ITEM_TYPE Type;
+    Item(const ITEM_TYPE type);
+    ITEM_TYPE Type;
 
   };
 
   class VideoInfo
   {
   public :
-	  std::string Title;
-	  long StartTime;
-	  long Duration;
-	  std::string ShortDescription;
-	  std::string SubTitle;
-	  std::string Language;
-	  std::string Actors;
-	  std::string Directors;
-	  std::string Writers;
-	  std::string Producers;
-	  std::string Guests;
-	  std::string Keywords;
-	  std::string Image;
-	  int Year;
-	  int EpisodeNumber;
-	  int SeasonNumber;
-	  int Rating;
-	  int MaximumRating;
-	  bool IsHdtv;
-	  bool IsPremiere;
-	  bool IsRepeat;
-	  bool IsSeries;
-	  bool IsCatAction;
-	  bool IsCatComedy;
-	  bool IsCatDocumentary;
-	  bool IsCatDrama;
-	  bool IsCatEducational;
-	  bool IsCatHorror;
-	  bool IsCatKids;
-	  bool IsCatMovie;
-	  bool IsCatMusic;
-	  bool IsCatNews;
-	  bool IsCatReality;
-	  bool IsCatRomance;
-	  bool IsCatScifi;
-	  bool IsCatSerial;
-	  bool IsCatSoap;
-	  bool IsCatSpecial;
-	  bool IsCatSports;
-	  bool IsCatThriller;
-	  bool IsCatAdult;
+    std::string Title;
+    long StartTime;
+    long Duration;
+    std::string ShortDescription;
+    std::string SubTitle;
+    std::string Language;
+    std::string Actors;
+    std::string Directors;
+    std::string Writers;
+    std::string Producers;
+    std::string Guests;
+    std::string Keywords;
+    std::string Image;
+    int Year;
+    int EpisodeNumber;
+    int SeasonNumber;
+    int Rating;
+    int MaximumRating;
+    bool IsHdtv;
+    bool IsPremiere;
+    bool IsRepeat;
+    bool IsSeries;
+    bool IsCatAction;
+    bool IsCatComedy;
+    bool IsCatDocumentary;
+    bool IsCatDrama;
+    bool IsCatEducational;
+    bool IsCatHorror;
+    bool IsCatKids;
+    bool IsCatMovie;
+    bool IsCatMusic;
+    bool IsCatNews;
+    bool IsCatReality;
+    bool IsCatRomance;
+    bool IsCatScifi;
+    bool IsCatSerial;
+    bool IsCatSoap;
+    bool IsCatSpecial;
+    bool IsCatSports;
+    bool IsCatThriller;
+    bool IsCatAdult;
   
   };
 
@@ -696,16 +742,16 @@ namespace dvblinkremote {
    //TODO: PAE: Missing description
   class Video : public Item {
   public :
-	  Video(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const bool canBeDeleted, const long size, const long creationTime);
+    Video(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const bool canBeDeleted, const long size, const long creationTime);
 
-	  std::string ObjectID;
-	  std::string ParentID;
-	  std::string Url;
-	  std::string Thumbnail;
-	  bool CanBeDeleted;
-	  long Size;
-	  long CreationTime;
-	  VideoInfo VInfo;
+    std::string ObjectID;
+    std::string ParentID;
+    std::string Url;
+    std::string Thumbnail;
+    bool CanBeDeleted;
+    long Size;
+    long CreationTime;
+    VideoInfo VInfo;
 
   };
 
@@ -713,19 +759,19 @@ namespace dvblinkremote {
   class RecordedTV : public Video
   {
   public :
-	  RecordedTV(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const std::string& channelName, const bool canBeDeleted, const long size, const long creationTime, const int channelNumber, const int channelSubnumber, const RECORDEDTV_STATE state);
+    RecordedTV(const std::string& objectId, const std::string& parentId, const std::string& url, const std::string& thumbnail, const std::string& channelName, const bool canBeDeleted, const long size, const long creationTime, const int channelNumber, const int channelSubnumber, const RECORDEDTV_STATE state);
 
-	  std::string ChannelName;
-	  int ChannelNumber;
-	  int ChannelSubnumber;
-	  RECORDEDTV_STATE State;
+    std::string ChannelName;
+    int ChannelNumber;
+    int ChannelSubnumber;
+    RECORDEDTV_STATE State;
   };
 
    //TODO: PAE: Missing description
   class Audio : public Item
   {
   public:
-	  Audio();
+    Audio();
 
   };
 
@@ -733,7 +779,7 @@ namespace dvblinkremote {
   class Image : public Item
   {
   public :
-	  Image();
+    Image();
   };
 
   enum CONTAINER_TYPE {CONTAINER_TYPE_CONTAINER_UNKNOWN = -1,CONTAINER_TYPE_CONTAINER_SOURCE = 0, CONTAINER_TYPE_CONTAINER_TYPE = 1, CONTAINER_TYPE_CONTAINER_CATEGORY = 2, CONTAINER_TYPE_CONTAINER_GROUP = 3};
@@ -746,41 +792,41 @@ namespace dvblinkremote {
   {
 
   public :
-	  Container(const std::string& objectId, const std::string& parentId, const std::string& name, const std::string& description, const std::string& logo, const std::string& sourceId, const CONTAINER_TYPE containerType, const CONTENT_TYPE contentType, const int totalCount);
+    Container(const std::string& objectId, const std::string& parentId, const std::string& name, const std::string& description, const std::string& logo, const std::string& sourceId, const CONTAINER_TYPE containerType, const CONTENT_TYPE contentType, const int totalCount);
 
-	  std::string ObjectID;
-	  std::string ParentID;
-	  std::string Name;
-	  std::string Description;
-	  std::string Logo;
-	  std::string SourceId;
-	  CONTAINER_TYPE ContainerType;
-	  CONTENT_TYPE ContentType;
-	  int TotalCount;
+    std::string ObjectID;
+    std::string ParentID;
+    std::string Name;
+    std::string Description;
+    std::string Logo;
+    std::string SourceId;
+    CONTAINER_TYPE ContainerType;
+    CONTENT_TYPE ContentType;
+    int TotalCount;
   };
    //TODO: PAE: Missing description
   class ContainerList :  public std::vector<Container*>
   {
   public:
-	  ContainerList();
-	 ~ContainerList(); 
+    ContainerList();
+   ~ContainerList(); 
   };
    //TODO: PAE: Missing description
   class ItemList :  public std::vector<Item*>
   {
   public:
-	  ItemList();
-	  ~ItemList(); 
+    ItemList();
+    ~ItemList(); 
   };
 
   //TODO: PAE: Missing description
   class GetObjectResult : public Response
   {
   public :
-	  GetObjectResult();
+    GetObjectResult();
      ~GetObjectResult();
-	 ContainerList Containers;
-	 ItemList Items;
+   ContainerList Containers;
+   ItemList Items;
   };
 
   

@@ -80,7 +80,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>libcurl.lib;tinyxml2.lib;ws2_32.lib; wldap32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcurld.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
     </Lib>
     <ProjectReference>
@@ -118,6 +118,7 @@ COPY /Y "$(SolutionDir)..\..\src\version.h" "$(SolutionDir)..\..\..\dvblinkremot
     <ClCompile Include="..\..\src\curlhttpclient.cpp" />
     <ClCompile Include="..\..\src\get_schedules_request.cpp" />
     <ClCompile Include="..\..\src\http_live_stream_request.cpp" />
+    <ClCompile Include="..\..\src\multimedia_info.cpp" />
     <ClCompile Include="..\..\src\parental_lock.cpp" />
     <ClCompile Include="..\..\src\program.cpp" />
     <ClCompile Include="..\..\src\raw_http_stream_request.cpp" />
@@ -136,12 +137,13 @@ COPY /Y "$(SolutionDir)..\..\src\version.h" "$(SolutionDir)..\..\..\dvblinkremot
     <ClCompile Include="..\..\src\transcoding_options.cpp" />
     <ClCompile Include="..\..\src\util.cpp" />
     <ClCompile Include="..\..\src\windows_media_stream_request.cpp" />
-    <ClCompile Include="..\..\src\xml_object_serializer.cpp" />
+    <ClCompile Include="..\..\src\xml_object_serializer_factory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\dvblinkremote.h" />
     <ClInclude Include="..\..\src\curlhttpclient.h" />
     <ClInclude Include="..\..\src\dvblinkremoteconnection.h" />
+    <ClInclude Include="..\..\src\dvblinkremoteserialization.h" />
     <ClInclude Include="..\..\src\generic_response.h" />
     <ClInclude Include="..\..\src\dvblinkremotehttp.h" />
     <ClInclude Include="..\..\src\request.h" />

@@ -25,6 +25,7 @@
 
 #include <string>
 #include "dvblinkremote.h"
+#include "dvblinkremoteserialization.h"
 #include "generic_response.h"
 #include "request.h"
 #include "response.h"
@@ -33,9 +34,6 @@
 
 using namespace dvblinkremote;
 
-/**
-  * Namespace for serialization specific functionality in the DVBLink Remote API library.
-  */
 namespace dvblinkremoteserialization {
   template <class T>
   class XmlObjectSerializer
@@ -136,6 +134,12 @@ namespace dvblinkremoteserialization {
     };
   };
 
+  class MultimediaInfoSerializer
+  {
+  public:
+    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::MultimediaInfo& multimediaInfo);
+  };
+
   class ProgramSerializer
   {
   public:
@@ -167,29 +171,29 @@ namespace dvblinkremoteserialization {
   class GetSchedulesRequestSerializer : public XmlObjectSerializer<GetSchedulesRequest>
   {
   public:
-	  GetSchedulesRequestSerializer() : XmlObjectSerializer<GetSchedulesRequest>() { }
-	  bool WriteObject(std::string& serializedData, GetSchedulesRequest& objectGraph);
+    GetSchedulesRequestSerializer() : XmlObjectSerializer<GetSchedulesRequest>() { }
+    bool WriteObject(std::string& serializedData, GetSchedulesRequest& objectGraph);
   };
 
 
   class GetSchedulesResponseSerializer : public XmlObjectSerializer<ScheduleList>
   {
   public:
-	  GetSchedulesResponseSerializer() : XmlObjectSerializer<ScheduleList>() { }
-	  bool ReadObject(ScheduleList& object, const std::string& xml);
+    GetSchedulesResponseSerializer() : XmlObjectSerializer<ScheduleList>() { }
+    bool ReadObject(ScheduleList& object, const std::string& xml);
 
   private:
-	  class GetSchedulesResponseXmlDataDeserializer : public tinyxml2::XMLVisitor
-	  {
-	  private:
-		  GetSchedulesResponseSerializer& m_parent;
-		  ScheduleList& m_scheduleList;
+    class GetSchedulesResponseXmlDataDeserializer : public tinyxml2::XMLVisitor
+    {
+    private:
+      GetSchedulesResponseSerializer& m_parent;
+      ScheduleList& m_scheduleList;
 
-	  public:
-		  GetSchedulesResponseXmlDataDeserializer(GetSchedulesResponseSerializer& parent, ScheduleList& scheduleList);
-		  ~GetSchedulesResponseXmlDataDeserializer();
-		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
-	  };
+    public:
+      GetSchedulesResponseXmlDataDeserializer(GetSchedulesResponseSerializer& parent, ScheduleList& scheduleList);
+      ~GetSchedulesResponseXmlDataDeserializer();
+      bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+    };
   };
 
   class AddScheduleRequestSerializer : public XmlObjectSerializer<AddScheduleRequest>
@@ -264,56 +268,56 @@ namespace dvblinkremoteserialization {
   class RemoveObjectRequestSerializer : public XmlObjectSerializer<RemoveObjectRequest>
   {
   public:
-	  RemoveObjectRequestSerializer() : XmlObjectSerializer<RemoveObjectRequest>() { }
-	  bool WriteObject(std::string& serializedData, RemoveObjectRequest& objectGraph);
+    RemoveObjectRequestSerializer() : XmlObjectSerializer<RemoveObjectRequest>() { }
+    bool WriteObject(std::string& serializedData, RemoveObjectRequest& objectGraph);
   };
 
 
   class GetObjectRequestSerializer : public XmlObjectSerializer<GetObjectRequest>
   {
   public:
-	  GetObjectRequestSerializer() : XmlObjectSerializer<GetObjectRequest>() { }
-	  bool WriteObject(std::string& serializedData, GetObjectRequest& objectGraph);
+    GetObjectRequestSerializer() : XmlObjectSerializer<GetObjectRequest>() { }
+    bool WriteObject(std::string& serializedData, GetObjectRequest& objectGraph);
   };
 
   class GetObjectResponseSerializer : public XmlObjectSerializer<GetObjectResult>
   {
   public:
-	  GetObjectResponseSerializer() : XmlObjectSerializer<GetObjectResult>() { }
-	  bool ReadObject(GetObjectResult& object, const std::string& xml);
+    GetObjectResponseSerializer() : XmlObjectSerializer<GetObjectResult>() { }
+    bool ReadObject(GetObjectResult& object, const std::string& xml);
 
   private:
-	  
-	  class ContainerXmlDataDeserializer : public tinyxml2::XMLVisitor
-	  {
-	  private:
-		  GetObjectResponseSerializer& m_parent;
-		  ContainerList& m_containers;
+    
+    class ContainerXmlDataDeserializer : public tinyxml2::XMLVisitor
+    {
+    private:
+      GetObjectResponseSerializer& m_parent;
+      ContainerList& m_containers;
 
-	  public:
-		  ContainerXmlDataDeserializer(GetObjectResponseSerializer& parent, ContainerList& containers);
-		  ~ContainerXmlDataDeserializer();
-		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
-	  };
+    public:
+      ContainerXmlDataDeserializer(GetObjectResponseSerializer& parent, ContainerList& containers);
+      ~ContainerXmlDataDeserializer();
+      bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+    };
 
-	  class ItemXmlDataDeserializer : public tinyxml2::XMLVisitor
-	  {
-	  private:
-		  GetObjectResponseSerializer& m_parent;
-		  ItemList& m_items;
+    class ItemXmlDataDeserializer : public tinyxml2::XMLVisitor
+    {
+    private:
+      GetObjectResponseSerializer& m_parent;
+      ItemList& m_items;
 
-	  public:
-		  ItemXmlDataDeserializer(GetObjectResponseSerializer& parent, ItemList& items);
-		  ~ItemXmlDataDeserializer();
-		  bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
-	  };
+    public:
+      ItemXmlDataDeserializer(GetObjectResponseSerializer& parent, ItemList& items);
+      ~ItemXmlDataDeserializer();
+      bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
+    };
   };
 
 
   class VideoInfoSerializer
   {
   public:
-	  static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::VideoInfo& videoinfo);
+    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::VideoInfo& videoinfo);
   };
 
 
@@ -346,10 +350,10 @@ namespace dvblinkremoteserialization {
   template<class T>
   tinyxml2::XMLElement* XmlObjectSerializer<T>::PrepareXmlDocumentForObjectSerialization(const char* rootElementName)
   {
-    m_xmlDocument->InsertFirstChild(m_xmlDocument->NewDeclaration("xml version=\"1.0\" encoding=\"utf-8\" "));
+    m_xmlDocument->InsertFirstChild(m_xmlDocument->NewDeclaration(DVBLINK_REMOTE_SERIALIZATION_XML_DECLARATION.c_str()));
     tinyxml2::XMLElement* xmlRootElement = m_xmlDocument->NewElement(rootElementName);
-    xmlRootElement->SetAttribute("xmlns:i", "http://www.w3.org/2001/XMLSchema-instance");
-    xmlRootElement->SetAttribute("xmlns", "http://www.dvblogic.com");
+    xmlRootElement->SetAttribute("xmlns:i", DVBLINK_REMOTE_SERIALIZATION_XML_I_NAMESPACE.c_str());
+    xmlRootElement->SetAttribute("xmlns", DVBLINK_REMOTE_SERIALIZATION_XML_NAMESPACE.c_str());
     m_xmlDocument->InsertEndChild(xmlRootElement);
     return xmlRootElement;
   }

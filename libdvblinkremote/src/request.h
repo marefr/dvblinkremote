@@ -87,28 +87,26 @@ namespace dvblinkremote {
   {
   public:
 
-	  GetObjectRequest(const std::string serverAddress,const std::string objectId = "", const OBJECT_TYPE objectType = OBJECT_TYPE_UNKNOWN, const ITEM_TYPE itemType = ITEM_TYPE_UNKNOWN, const int startPosition = 0, const int requestCount = -1, const bool childrenRequest = false);
+    GetObjectRequest(const std::string serverAddress,const std::string objectId = "", const OBJECT_TYPE objectType = OBJECT_TYPE_UNKNOWN, const ITEM_TYPE itemType = ITEM_TYPE_UNKNOWN, const int startPosition = 0, const int requestCount = -1, const bool childrenRequest = false);
 
     ~GetObjectRequest();
 
-	OBJECT_TYPE ObjectType;
-	ITEM_TYPE ItemType;
+  OBJECT_TYPE ObjectType;
+  ITEM_TYPE ItemType;
 
-	int StartPosition;
-	int RequestCount;
-	bool ChildrenRequest;
+  int StartPosition;
+  int RequestCount;
+  bool ChildrenRequest;
 
-	std::string GetServerAddress();
-	std::string GetObjectID();
+  std::string GetServerAddress();
+  std::string GetObjectID();
 
   private:
-	  std::string m_serverAddress;
-	  std::string m_objectId;
+    std::string m_serverAddress;
+    std::string m_objectId;
 
 
   };
-
- 
 
   /**
     * Class for defining an electronic program guide (EPG) search request. 
@@ -694,13 +692,13 @@ namespace dvblinkremote {
 
     /**
       * Initializes a new instance of the dvblinkremote::AddScheduleRequest class.
-      * @param scheduleType a const DVBLinkScheduleType instance representing the type of 
+      * @param scheduleType a constant DVBLinkScheduleType instance representing the type of 
       * schedule to add.
       * @param channelId a constant string reference representing the channel identifier.
-	  * @param recordingsToKeep an constant int representing how many recordings to keep when recording series
-	  * Default value is <tt>0</tt> and means all recordings.
+      * @param recordingsToKeep an optional constant integer representing how many recordings to 
+      * keep for a repeated recording. Default value is <tt>0</tt>, i.e. keep all recordings.
       */
-    AddScheduleRequest(const DVBLinkScheduleType scheduleType, const std::string& channelId, const int recordingsToKeep = 0 );
+    AddScheduleRequest(const DVBLinkScheduleType scheduleType, const std::string& channelId, const int recordingsToKeep = 0);
 
     /**
       * Pure virtual destructor for cleaning up allocated memory.
@@ -725,9 +723,10 @@ namespace dvblinkremote {
     bool ForceAdd;
 
     /**
-      * Indicate how many recordings to keep (Used for series) (1,2,3,4,5,6,7,10; 0 ? keep all)
+      * Indicates how many recordings to keep for a repeated recording.
+      * (used for series and repeated recordings) (1,2,3,4,5,6,7,10; 0  keep all)
       */
-	int RecordingsToKeep;
+    int RecordingsToKeep;
 
     /**
       * Gets the schedule type for the add schedule request.
@@ -778,7 +777,7 @@ namespace dvblinkremote {
       * @param dayMask a constant long representing the day bitflag of the schedule.
       * \remark Construct the \p dayMask parameter by using bitwize operations on the DVBLinkManualScheduleDayMask.
       * @see DVBLinkManualScheduleDayMask
-	  * @param title of schedule
+    * @param title of schedule
       */
     AddManualScheduleRequest(const std::string& channelId, const long startTime, const long duration, const long dayMask, const std::string& title = "");
 
@@ -839,14 +838,15 @@ namespace dvblinkremote {
       * Initializes a new instance of the dvblinkremote::AddScheduleByEpgRequest class.
       * @param channelId a constant string reference representing the channel identifier.
       * @param programId a constant string reference representing the program identifier.
-      * @param repeat an optional constant boolean representing if the schedule should be repeated or not. 
+      * @param repeat an optional constant boolean representing if the schedule should be 
+      * repeated or not. Default value is <tt>false</tt>.
+      * @param newOnly an optional constant boolean representing if only new programs 
+      * have to be recorded. Default value is <tt>false</tt>.
+      * @param recordSeriesAnytime an optional constant boolean representing whether to 
+      * record only series starting around original program start time or any of them. 
       * Default value is <tt>false</tt>.
-	  * @param newOnly an optional constant boolean representing if only new programs should be recorded 
-	  * Default value is <tt>false</tt>.
-	  * @param recordSeriesAnytime an optional constant boolean representing if only series starting around original program start time or any of them 
-	  * Default value is <tt>false</tt>.
-	  */
-    AddScheduleByEpgRequest(const std::string& channelId, const std::string& programId, const bool repeat = false, const bool newOnly = false,const bool recordSeriesAnytime = false);
+    */
+    AddScheduleByEpgRequest(const std::string& channelId, const std::string& programId, const bool repeat = false, const bool newOnly = false, const bool recordSeriesAnytime = false);
 
     /**
       * Destructor for cleaning up allocated memory.
@@ -864,15 +864,16 @@ namespace dvblinkremote {
       */
     bool Repeat;
 
-	/**
-    * The NewOnly flag for the add schedule request.
-    */
-	bool NewOnly;
-
-	/**
-      * The RecordSeriesAnytime flag for the add schedule request.
+    /**
+      * Flag representing if only new programs have to be recorded.
       */
-	bool RecordSeriesAnytime;
+    bool NewOnly;
+
+    /**
+      * Flag representing whether to record only series starting around 
+      * original program start time or any of them.
+      */
+    bool RecordSeriesAnytime;
 
   private:
     /**

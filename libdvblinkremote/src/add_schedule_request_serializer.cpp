@@ -29,7 +29,7 @@ using namespace dvblinkremoteserialization;
 bool AddScheduleRequestSerializer::WriteObject(std::string& serializedData, AddScheduleRequest& objectGraph)
 {
   tinyxml2::XMLElement* rootElement = PrepareXmlDocumentForObjectSerialization("schedule");
-
+  
   if (!objectGraph.UserParameter.empty()) {
     rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "user_param", objectGraph.UserParameter));
   }
@@ -38,43 +38,45 @@ bool AddScheduleRequestSerializer::WriteObject(std::string& serializedData, AddS
     rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "force_add", objectGraph.ForceAdd));
   }
 
-  //TODO: PAE: Update to dvblink api 0.2
   if (objectGraph.GetScheduleType() == objectGraph.SCHEDULE_TYPE_MANUAL) {
     AddManualScheduleRequest& addManualScheduleRequest = (AddManualScheduleRequest&)objectGraph;
 
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addManualScheduleRequest.GetChannelID()));
+    tinyxml2::XMLElement* manualElement = GetXmlDocument().NewElement("manual");
+    rootElement->InsertEndChild(manualElement);
+
+    manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addManualScheduleRequest.GetChannelID()));
 
     if (!addManualScheduleRequest.Title.empty()) {
-      rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "title", addManualScheduleRequest.Title));
+      manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "title", addManualScheduleRequest.Title));
     }
 
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "start_time", addManualScheduleRequest.GetStartTime()));
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "duration", addManualScheduleRequest.GetDuration()));
-    rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "day_mask", addManualScheduleRequest.GetDayMask()));
+    manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "start_time", addManualScheduleRequest.GetStartTime()));
+    manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "duration", addManualScheduleRequest.GetDuration()));
+    manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "day_mask", addManualScheduleRequest.GetDayMask()));
+    manualElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "recordings_to_keep", addManualScheduleRequest.RecordingsToKeep));
   }
     
   if (objectGraph.GetScheduleType() == objectGraph.SCHEDULE_TYPE_BY_EPG) {
     AddScheduleByEpgRequest& addScheduleByEpgRequest = (AddScheduleByEpgRequest&)objectGraph;
 
-	tinyxml2::XMLElement* byepg = GetXmlDocument().NewElement("by_epg");
-	rootElement->InsertEndChild(byepg);
-    byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addScheduleByEpgRequest.GetChannelID()));
-    byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "program_id", addScheduleByEpgRequest.GetProgramID()));
-
-	byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "recordings_to_keep", addScheduleByEpgRequest.RecordingsToKeep));
+    tinyxml2::XMLElement* byEpgElement = GetXmlDocument().NewElement("by_epg");
+    rootElement->InsertEndChild(byEpgElement);
+    byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "channel_id", addScheduleByEpgRequest.GetChannelID()));
+    byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "program_id", addScheduleByEpgRequest.GetProgramID()));
 
     if (addScheduleByEpgRequest.Repeat) {
-      byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "repeat", addScheduleByEpgRequest.Repeat));
+      byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "repeat", addScheduleByEpgRequest.Repeat));
     }
 
-	if (addScheduleByEpgRequest.NewOnly) {
-		byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "new_only", addScheduleByEpgRequest.NewOnly));
-	}
+    if (addScheduleByEpgRequest.NewOnly) {
+      byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "new_only", addScheduleByEpgRequest.NewOnly));
+    }
 
-	if (addScheduleByEpgRequest.RecordSeriesAnytime) {
-		byepg->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "record_series_anytime", addScheduleByEpgRequest.RecordSeriesAnytime));
-	}
+    if (addScheduleByEpgRequest.RecordSeriesAnytime) {
+      byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "record_series_anytime", addScheduleByEpgRequest.RecordSeriesAnytime));
+    }
 
+    byEpgElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "recordings_to_keep", addScheduleByEpgRequest.RecordingsToKeep));
   }    
 
   tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    

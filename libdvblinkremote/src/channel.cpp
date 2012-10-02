@@ -28,13 +28,14 @@
 using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
-Channel::Channel(const std::string& id, const long dvbLinkId, const std::string& name, const ChannelType type, const int number, const int subNumber) 
+Channel::Channel(const std::string& id, const long dvbLinkId, const std::string& name, const DVBLinkChannelType type, const int number, const int subNumber) 
   : m_id(id), 
     m_dvbLinkId(dvbLinkId), 
     m_name(name),
-	Type(type),
+    m_type(type),
     Number(number), 
-    SubNumber(subNumber)
+    SubNumber(subNumber),
+    ChildLock(false)
 {
   
 }
@@ -43,9 +44,10 @@ Channel::Channel(Channel& channel)
   : m_id(channel.GetID()), 
     m_dvbLinkId(channel.GetDvbLinkID()), 
     m_name(channel.GetName()), 
-	Type(channel.Type),
+    m_type(channel.GetChannelType()),
     Number(channel.Number), 
-    SubNumber(channel.SubNumber)
+    SubNumber(channel.SubNumber),
+    ChildLock(channel.ChildLock)
 {
 
 }
@@ -68,6 +70,11 @@ long Channel::GetDvbLinkID()
 std::string& Channel::GetName() 
 {
   return m_name;
+}
+
+Channel::DVBLinkChannelType& Channel::GetChannelType() 
+{
+  return m_type;
 }
 
 ChannelList::ChannelList()
@@ -140,9 +147,15 @@ bool GetChannelsResponseSerializer::GetChannelsResponseXmlDataDeserializer::Visi
     std::string channelName = Util::GetXmlFirstChildElementText(&element, "channel_name");
     int channelNumber = Util::GetXmlFirstChildElementTextAsInt(&element, "channel_number");
     int channelSubNumber = Util::GetXmlFirstChildElementTextAsInt(&element, "channel_subnumber");
-	ChannelType type = (ChannelType)Util::GetXmlFirstChildElementTextAsInt(&element, "channel_type");
+    Channel::DVBLinkChannelType channelType = (Channel::DVBLinkChannelType)Util::GetXmlFirstChildElementTextAsInt(&element, "channel_type");
 
-    Channel* channel = new Channel(channelId, channelDvbLinkId, channelName,type, channelNumber, channelSubNumber);
+    Channel* channel = new Channel(channelId, channelDvbLinkId, channelName, channelType, channelNumber, channelSubNumber);
+
+    if (m_parent.HasChildElement(*&element, "channel_child_lock"))
+    {
+      channel->ChildLock = Util::GetXmlFirstChildElementTextAsBoolean(&element, "channel_child_lock");
+    }
+
     m_channelList.push_back(channel);
 
     return false;
