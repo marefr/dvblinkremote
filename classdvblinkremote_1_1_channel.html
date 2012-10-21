@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: dvblinkremote::Channel Class Reference</title>
+<title>DVBLink Remote API Library documentation: dvblinkremote::Channel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libdvblinkremote
+   <div id="projectname">DVBLink Remote API Library documentation
+   &#160;<span id="projectnumber">0.2.0-Master</span>
    </div>
-   <div id="projectbrief">A C++ DVBLink Remote API library.</div>
   </td>
  </tr>
  </tbody>
@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_channel.html','
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classdvblinkremote_1_1_channel-members.html">List of all members</a>  </div>
@@ -113,10 +114,18 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_channel.html','
 <p>Represent a DVBLink channel.  
  <a href="classdvblinkremote_1_1_channel.html#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ab739420077e4f56eeee8fbb3bcfc6bd9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a> { <a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9a7de34f6a3844c56cf493f76102fb1b39">CHANNEL_TYPE_TV</a> =  0, 
+<a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9ac4bc9722af1aa6574fd2ba2fb83f8a02">CHANNEL_TYPE_RADIO</a> =  1, 
+<a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9a335ec46dbb8c72b2010b11bb25f7d133">CHANNEL_TYPE_OTHER</a> =  2
+ }</td></tr>
+<tr class="memdesc:ab739420077e4f56eeee8fbb3bcfc6bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum for channel types.  <a href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">More...</a><br/></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13e53b28905b3dd20ad7081d76d7475c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a13e53b28905b3dd20ad7081d76d7475c">Channel</a> (const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const int number=-1, const int subNumber=-1)</td></tr>
-<tr class="memdesc:a13e53b28905b3dd20ad7081d76d7475c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_channel.html" title="Represent a DVBLink channel.">dvblinkremote::Channel</a> class.  <a href="#a13e53b28905b3dd20ad7081d76d7475c"></a><br/></td></tr>
+<tr class="memitem:a05bd841744f006b884d59600b0bf90d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a05bd841744f006b884d59600b0bf90d6">Channel</a> (const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const <a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a> type, const int number=-1, const int subNumber=-1)</td></tr>
+<tr class="memdesc:a05bd841744f006b884d59600b0bf90d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_channel.html" title="Represent a DVBLink channel.">dvblinkremote::Channel</a> class.  <a href="#a05bd841744f006b884d59600b0bf90d6"></a><br/></td></tr>
 <tr class="memitem:ad30dc0918f9a9924f37cc71e5cf00d0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#ad30dc0918f9a9924f37cc71e5cf00d0c">Channel</a> (<a class="el" href="classdvblinkremote_1_1_channel.html">Channel</a> &amp;channel)</td></tr>
 <tr class="memdesc:ad30dc0918f9a9924f37cc71e5cf00d0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_channel.html" title="Represent a DVBLink channel.">dvblinkremote::Channel</a> class by coping another <a class="el" href="classdvblinkremote_1_1_channel.html" title="Represent a DVBLink channel.">dvblinkremote::Channel</a> instance.  <a href="#ad30dc0918f9a9924f37cc71e5cf00d0c"></a><br/></td></tr>
 <tr class="memitem:a1dd599d0cc5e5a35c05643e13a4a228e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a1dd599d0cc5e5a35c05643e13a4a228e">~Channel</a> ()</td></tr>
@@ -127,6 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a02d536809ebd5627659402e4077f3e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the DVBLink identifier of the channel.  <a href="#a02d536809ebd5627659402e4077f3e07"></a><br/></td></tr>
 <tr class="memitem:a8cbf8edd9b109577ee9cfe414818640b"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a8cbf8edd9b109577ee9cfe414818640b">GetName</a> ()</td></tr>
 <tr class="memdesc:a8cbf8edd9b109577ee9cfe414818640b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the name of the channel.  <a href="#a8cbf8edd9b109577ee9cfe414818640b"></a><br/></td></tr>
+<tr class="memitem:a2cc3a86797a098654a17c4d26452c769"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a2cc3a86797a098654a17c4d26452c769">GetChannelType</a> ()</td></tr>
+<tr class="memdesc:a2cc3a86797a098654a17c4d26452c769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type of the channel.  <a href="#a2cc3a86797a098654a17c4d26452c769"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -134,11 +145,38 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a8f7606ecb3ecea311e54d1c23e2015fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the number of the channel.  <a href="#a8f7606ecb3ecea311e54d1c23e2015fa"></a><br/></td></tr>
 <tr class="memitem:a9fe1393bd2f01d719b080d84ad1c0e4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a9fe1393bd2f01d719b080d84ad1c0e4b">SubNumber</a></td></tr>
 <tr class="memdesc:a9fe1393bd2f01d719b080d84ad1c0e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the sub-number of the channel.  <a href="#a9fe1393bd2f01d719b080d84ad1c0e4b"></a><br/></td></tr>
+<tr class="memitem:a6e00e5d1d73c13286855c025ec3a346c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_channel.html#a6e00e5d1d73c13286855c025ec3a346c">ChildLock</a></td></tr>
+<tr class="memdesc:a6e00e5d1d73c13286855c025ec3a346c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents if a child lock is active or not for the channel.  <a href="#a6e00e5d1d73c13286855c025ec3a346c"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Represent a DVBLink channel. </p>
-</div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a13e53b28905b3dd20ad7081d76d7475c"></a>
+</div><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="ab739420077e4f56eeee8fbb3bcfc6bd9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">dvblinkremote::Channel::DVBLinkChannelType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An enum for channel types. </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="ab739420077e4f56eeee8fbb3bcfc6bd9a7de34f6a3844c56cf493f76102fb1b39"></a>CHANNEL_TYPE_TV</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ab739420077e4f56eeee8fbb3bcfc6bd9ac4bc9722af1aa6574fd2ba2fb83f8a02"></a>CHANNEL_TYPE_RADIO</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ab739420077e4f56eeee8fbb3bcfc6bd9a335ec46dbb8c72b2010b11bb25f7d133"></a>CHANNEL_TYPE_OTHER</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
+<h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a05bd841744f006b884d59600b0bf90d6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -159,6 +197,12 @@ Public Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -186,6 +230,7 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">id</td><td>a constant string reference representing the generic identifier of the channel. </td></tr>
     <tr><td class="paramname">dvbLinkId</td><td>a constant long representing the DVBLink identifier of the channel. </td></tr>
     <tr><td class="paramname">name</td><td>a constant string reference representing the name of the channel. </td></tr>
+    <tr><td class="paramname">type</td><td>a constant DVBLinkChannelType instance representing the type of the channel. </td></tr>
     <tr><td class="paramname">number</td><td>an optional constant integer representing the number of the channel. </td></tr>
     <tr><td class="paramname">subNumber</td><td>an optional constant integer representing the sub-number of the channel. </td></tr>
   </table>
@@ -236,6 +281,24 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
+<a class="anchor" id="a2cc3a86797a098654a17c4d26452c769"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a>&amp; dvblinkremote::Channel::GetChannelType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the type of the channel. </p>
+<dl class="section return"><dt>Returns</dt><dd>ChannelType instance reference </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a02d536809ebd5627659402e4077f3e07"></a>
 <div class="memitem">
 <div class="memproto">
@@ -291,6 +354,20 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Data Documentation</h2>
+<a class="anchor" id="a6e00e5d1d73c13286855c025ec3a346c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool dvblinkremote::Channel::ChildLock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represents if a child lock is active or not for the channel. </p>
+
+</div>
+</div>
 <a class="anchor" id="a8f7606ecb3ecea311e54d1c23e2015fa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +402,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_channel.html">Channel</a></li>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:13 for libdvblinkremote by
+    <li class="footer">Generated on Sun Oct 21 2012 23:24:11 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

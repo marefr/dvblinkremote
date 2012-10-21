@@ -1,5 +1,9 @@
 var searchData=
 [
   ['isenabled',['IsEnabled',['../classdvblinkremote_1_1_set_parental_lock_request.html#aa8d1ddf1279fea04735cd64a99bca020',1,'dvblinkremote::SetParentalLockRequest']]],
-  ['isshortepg',['IsShortEpg',['../classdvblinkremote_1_1_epg_search_request.html#a3665c8eb3f462d4e03a331657f4d93e1',1,'dvblinkremote::EpgSearchRequest']]]
+  ['isnewonly',['IsNewOnly',['../classdvblinkremote_1_1_update_schedule_request.html#ade7a1a3ce5f4f93c61d04ff9a16dfb3b',1,'dvblinkremote::UpdateScheduleRequest']]],
+  ['isprotocolsupported',['IsProtocolSupported',['../classdvblinkremote_1_1_streaming_capabilities.html#a4ebb98ffd30c39caf97db49791e49f07',1,'dvblinkremote::StreamingCapabilities::IsProtocolSupported(const DVBLinkSupportedProtocol protocol)'],['../classdvblinkremote_1_1_streaming_capabilities.html#a6d6e80944e5a6027f1b35733775a0521',1,'dvblinkremote::StreamingCapabilities::IsProtocolSupported(const int protocolsToCheck)']]],
+  ['isshortepg',['IsShortEpg',['../classdvblinkremote_1_1_epg_search_request.html#a3665c8eb3f462d4e03a331657f4d93e1',1,'dvblinkremote::EpgSearchRequest']]],
+  ['istranscodersupported',['IsTranscoderSupported',['../classdvblinkremote_1_1_streaming_capabilities.html#a2ae87c577c53e5ce3df60558d6f394bb',1,'dvblinkremote::StreamingCapabilities::IsTranscoderSupported(const DVBLinkSupportedTranscoder transcoder)'],['../classdvblinkremote_1_1_streaming_capabilities.html#a3fe68b7057b4e6cf76503ded529ce8e5',1,'dvblinkremote::StreamingCapabilities::IsTranscoderSupported(const int transcodersToCheck)']]],
+  ['itemmetadata',['ItemMetadata',['../classdvblinkremote_1_1_item_metadata.html#a1f241b34f287901327bb2109911d4809',1,'dvblinkremote::ItemMetadata::ItemMetadata()'],['../classdvblinkremote_1_1_item_metadata.html#a1e127d7fe1ae088769fbfa415fef1254',1,'dvblinkremote::ItemMetadata::ItemMetadata(const std::string &amp;title, const long startTime, const long duration)'],['../classdvblinkremote_1_1_item_metadata.html#a78f8560d47c1c8aaf028ec89b8b84e87',1,'dvblinkremote::ItemMetadata::ItemMetadata(ItemMetadata &amp;itemMetadata)']]]
 ];

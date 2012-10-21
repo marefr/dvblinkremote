@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: dvblinkremote::Program Class Reference</title>
+<title>DVBLink Remote API Library documentation: dvblinkremote::Program Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libdvblinkremote
+   <div id="projectname">DVBLink Remote API Library documentation
+   &#160;<span id="projectnumber">0.2.0-Master</span>
    </div>
-   <div id="projectbrief">A C++ DVBLink Remote API library.</div>
   </td>
  </tr>
  </tbody>
@@ -103,7 +103,6 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_program.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classdvblinkremote_1_1_program-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dvblinkremote::Program Class Reference</div>  </div>
@@ -112,6 +111,15 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_program.html','
 
 <p>Represent a program in an electronic program guide (EPG).  
  <a href="classdvblinkremote_1_1_program.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for dvblinkremote::Program:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classdvblinkremote_1_1_program.png" usemap="#dvblinkremote::Program_map" alt=""/>
+  <map id="dvblinkremote::Program_map" name="dvblinkremote::Program_map">
+<area href="classdvblinkremote_1_1_item_metadata.html" title="Represent metadata for an item." alt="dvblinkremote::ItemMetadata" shape="rect" coords="0,0,170,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -127,64 +135,75 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a27a3a32c397bdf40401c101c12bf6b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier of the program.  <a href="#a27a3a32c397bdf40401c101c12bf6b4f"></a><br/></td></tr>
 <tr class="memitem:a8ef5af73e8f1d62a824635cac8ca6874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a8ef5af73e8f1d62a824635cac8ca6874">SetID</a> (const std::string &amp;id)</td></tr>
 <tr class="memdesc:a8ef5af73e8f1d62a824635cac8ca6874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the identifier of the program.  <a href="#a8ef5af73e8f1d62a824635cac8ca6874"></a><br/></td></tr>
-<tr class="memitem:a0f9786e8b2387d2335677a2ba5a8dc49"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a0f9786e8b2387d2335677a2ba5a8dc49">GetTitle</a> ()</td></tr>
-<tr class="memdesc:a0f9786e8b2387d2335677a2ba5a8dc49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the title of the program.  <a href="#a0f9786e8b2387d2335677a2ba5a8dc49"></a><br/></td></tr>
-<tr class="memitem:a6c8a9492539df24e4a2e1e86df212337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a6c8a9492539df24e4a2e1e86df212337">SetTitle</a> (const std::string &amp;title)</td></tr>
-<tr class="memdesc:a6c8a9492539df24e4a2e1e86df212337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the title of the program.  <a href="#a6c8a9492539df24e4a2e1e86df212337"></a><br/></td></tr>
-<tr class="memitem:aa5d2e5bdecd86bcdf2d73ce3dfb997d4"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aa5d2e5bdecd86bcdf2d73ce3dfb997d4">GetStartTime</a> ()</td></tr>
-<tr class="memdesc:aa5d2e5bdecd86bcdf2d73ce3dfb997d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the start time of the program.  <a href="#aa5d2e5bdecd86bcdf2d73ce3dfb997d4"></a><br/></td></tr>
-<tr class="memitem:ac24ad2db7e9a7199d39a104116c217f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#ac24ad2db7e9a7199d39a104116c217f7">SetStartTime</a> (const long startTime)</td></tr>
-<tr class="memdesc:ac24ad2db7e9a7199d39a104116c217f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the start time of the program.  <a href="#ac24ad2db7e9a7199d39a104116c217f7"></a><br/></td></tr>
-<tr class="memitem:a950eac8a6892d5f97c1a14db3ee20a95"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a950eac8a6892d5f97c1a14db3ee20a95">GetDuration</a> ()</td></tr>
-<tr class="memdesc:a950eac8a6892d5f97c1a14db3ee20a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the program.  <a href="#a950eac8a6892d5f97c1a14db3ee20a95"></a><br/></td></tr>
-<tr class="memitem:a78e278677d025b7565937f3d6466717d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a78e278677d025b7565937f3d6466717d">SetDuration</a> (const long duration)</td></tr>
-<tr class="memdesc:a78e278677d025b7565937f3d6466717d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the duration of the program.  <a href="#a78e278677d025b7565937f3d6466717d"></a><br/></td></tr>
+<tr class="inherit_header pub_methods_classdvblinkremote_1_1_item_metadata"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdvblinkremote_1_1_item_metadata')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classdvblinkremote_1_1_item_metadata.html">dvblinkremote::ItemMetadata</a></td></tr>
+<tr class="memitem:a1f241b34f287901327bb2109911d4809 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1f241b34f287901327bb2109911d4809">ItemMetadata</a> ()</td></tr>
+<tr class="memdesc:a1f241b34f287901327bb2109911d4809 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_item_metadata.html" title="Represent metadata for an item.">dvblinkremote::ItemMetadata</a> class.  <a href="#a1f241b34f287901327bb2109911d4809"></a><br/></td></tr>
+<tr class="memitem:a1e127d7fe1ae088769fbfa415fef1254 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1e127d7fe1ae088769fbfa415fef1254">ItemMetadata</a> (const std::string &amp;title, const long startTime, const long duration)</td></tr>
+<tr class="memdesc:a1e127d7fe1ae088769fbfa415fef1254 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the dvblinkremote::MetaData class.  <a href="#a1e127d7fe1ae088769fbfa415fef1254"></a><br/></td></tr>
+<tr class="memitem:a78f8560d47c1c8aaf028ec89b8b84e87 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a78f8560d47c1c8aaf028ec89b8b84e87">ItemMetadata</a> (<a class="el" href="classdvblinkremote_1_1_item_metadata.html">ItemMetadata</a> &amp;itemMetadata)</td></tr>
+<tr class="memdesc:a78f8560d47c1c8aaf028ec89b8b84e87 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_item_metadata.html" title="Represent metadata for an item.">dvblinkremote::ItemMetadata</a> class by coping another <a class="el" href="classdvblinkremote_1_1_item_metadata.html" title="Represent metadata for an item.">dvblinkremote::ItemMetadata</a> instance.  <a href="#a78f8560d47c1c8aaf028ec89b8b84e87"></a><br/></td></tr>
+<tr class="memitem:abd3ce69506e3a602c4ac88c45a0ccedf inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#abd3ce69506e3a602c4ac88c45a0ccedf">~ItemMetadata</a> ()=0</td></tr>
+<tr class="memdesc:abd3ce69506e3a602c4ac88c45a0ccedf inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual destructor for cleaning up allocated memory.  <a href="#abd3ce69506e3a602c4ac88c45a0ccedf"></a><br/></td></tr>
+<tr class="memitem:aebb38515f06c10c68bd1a860f38a99e7 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#aebb38515f06c10c68bd1a860f38a99e7">GetTitle</a> ()</td></tr>
+<tr class="memdesc:aebb38515f06c10c68bd1a860f38a99e7 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the title of the item.  <a href="#aebb38515f06c10c68bd1a860f38a99e7"></a><br/></td></tr>
+<tr class="memitem:a5ea1c19f80adc86ad608d995bd317e82 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a5ea1c19f80adc86ad608d995bd317e82">SetTitle</a> (const std::string &amp;title)</td></tr>
+<tr class="memdesc:a5ea1c19f80adc86ad608d995bd317e82 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the title of the item.  <a href="#a5ea1c19f80adc86ad608d995bd317e82"></a><br/></td></tr>
+<tr class="memitem:a02534dc315645f3520ea9b6dd90c5eb7 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a02534dc315645f3520ea9b6dd90c5eb7">GetStartTime</a> ()</td></tr>
+<tr class="memdesc:a02534dc315645f3520ea9b6dd90c5eb7 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the start time of the item.  <a href="#a02534dc315645f3520ea9b6dd90c5eb7"></a><br/></td></tr>
+<tr class="memitem:a1bd6326b6be7795f2a38fe5f72aa9b16 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1bd6326b6be7795f2a38fe5f72aa9b16">SetStartTime</a> (const long startTime)</td></tr>
+<tr class="memdesc:a1bd6326b6be7795f2a38fe5f72aa9b16 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the start time of the item.  <a href="#a1bd6326b6be7795f2a38fe5f72aa9b16"></a><br/></td></tr>
+<tr class="memitem:a110a7dd1245d9fbdb5b3cacb374452ea inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a110a7dd1245d9fbdb5b3cacb374452ea">GetDuration</a> ()</td></tr>
+<tr class="memdesc:a110a7dd1245d9fbdb5b3cacb374452ea inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the item.  <a href="#a110a7dd1245d9fbdb5b3cacb374452ea"></a><br/></td></tr>
+<tr class="memitem:a287d4f75083dc1af81b778afbc379b83 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a287d4f75083dc1af81b778afbc379b83">SetDuration</a> (const long duration)</td></tr>
+<tr class="memdesc:a287d4f75083dc1af81b778afbc379b83 inherit pub_methods_classdvblinkremote_1_1_item_metadata"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the duration of the item.  <a href="#a287d4f75083dc1af81b778afbc379b83"></a><br/></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:adfec0331346014d4f89c2778ee3e3c89"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#adfec0331346014d4f89c2778ee3e3c89">ShortDescription</a></td></tr>
-<tr class="memitem:ad77f49d4d1a223f7297a40611ffccf7a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#ad77f49d4d1a223f7297a40611ffccf7a">SubTitle</a></td></tr>
-<tr class="memitem:a9def9d4357a923fc2426d3ea1fd8f4f4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a9def9d4357a923fc2426d3ea1fd8f4f4">Language</a></td></tr>
-<tr class="memitem:a335e87a5c08781a793587fc0c3b95d8b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a335e87a5c08781a793587fc0c3b95d8b">Actors</a></td></tr>
-<tr class="memitem:abd3cc89cc8ee2f7e41548c25b1135d35"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#abd3cc89cc8ee2f7e41548c25b1135d35">Directors</a></td></tr>
-<tr class="memitem:aa59bfe3e7ce01254ee9a8ba72ac4c6ec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aa59bfe3e7ce01254ee9a8ba72ac4c6ec">Writers</a></td></tr>
-<tr class="memitem:aa2ebbedbcacfd35ca39d33d584e9ff30"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aa2ebbedbcacfd35ca39d33d584e9ff30">Producers</a></td></tr>
-<tr class="memitem:abd767cb5e563ab5162be404bd5f4d8d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#abd767cb5e563ab5162be404bd5f4d8d0">Guests</a></td></tr>
-<tr class="memitem:ab07c4ab4a44cbc0ff0e7353368e93b64"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#ab07c4ab4a44cbc0ff0e7353368e93b64">Keywords</a></td></tr>
-<tr class="memitem:a0f009c05a4e18e90d75b02e26de6895e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a0f009c05a4e18e90d75b02e26de6895e">Image</a></td></tr>
-<tr class="memitem:aab6d1cd8ef946f484d2fdc9ba12a4d68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aab6d1cd8ef946f484d2fdc9ba12a4d68">Year</a></td></tr>
-<tr class="memitem:a4dd65221bd5fcecd14a6fa00d023b66b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a4dd65221bd5fcecd14a6fa00d023b66b">EpisodeNumber</a></td></tr>
-<tr class="memitem:aacb828fb9416a43a52206b4138f8d067"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aacb828fb9416a43a52206b4138f8d067">SeasonNumber</a></td></tr>
-<tr class="memitem:aed9ea42f7223d19ba04f358786e371b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aed9ea42f7223d19ba04f358786e371b1">Rating</a></td></tr>
-<tr class="memitem:aea9187c0ea42e035dcc407bf8bdeb4e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aea9187c0ea42e035dcc407bf8bdeb4e1">MaximumRating</a></td></tr>
-<tr class="memitem:a10416ef3272b036b7631603f28e52bae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a10416ef3272b036b7631603f28e52bae">IsHdtv</a></td></tr>
-<tr class="memitem:a6214099e8d5d0940b9aafaa2eb881d7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a6214099e8d5d0940b9aafaa2eb881d7a">IsPremiere</a></td></tr>
-<tr class="memitem:a914222443c7e3afcaac9c9667207e914"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a914222443c7e3afcaac9c9667207e914">IsRepeat</a></td></tr>
-<tr class="memitem:ae21da6c17c4e45282e9683b55bb248ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#ae21da6c17c4e45282e9683b55bb248ed">IsSeries</a></td></tr>
-<tr class="memitem:a87079af69e1402d7f45c3c90a1af166a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a87079af69e1402d7f45c3c90a1af166a">IsRecord</a></td></tr>
-<tr class="memitem:a8521a7abd232e33cb84bb9b3fc482fbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a8521a7abd232e33cb84bb9b3fc482fbc">IsRepeatRecord</a></td></tr>
-<tr class="memitem:a661dfe621c84c005b3c3002695ada640"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a661dfe621c84c005b3c3002695ada640">IsCatAction</a></td></tr>
-<tr class="memitem:afe4d52d2f26fc51c74dc51cd53fc7973"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#afe4d52d2f26fc51c74dc51cd53fc7973">IsCatComedy</a></td></tr>
-<tr class="memitem:a29b1412498e09709ab9c3266529521f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a29b1412498e09709ab9c3266529521f2">IsCatDocumentary</a></td></tr>
-<tr class="memitem:a696e91d6bb10b81be64cc039ba6b3619"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a696e91d6bb10b81be64cc039ba6b3619">IsCatDrama</a></td></tr>
-<tr class="memitem:aa08fb18b4ab9a7058c0e6927db8bc55a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aa08fb18b4ab9a7058c0e6927db8bc55a">IsCatEducational</a></td></tr>
-<tr class="memitem:a5342c228fe1d8e6090d47095a8909bef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a5342c228fe1d8e6090d47095a8909bef">IsCatHorror</a></td></tr>
-<tr class="memitem:a98b6ea245e3adca4cb907ec21c8e3c8d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a98b6ea245e3adca4cb907ec21c8e3c8d">IsCatKids</a></td></tr>
-<tr class="memitem:a983e9168990dcbe1fe38b79f51e756b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a983e9168990dcbe1fe38b79f51e756b8">IsCatMovie</a></td></tr>
-<tr class="memitem:ad1ff39a9acbbafe73ead064e8584e8ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#ad1ff39a9acbbafe73ead064e8584e8ec">IsCatMusic</a></td></tr>
-<tr class="memitem:a2fb24c22ee7c041c621948a68ffc6c5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a2fb24c22ee7c041c621948a68ffc6c5d">IsCatNews</a></td></tr>
-<tr class="memitem:a04103a101b340264f9abb2168242247c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a04103a101b340264f9abb2168242247c">IsCatReality</a></td></tr>
-<tr class="memitem:aad6bee5e0180430f092e7adcba4a5964"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aad6bee5e0180430f092e7adcba4a5964">IsCatRomance</a></td></tr>
-<tr class="memitem:adb72e4fe637d0e30139dd3ccb445d090"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#adb72e4fe637d0e30139dd3ccb445d090">IsCatScifi</a></td></tr>
-<tr class="memitem:a2cb2949f273c8bc1df8bf721b98aea40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a2cb2949f273c8bc1df8bf721b98aea40">IsCatSerial</a></td></tr>
-<tr class="memitem:aaa47c98753a6b84400437d76075cb2c9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#aaa47c98753a6b84400437d76075cb2c9">IsCatSoap</a></td></tr>
-<tr class="memitem:a765e85f19ead7074273610bd61ed8e81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a765e85f19ead7074273610bd61ed8e81">IsCatSpecial</a></td></tr>
-<tr class="memitem:af69b1831d4d4463a3307ba49d2b633a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#af69b1831d4d4463a3307ba49d2b633a7">IsCatSports</a></td></tr>
-<tr class="memitem:a82ce1ad7c25cc315a9c5b882f62d32af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a82ce1ad7c25cc315a9c5b882f62d32af">IsCatThriller</a></td></tr>
-<tr class="memitem:a6c4bfd304d436c1f12401602ae4b189a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_program.html#a6c4bfd304d436c1f12401602ae4b189a">IsCatAdult</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_classdvblinkremote_1_1_item_metadata"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classdvblinkremote_1_1_item_metadata')"><img src="closed.png" alt="-"/>&nbsp;Public Attributes inherited from <a class="el" href="classdvblinkremote_1_1_item_metadata.html">dvblinkremote::ItemMetadata</a></td></tr>
+<tr class="memitem:aea8a99614772e5cc70ed4bc5acd1b14d inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#aea8a99614772e5cc70ed4bc5acd1b14d">ShortDescription</a></td></tr>
+<tr class="memitem:ab7967b643a828b45fda43f75bfb9bf9f inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab7967b643a828b45fda43f75bfb9bf9f">SubTitle</a></td></tr>
+<tr class="memitem:ab88b08547e5ab3c0537ab0d2fd0b3198 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab88b08547e5ab3c0537ab0d2fd0b3198">Language</a></td></tr>
+<tr class="memitem:a3cd388d93c8d9d2bc343669f45b61ad4 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a3cd388d93c8d9d2bc343669f45b61ad4">Actors</a></td></tr>
+<tr class="memitem:a6af6d243c9dba89d13f801e1ed8c0b96 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a6af6d243c9dba89d13f801e1ed8c0b96">Directors</a></td></tr>
+<tr class="memitem:a07527f736cb48ec9d7d7bceb6178e065 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a07527f736cb48ec9d7d7bceb6178e065">Writers</a></td></tr>
+<tr class="memitem:adb2dff7b42267cf0d700d48e0f0470fe inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#adb2dff7b42267cf0d700d48e0f0470fe">Producers</a></td></tr>
+<tr class="memitem:a3576fd3806b5f8eba225ba7e70428c7a inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a3576fd3806b5f8eba225ba7e70428c7a">Guests</a></td></tr>
+<tr class="memitem:a7aa51ed2c03c541ff2390b5078b5ce44 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a7aa51ed2c03c541ff2390b5078b5ce44">Keywords</a></td></tr>
+<tr class="memitem:a82c02079300b1e5c04997b92b5e81851 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a82c02079300b1e5c04997b92b5e81851">Image</a></td></tr>
+<tr class="memitem:ace07d137f4f0e998278e0d885960ff63 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ace07d137f4f0e998278e0d885960ff63">Year</a></td></tr>
+<tr class="memitem:ad8a4c115c49e61e0714b6f2f78a61437 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ad8a4c115c49e61e0714b6f2f78a61437">EpisodeNumber</a></td></tr>
+<tr class="memitem:a892026dd8b9a2dc8c82e71fc56b82576 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a892026dd8b9a2dc8c82e71fc56b82576">SeasonNumber</a></td></tr>
+<tr class="memitem:ab20064f936ebcd0f2d0b616bf47a11dc inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab20064f936ebcd0f2d0b616bf47a11dc">Rating</a></td></tr>
+<tr class="memitem:a1edc937626c77d9c78a640ffdf00e9f6 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1edc937626c77d9c78a640ffdf00e9f6">MaximumRating</a></td></tr>
+<tr class="memitem:a489eca2184338159c64161ae9b19f26e inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a489eca2184338159c64161ae9b19f26e">IsHdtv</a></td></tr>
+<tr class="memitem:a1d8b57239c86346c99523b712bb9941f inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1d8b57239c86346c99523b712bb9941f">IsPremiere</a></td></tr>
+<tr class="memitem:ab19461781cd5bcf3c7c3d7df3cb11596 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab19461781cd5bcf3c7c3d7df3cb11596">IsRepeat</a></td></tr>
+<tr class="memitem:a2fa0e9fc476aedaab4e6e88b054e47ef inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a2fa0e9fc476aedaab4e6e88b054e47ef">IsSeries</a></td></tr>
+<tr class="memitem:ac49f6ff2f88c39b644a8b474f652a3a5 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ac49f6ff2f88c39b644a8b474f652a3a5">IsRecord</a></td></tr>
+<tr class="memitem:afde463a06e1023c2a4956e5956c57eb0 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#afde463a06e1023c2a4956e5956c57eb0">IsRepeatRecord</a></td></tr>
+<tr class="memitem:a6dec3aefa237d11cf500001f7963bc95 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a6dec3aefa237d11cf500001f7963bc95">IsCatAction</a></td></tr>
+<tr class="memitem:a8af713afca50fc4d53034730e773e501 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a8af713afca50fc4d53034730e773e501">IsCatComedy</a></td></tr>
+<tr class="memitem:ab77a15ce6ea9cedf8740822f2a1d950d inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab77a15ce6ea9cedf8740822f2a1d950d">IsCatDocumentary</a></td></tr>
+<tr class="memitem:a1dac7824ab01301d988750ef8af1e7b7 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1dac7824ab01301d988750ef8af1e7b7">IsCatDrama</a></td></tr>
+<tr class="memitem:a91e8eae9ac7e59eb2b5df4833b8625a4 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a91e8eae9ac7e59eb2b5df4833b8625a4">IsCatEducational</a></td></tr>
+<tr class="memitem:abfe57b10a876de435827002d47f4213c inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#abfe57b10a876de435827002d47f4213c">IsCatHorror</a></td></tr>
+<tr class="memitem:a8d818677b41dc58a87eb675e0032fd97 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a8d818677b41dc58a87eb675e0032fd97">IsCatKids</a></td></tr>
+<tr class="memitem:a46362badd5949597f2603f8875fe1cde inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a46362badd5949597f2603f8875fe1cde">IsCatMovie</a></td></tr>
+<tr class="memitem:a55be22455f9d9c2d2be1f929c9534ca9 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a55be22455f9d9c2d2be1f929c9534ca9">IsCatMusic</a></td></tr>
+<tr class="memitem:ab2f70b75e4e7c63bd85a130e5684999d inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ab2f70b75e4e7c63bd85a130e5684999d">IsCatNews</a></td></tr>
+<tr class="memitem:ac44bd526570bc62290e6bbaf87ab672e inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ac44bd526570bc62290e6bbaf87ab672e">IsCatReality</a></td></tr>
+<tr class="memitem:a06142789814a53b20625bf1e98076d21 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a06142789814a53b20625bf1e98076d21">IsCatRomance</a></td></tr>
+<tr class="memitem:ae706702f5763d5fcd708c9cb9cbba513 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ae706702f5763d5fcd708c9cb9cbba513">IsCatScifi</a></td></tr>
+<tr class="memitem:a5166b45c1a8c8ad6c9d35c34a9425722 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a5166b45c1a8c8ad6c9d35c34a9425722">IsCatSerial</a></td></tr>
+<tr class="memitem:a5824c60f3125a418c6230ad60c8391b6 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a5824c60f3125a418c6230ad60c8391b6">IsCatSoap</a></td></tr>
+<tr class="memitem:a8a856736812cc0a3de54073357ac3eea inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a8a856736812cc0a3de54073357ac3eea">IsCatSpecial</a></td></tr>
+<tr class="memitem:ac5f527853f0cd33e958174359b4f3144 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#ac5f527853f0cd33e958174359b4f3144">IsCatSports</a></td></tr>
+<tr class="memitem:a58ac14c3a8343f1ba4e9db7e7a35fc37 inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a58ac14c3a8343f1ba4e9db7e7a35fc37">IsCatThriller</a></td></tr>
+<tr class="memitem:a7ee31847e3dc86f6f1b845e39e4edfec inherit pub_attribs_classdvblinkremote_1_1_item_metadata"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a7ee31847e3dc86f6f1b845e39e4edfec">IsCatAdult</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Represent a program in an electronic program guide (EPG). </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classdvblinkremote_1_1_item_metadata.html#a1f241b34f287901327bb2109911d4809" title="Initializes a new instance of the dvblinkremote::ItemMetadata class.">ItemMetadata::ItemMetadata()</a> </dd></dl>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a967a7acfe707a662f7f5f65c665b52fd"></a>
 <div class="memitem">
@@ -295,25 +314,6 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a950eac8a6892d5f97c1a14db3ee20a95"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long dvblinkremote::Program::GetDuration </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the duration of the program. </p>
-<dl class="section return"><dt>Returns</dt><dd>program duration </dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Number of seconds, counted from UNIX epoc: 00:00:00 UTC on 1 January 1970. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a27a3a32c397bdf40401c101c12bf6b4f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -329,67 +329,6 @@ Public Attributes</h2></td></tr>
 
 <p>Gets the identifier of the program. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classdvblinkremote_1_1_program.html" title="Represent a program in an electronic program guide (EPG).">Program</a> identifier </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa5d2e5bdecd86bcdf2d73ce3dfb997d4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long dvblinkremote::Program::GetStartTime </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the start time of the program. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classdvblinkremote_1_1_program.html" title="Represent a program in an electronic program guide (EPG).">Program</a> start time </dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Number of seconds, counted from UNIX epoc: 00:00:00 UTC on 1 January 1970. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a0f9786e8b2387d2335677a2ba5a8dc49"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string&amp; dvblinkremote::Program::GetTitle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the title of the program. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classdvblinkremote_1_1_program.html" title="Represent a program in an electronic program guide (EPG).">Program</a> title </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a78e278677d025b7565937f3d6466717d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dvblinkremote::Program::SetDuration </td>
-          <td>(</td>
-          <td class="paramtype">const long&#160;</td>
-          <td class="paramname"><em>duration</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the duration of the program. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>a constant long representing the duration of the program. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -417,542 +356,13 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac24ad2db7e9a7199d39a104116c217f7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dvblinkremote::Program::SetStartTime </td>
-          <td>(</td>
-          <td class="paramtype">const long&#160;</td>
-          <td class="paramname"><em>startTime</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the start time of the program. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">startTime</td><td>a constant long representing the start time of the program. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a6c8a9492539df24e4a2e1e86df212337"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dvblinkremote::Program::SetTitle </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>title</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the title of the program. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">title</td><td>a constant string reference representing the title of the program. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2>Member Data Documentation</h2>
-<a class="anchor" id="a335e87a5c08781a793587fc0c3b95d8b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Actors</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abd3cc89cc8ee2f7e41548c25b1135d35"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Directors</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4dd65221bd5fcecd14a6fa00d023b66b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dvblinkremote::Program::EpisodeNumber</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abd767cb5e563ab5162be404bd5f4d8d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Guests</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0f009c05a4e18e90d75b02e26de6895e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Image</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a661dfe621c84c005b3c3002695ada640"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatAction</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6c4bfd304d436c1f12401602ae4b189a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatAdult</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afe4d52d2f26fc51c74dc51cd53fc7973"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatComedy</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a29b1412498e09709ab9c3266529521f2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatDocumentary</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a696e91d6bb10b81be64cc039ba6b3619"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatDrama</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa08fb18b4ab9a7058c0e6927db8bc55a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatEducational</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5342c228fe1d8e6090d47095a8909bef"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatHorror</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a98b6ea245e3adca4cb907ec21c8e3c8d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatKids</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a983e9168990dcbe1fe38b79f51e756b8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatMovie</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad1ff39a9acbbafe73ead064e8584e8ec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatMusic</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2fb24c22ee7c041c621948a68ffc6c5d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatNews</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a04103a101b340264f9abb2168242247c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatReality</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aad6bee5e0180430f092e7adcba4a5964"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatRomance</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="adb72e4fe637d0e30139dd3ccb445d090"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatScifi</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2cb2949f273c8bc1df8bf721b98aea40"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatSerial</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aaa47c98753a6b84400437d76075cb2c9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatSoap</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a765e85f19ead7074273610bd61ed8e81"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatSpecial</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af69b1831d4d4463a3307ba49d2b633a7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatSports</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a82ce1ad7c25cc315a9c5b882f62d32af"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsCatThriller</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a10416ef3272b036b7631603f28e52bae"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsHdtv</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6214099e8d5d0940b9aafaa2eb881d7a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsPremiere</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a87079af69e1402d7f45c3c90a1af166a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsRecord</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a914222443c7e3afcaac9c9667207e914"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsRepeat</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8521a7abd232e33cb84bb9b3fc482fbc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsRepeatRecord</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae21da6c17c4e45282e9683b55bb248ed"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::Program::IsSeries</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab07c4ab4a44cbc0ff0e7353368e93b64"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Keywords</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9def9d4357a923fc2426d3ea1fd8f4f4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Language</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aea9187c0ea42e035dcc407bf8bdeb4e1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dvblinkremote::Program::MaximumRating</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa2ebbedbcacfd35ca39d33d584e9ff30"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Producers</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aed9ea42f7223d19ba04f358786e371b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dvblinkremote::Program::Rating</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aacb828fb9416a43a52206b4138f8d067"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dvblinkremote::Program::SeasonNumber</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="adfec0331346014d4f89c2778ee3e3c89"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::ShortDescription</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad77f49d4d1a223f7297a40611ffccf7a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::SubTitle</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa59bfe3e7ce01254ee9a8ba72ac4c6ec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string dvblinkremote::Program::Writers</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aab6d1cd8ef946f484d2fdc9ba12a4d68"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dvblinkremote::Program::Year</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_program.html">Program</a></li>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:13 for libdvblinkremote by
+    <li class="footer">Generated on Sun Oct 21 2012 23:24:11 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

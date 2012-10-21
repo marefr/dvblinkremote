@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: dvblinkremote::IDVBLinkRemoteConnection Class Reference</title>
+<title>DVBLink Remote API Library documentation: dvblinkremote::IDVBLinkRemoteConnection Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libdvblinkremote
+   <div id="projectname">DVBLink Remote API Library documentation
+   &#160;<span id="projectnumber">0.2.0-Master</span>
    </div>
-   <div id="projectbrief">A C++ DVBLink Remote API library.</div>
   </td>
  </tr>
  </tbody>
@@ -122,18 +122,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4dfb2a8d8717fe447799890397056b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start stream of a channel.  <a href="#a4dfb2a8d8717fe447799890397056b1f"></a><br/></td></tr>
 <tr class="memitem:a99987de96e7de1ba5eddc14c0f090869"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a99987de96e7de1ba5eddc14c0f090869">StopChannel</a> (const <a class="el" href="classdvblinkremote_1_1_stop_stream_request.html">StopStreamRequest</a> &amp;request)=0</td></tr>
 <tr class="memdesc:a99987de96e7de1ba5eddc14c0f090869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop a streaming channel or channels.  <a href="#a99987de96e7de1ba5eddc14c0f090869"></a><br/></td></tr>
+<tr class="memitem:aed29d0591bccf8d8545e5bfad1cd7a48"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#aed29d0591bccf8d8545e5bfad1cd7a48">AddSchedule</a> (const <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">AddScheduleRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:aed29d0591bccf8d8545e5bfad1cd7a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a schedule.  <a href="#aed29d0591bccf8d8545e5bfad1cd7a48"></a><br/></td></tr>
+<tr class="memitem:a5963a97b5f8a4700ce68e4a10c082dc4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a5963a97b5f8a4700ce68e4a10c082dc4">GetSchedules</a> (const <a class="el" href="classdvblinkremote_1_1_get_schedules_request.html">GetSchedulesRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_stored_schedules.html">StoredSchedules</a> &amp;response)=0</td></tr>
+<tr class="memdesc:a5963a97b5f8a4700ce68e4a10c082dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all schedules.  <a href="#a5963a97b5f8a4700ce68e4a10c082dc4"></a><br/></td></tr>
+<tr class="memitem:ab7874639970f30f239a9ba58c60ff73d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#ab7874639970f30f239a9ba58c60ff73d">UpdateSchedule</a> (const <a class="el" href="classdvblinkremote_1_1_update_schedule_request.html">UpdateScheduleRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:ab7874639970f30f239a9ba58c60ff73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a schedule.  <a href="#ab7874639970f30f239a9ba58c60ff73d"></a><br/></td></tr>
+<tr class="memitem:aa7dd9380beeb22b33d8e8d8bc61e9035"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#aa7dd9380beeb22b33d8e8d8bc61e9035">RemoveSchedule</a> (const <a class="el" href="classdvblinkremote_1_1_remove_schedule_request.html">RemoveScheduleRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:aa7dd9380beeb22b33d8e8d8bc61e9035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a schedule.  <a href="#aa7dd9380beeb22b33d8e8d8bc61e9035"></a><br/></td></tr>
 <tr class="memitem:a5958ac33ae86a64fa679343bd0c4a553"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a5958ac33ae86a64fa679343bd0c4a553">GetRecordings</a> (const <a class="el" href="classdvblinkremote_1_1_get_recordings_request.html">GetRecordingsRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_recording_list.html">RecordingList</a> &amp;response)=0</td></tr>
 <tr class="memdesc:a5958ac33ae86a64fa679343bd0c4a553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a list of all recordings.  <a href="#a5958ac33ae86a64fa679343bd0c4a553"></a><br/></td></tr>
 <tr class="memitem:ae6cb2b1fe967a02712223ea243597f4f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#ae6cb2b1fe967a02712223ea243597f4f">RemoveRecording</a> (const <a class="el" href="classdvblinkremote_1_1_remove_recording_request.html">RemoveRecordingRequest</a> &amp;request)=0</td></tr>
 <tr class="memdesc:ae6cb2b1fe967a02712223ea243597f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a recording.  <a href="#ae6cb2b1fe967a02712223ea243597f4f"></a><br/></td></tr>
-<tr class="memitem:aed29d0591bccf8d8545e5bfad1cd7a48"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#aed29d0591bccf8d8545e5bfad1cd7a48">AddSchedule</a> (const <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">AddScheduleRequest</a> &amp;request)=0</td></tr>
-<tr class="memdesc:aed29d0591bccf8d8545e5bfad1cd7a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a schedule.  <a href="#aed29d0591bccf8d8545e5bfad1cd7a48"></a><br/></td></tr>
-<tr class="memitem:aa7dd9380beeb22b33d8e8d8bc61e9035"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#aa7dd9380beeb22b33d8e8d8bc61e9035">RemoveSchedule</a> (const <a class="el" href="classdvblinkremote_1_1_remove_schedule_request.html">RemoveScheduleRequest</a> &amp;request)=0</td></tr>
-<tr class="memdesc:aa7dd9380beeb22b33d8e8d8bc61e9035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a schedule.  <a href="#aa7dd9380beeb22b33d8e8d8bc61e9035"></a><br/></td></tr>
 <tr class="memitem:ae169f58c3d8cf1b9d38cffc8efc3e398"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#ae169f58c3d8cf1b9d38cffc8efc3e398">GetParentalStatus</a> (const <a class="el" href="classdvblinkremote_1_1_get_parental_status_request.html">GetParentalStatusRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_parental_status.html">ParentalStatus</a> &amp;response)=0</td></tr>
 <tr class="memdesc:ae169f58c3d8cf1b9d38cffc8efc3e398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get parental status.  <a href="#ae169f58c3d8cf1b9d38cffc8efc3e398"></a><br/></td></tr>
 <tr class="memitem:a766bf1e350fb575ac6b5d1d61767b270"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a766bf1e350fb575ac6b5d1d61767b270">SetParentalLock</a> (const <a class="el" href="classdvblinkremote_1_1_set_parental_lock_request.html">SetParentalLockRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_parental_status.html">ParentalStatus</a> &amp;response)=0</td></tr>
 <tr class="memdesc:a766bf1e350fb575ac6b5d1d61767b270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parental lock.  <a href="#a766bf1e350fb575ac6b5d1d61767b270"></a><br/></td></tr>
+<tr class="memitem:a9013fd97e5d1e89b669c2c58badd8d5f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a9013fd97e5d1e89b669c2c58badd8d5f">GetPlaybackObject</a> (const <a class="el" href="classdvblinkremote_1_1_get_playback_object_request.html">GetPlaybackObjectRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_get_playback_object_response.html">GetPlaybackObjectResponse</a> &amp;response)=0</td></tr>
+<tr class="memdesc:a9013fd97e5d1e89b669c2c58badd8d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a playback object.  <a href="#a9013fd97e5d1e89b669c2c58badd8d5f"></a><br/></td></tr>
+<tr class="memitem:a37160883d8f921b5b96ab5a8f59d3a24"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a37160883d8f921b5b96ab5a8f59d3a24">RemovePlaybackObject</a> (const <a class="el" href="classdvblinkremote_1_1_remove_playback_object_request.html">RemovePlaybackObjectRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:a37160883d8f921b5b96ab5a8f59d3a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a playback object.  <a href="#a37160883d8f921b5b96ab5a8f59d3a24"></a><br/></td></tr>
+<tr class="memitem:ad9a04866fe9fb7336c36233e3eaa57ab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#ad9a04866fe9fb7336c36233e3eaa57ab">StopRecording</a> (const <a class="el" href="classdvblinkremote_1_1_stop_recording_request.html">StopRecordingRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:ad9a04866fe9fb7336c36233e3eaa57ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a recording.  <a href="#ad9a04866fe9fb7336c36233e3eaa57ab"></a><br/></td></tr>
+<tr class="memitem:acbfaae8f03d067a43d0fc23aab718ca7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#acbfaae8f03d067a43d0fc23aab718ca7">GetStreamingCapabilities</a> (const <a class="el" href="classdvblinkremote_1_1_get_streaming_capabilities_request.html">GetStreamingCapabilitiesRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_streaming_capabilities.html">StreamingCapabilities</a> &amp;response)=0</td></tr>
+<tr class="memdesc:acbfaae8f03d067a43d0fc23aab718ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets streams and protocols actually supported by a given instance of DVBLink server.  <a href="#acbfaae8f03d067a43d0fc23aab718ca7"></a><br/></td></tr>
+<tr class="memitem:a47345d610b92eb8abc098cee29c58c8d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a47345d610b92eb8abc098cee29c58c8d">GetRecordingSettings</a> (const <a class="el" href="classdvblinkremote_1_1_get_recording_settings_request.html">GetRecordingSettingsRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_recording_settings.html">RecordingSettings</a> &amp;response)=0</td></tr>
+<tr class="memdesc:a47345d610b92eb8abc098cee29c58c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets recording settings.  <a href="#a47345d610b92eb8abc098cee29c58c8d"></a><br/></td></tr>
+<tr class="memitem:a0bc60613c3764fa12da68fe2d9179126"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a0bc60613c3764fa12da68fe2d9179126">SetRecordingSettings</a> (const <a class="el" href="classdvblinkremote_1_1_set_recording_settings_request.html">SetRecordingSettingsRequest</a> &amp;request)=0</td></tr>
+<tr class="memdesc:a0bc60613c3764fa12da68fe2d9179126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the recording settings.  <a href="#a0bc60613c3764fa12da68fe2d9179126"></a><br/></td></tr>
 <tr class="memitem:a0210f68cfb6cd5d028583022a47b0de2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a0210f68cfb6cd5d028583022a47b0de2">GetLastError</a> (std::string &amp;err)=0</td></tr>
 <tr class="memdesc:a0210f68cfb6cd5d028583022a47b0de2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a description of the last occured error.  <a href="#a0210f68cfb6cd5d028583022a47b0de2"></a><br/></td></tr>
 </table>
@@ -166,7 +182,7 @@ Public Member Functions</h2></td></tr>
 <p>Add a schedule. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html" title="Abstract base class for add schedule requests.">AddScheduleRequest</a> reference representing the add schedule request criterias. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">AddScheduleRequest</a> reference representing the add schedule request criterias. </td></tr>
   </table>
   </dd>
 </dl>
@@ -210,7 +226,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_channels_request.html" title="Class for defining a get channels request.">GetChannelsRequest</a> reference representing the get channel request criterias. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_channel_list.html" title="Represent a strongly typed list of DVBLink channels which is used as output parameter for the DVBLink...">ChannelList</a> reference that will be populated with channels. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_channel_list.html" title="Represent a strongly typed list of DVBLink channels which is used as output parameter for the IDVBLin...">ChannelList</a> reference that will be populated with channels. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,7 +302,51 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_parental_status_request.html" title="Class for get parental status requests.">GetParentalStatusRequest</a> reference representing the get parental status request criterias. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_parental_status.html" title="Represent parental status which is used as output parameter for the DVBLinkClient::SetParentalLock an...">ParentalStatus</a> reference that will be populated with parental status details. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_parental_status.html" title="Represent parental status which is used as output parameter for the IDVBLinkRemoteConnection::SetPare...">ParentalStatus</a> reference that will be populated with parental status details. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9013fd97e5d1e89b669c2c58badd8d5f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::GetPlaybackObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_get_playback_object_request.html">GetPlaybackObjectRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdvblinkremote_1_1_get_playback_object_response.html">GetPlaybackObjectResponse</a> &amp;&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a playback object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_playback_object_request.html" title="Class for get playback object requests.">GetPlaybackObjectRequest</a> reference representing the get playback object request criterias. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A GetObjectResult reference that will be populated with playback object details. </td></tr>
   </table>
   </dd>
 </dl>
@@ -330,7 +390,139 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_recordings_request.html" title="Class for get recordings requests.">GetRecordingsRequest</a> reference representing the get recordings request criterias. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_recording_list.html" title="Represent a strongly typed list of recordings which is used as output parameter for the DVBLinkClient...">RecordingList</a> reference that will be populated with <a class="el" href="classdvblinkremote_1_1_recording.html" title="Represent a recording.">Recording</a> objects. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_recording_list.html" title="Represent a strongly typed list of recordings which is used as output parameter for the IDVBLinkRemot...">RecordingList</a> reference that will be populated with <a class="el" href="classdvblinkremote_1_1_recording.html" title="Represent a recording.">Recording</a> objects. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a47345d610b92eb8abc098cee29c58c8d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::GetRecordingSettings </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_get_recording_settings_request.html">GetRecordingSettingsRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdvblinkremote_1_1_recording_settings.html">RecordingSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets recording settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_recording_settings_request.html" title="Class for get recording settings requests.">GetRecordingSettingsRequest</a> reference representing the get recording settings request criterias. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_recording_settings.html" title="Represent recording settings which is used as output parameter for the IDVBLinkRemoteConnection::GetR...">RecordingSettings</a> reference that will be populated with recording settings details. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5963a97b5f8a4700ce68e4a10c082dc4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::GetSchedules </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_get_schedules_request.html">GetSchedulesRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdvblinkremote_1_1_stored_schedules.html">StoredSchedules</a> &amp;&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a list of all schedules. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_schedules_request.html" title="Class for get schedules requests.">GetSchedulesRequest</a> reference representing the get schedules request criterias. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A ScheduleList reference that will be populated with <a class="el" href="classdvblinkremote_1_1_schedule.html" title="Abstract base class for schedules.">Schedule</a> objects. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acbfaae8f03d067a43d0fc23aab718ca7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::GetStreamingCapabilities </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_get_streaming_capabilities_request.html">GetStreamingCapabilitiesRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdvblinkremote_1_1_streaming_capabilities.html">StreamingCapabilities</a> &amp;&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets streams and protocols actually supported by a given instance of DVBLink server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_streaming_capabilities_request.html" title="Class for get streaming capabilities requests.">GetStreamingCapabilitiesRequest</a> reference representing the get streaming capabilities request criterias. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_streaming_capabilities.html" title="Represent streaming capabilities which is used as output parameter for the IDVBLinkRemoteConnection::...">StreamingCapabilities</a> reference that will be populated with streaming capability details. </td></tr>
   </table>
   </dd>
 </dl>
@@ -374,7 +566,40 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_stream_request.html" title="Abstract base class for stream requests.">StreamRequest</a> reference representing the stream request criterias. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_stream.html" title="Represent a DVBLink playing channel which is used as output parameter for the DVBLinkClient::PlayChan...">Stream</a> reference that will be populated with details of a playing stream. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_stream.html" title="Represent a DVBLink playing channel which is used as output parameter for the IDVBLinkRemoteConnectio...">Stream</a> reference that will be populated with details of a playing stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a37160883d8f921b5b96ab5a8f59d3a24"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::RemovePlaybackObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_remove_playback_object_request.html">RemovePlaybackObjectRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove a playback object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_remove_playback_object_request.html" title="Class for remove playback object requests.">RemovePlaybackObjectRequest</a> reference representing the remove playback object request criterias. </td></tr>
   </table>
   </dd>
 </dl>
@@ -528,7 +753,40 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_set_parental_lock_request.html" title="Class for set parental lock requests.">SetParentalLockRequest</a> reference representing the set parental lock request criterias. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_parental_status.html" title="Represent parental status which is used as output parameter for the DVBLinkClient::SetParentalLock an...">ParentalStatus</a> reference that will be populated with parental status details. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_parental_status.html" title="Represent parental status which is used as output parameter for the IDVBLinkRemoteConnection::SetPare...">ParentalStatus</a> reference that will be populated with parental status details. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0bc60613c3764fa12da68fe2d9179126"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::SetRecordingSettings </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_set_recording_settings_request.html">SetRecordingSettingsRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the recording settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_set_recording_settings_request.html" title="Class for set recording settings requests.">SetRecordingSettingsRequest</a> reference representing the set recording settings request criterias. </td></tr>
   </table>
   </dd>
 </dl>
@@ -569,13 +827,79 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ad9a04866fe9fb7336c36233e3eaa57ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::StopRecording </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_stop_recording_request.html">StopRecordingRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops a recording. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_stop_recording_request.html" title="Class for stop recording requests.">StopRecordingRequest</a> reference representing the stop recording request criterias. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7874639970f30f239a9ba58c60ff73d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::UpdateSchedule </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_update_schedule_request.html">UpdateScheduleRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update a schedule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant UpdateScheduleReqest reference representing the update schedule request criterias. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html">IDVBLinkRemoteConnection</a></li>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:09 for libdvblinkremote by
+    <li class="footer">Generated on Sun Oct 21 2012 23:24:10 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

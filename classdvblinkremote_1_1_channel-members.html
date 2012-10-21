@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: Member List</title>
+<title>DVBLink Remote API Library documentation: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libdvblinkremote
+   <div id="projectname">DVBLink Remote API Library documentation
+   &#160;<span id="projectnumber">0.2.0-Master</span>
    </div>
-   <div id="projectbrief">A C++ DVBLink Remote API library.</div>
   </td>
  </tr>
  </tbody>
@@ -108,8 +108,14 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_channel.html','
 
 <p>This is the complete list of members for <a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a13e53b28905b3dd20ad7081d76d7475c">Channel</a>(const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const int number=-1, const int subNumber=-1)</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a05bd841744f006b884d59600b0bf90d6">Channel</a>(const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const DVBLinkChannelType type, const int number=-1, const int subNumber=-1)</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#ad30dc0918f9a9924f37cc71e5cf00d0c">Channel</a>(Channel &amp;channel)</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9a335ec46dbb8c72b2010b11bb25f7d133">CHANNEL_TYPE_OTHER</a> enum value</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9ac4bc9722af1aa6574fd2ba2fb83f8a02">CHANNEL_TYPE_RADIO</a> enum value</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9a7de34f6a3844c56cf493f76102fb1b39">CHANNEL_TYPE_TV</a> enum value</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a6e00e5d1d73c13286855c025ec3a346c">ChildLock</a></td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#ab739420077e4f56eeee8fbb3bcfc6bd9">DVBLinkChannelType</a> enum name</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a2cc3a86797a098654a17c4d26452c769">GetChannelType</a>()</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a02d536809ebd5627659402e4077f3e07">GetDvbLinkID</a>()</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#afaef884751c4e3b7dbaa57ba370e370b">GetID</a>()</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html#a8cbf8edd9b109577ee9cfe414818640b">GetName</a>()</td><td class="entry"><a class="el" href="classdvblinkremote_1_1_channel.html">dvblinkremote::Channel</a></td><td class="entry"></td></tr>
@@ -121,7 +127,7 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_channel.html','
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:13 for libdvblinkremote by
+    <li class="footer">Generated on Sun Oct 21 2012 23:24:11 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

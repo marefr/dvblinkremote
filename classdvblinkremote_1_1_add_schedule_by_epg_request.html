@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>libdvblinkremote: dvblinkremote::AddScheduleByEpgRequest Class Reference</title>
+<title>DVBLink Remote API Library documentation: dvblinkremote::AddScheduleByEpgRequest Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">libdvblinkremote
+   <div id="projectname">DVBLink Remote API Library documentation
+   &#160;<span id="projectnumber">0.2.0-Master</span>
    </div>
-   <div id="projectbrief">A C++ DVBLink Remote API library.</div>
   </td>
  </tr>
  </tbody>
@@ -103,7 +103,6 @@ $(document).ready(function(){initNavTree('classdvblinkremote_1_1_add_schedule_by
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classdvblinkremote_1_1_add_schedule_by_epg_request-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dvblinkremote::AddScheduleByEpgRequest Class Reference</div>  </div>
@@ -118,53 +117,61 @@ Inheritance diagram for dvblinkremote::AddScheduleByEpgRequest:</div>
  <div class="center">
   <img src="classdvblinkremote_1_1_add_schedule_by_epg_request.png" usemap="#dvblinkremote::AddScheduleByEpgRequest_map" alt=""/>
   <map id="dvblinkremote::AddScheduleByEpgRequest_map" name="dvblinkremote::AddScheduleByEpgRequest_map">
-<area href="classdvblinkremote_1_1_add_schedule_request.html" title="Abstract base class for add schedule requests." alt="dvblinkremote::AddScheduleRequest" shape="rect" coords="0,56,253,80"/>
-<area href="classdvblinkremote_1_1_request.html" title="Base class for DVBLink Client requests." alt="dvblinkremote::Request" shape="rect" coords="0,0,253,24"/>
+<area href="classdvblinkremote_1_1_epg_schedule.html" title="Abstract base class for electronic program guide (EPG) schedules." alt="dvblinkremote::EpgSchedule" shape="rect" coords="0,56,253,80"/>
+<area href="classdvblinkremote_1_1_schedule.html" title="Abstract base class for schedules." alt="dvblinkremote::Schedule" shape="rect" coords="0,0,253,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade44f253fac84331340619ee5360b23b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html#ade44f253fac84331340619ee5360b23b">AddScheduleByEpgRequest</a> (const std::string &amp;channelId, const std::string &amp;programId, const bool repeat=false)</td></tr>
-<tr class="memdesc:ade44f253fac84331340619ee5360b23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html" title="Class for add schedule by electronic program guide (EPG) requests.">dvblinkremote::AddScheduleByEpgRequest</a> class.  <a href="#ade44f253fac84331340619ee5360b23b"></a><br/></td></tr>
+<tr class="memitem:a024f8633e59f85ba4422ab6075ea8312"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html#a024f8633e59f85ba4422ab6075ea8312">AddScheduleByEpgRequest</a> (const std::string &amp;channelId, const std::string &amp;programId, const bool repeat=false, const bool newOnly=false, const bool recordSeriesAnytime=false)</td></tr>
+<tr class="memdesc:a024f8633e59f85ba4422ab6075ea8312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html" title="Class for add schedule by electronic program guide (EPG) requests.">dvblinkremote::AddScheduleByEpgRequest</a> class.  <a href="#a024f8633e59f85ba4422ab6075ea8312"></a><br/></td></tr>
 <tr class="memitem:abe544263b8f221cec8d6c7df4428e06f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html#abe544263b8f221cec8d6c7df4428e06f">~AddScheduleByEpgRequest</a> ()</td></tr>
 <tr class="memdesc:abe544263b8f221cec8d6c7df4428e06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for cleaning up allocated memory.  <a href="#abe544263b8f221cec8d6c7df4428e06f"></a><br/></td></tr>
-<tr class="memitem:aeac6972a2cce95598a1854d5a24d9b6d"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html#aeac6972a2cce95598a1854d5a24d9b6d">GetProgramID</a> ()</td></tr>
-<tr class="memdesc:aeac6972a2cce95598a1854d5a24d9b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the program identifier for the add schedule request.  <a href="#aeac6972a2cce95598a1854d5a24d9b6d"></a><br/></td></tr>
-<tr class="inherit_header pub_methods_classdvblinkremote_1_1_add_schedule_request"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdvblinkremote_1_1_add_schedule_request')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">dvblinkremote::AddScheduleRequest</a></td></tr>
-<tr class="memitem:aebff568829cd7ac7f58bd8b6e943d928 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aebff568829cd7ac7f58bd8b6e943d928">AddScheduleRequest</a> (const <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24">DVBLinkScheduleType</a> scheduleType, const std::string &amp;channelId)</td></tr>
-<tr class="memdesc:aebff568829cd7ac7f58bd8b6e943d928 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html" title="Abstract base class for add schedule requests.">dvblinkremote::AddScheduleRequest</a> class.  <a href="#aebff568829cd7ac7f58bd8b6e943d928"></a><br/></td></tr>
-<tr class="memitem:a36c89761722cc2c7b02972499abe70b9 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#a36c89761722cc2c7b02972499abe70b9">~AddScheduleRequest</a> ()=0</td></tr>
-<tr class="memdesc:a36c89761722cc2c7b02972499abe70b9 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual destructor for cleaning up allocated memory.  <a href="#a36c89761722cc2c7b02972499abe70b9"></a><br/></td></tr>
-<tr class="memitem:af9f7df2b7c4b5e7d7cdf22c4deda7cc9 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#af9f7df2b7c4b5e7d7cdf22c4deda7cc9">GetChannelID</a> ()</td></tr>
-<tr class="memdesc:af9f7df2b7c4b5e7d7cdf22c4deda7cc9 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the channel identifier for the schedule request.  <a href="#af9f7df2b7c4b5e7d7cdf22c4deda7cc9"></a><br/></td></tr>
-<tr class="memitem:a9a81159e79709fe184ae2bac5f614311 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24">DVBLinkScheduleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#a9a81159e79709fe184ae2bac5f614311">GetScheduleType</a> ()</td></tr>
-<tr class="memdesc:a9a81159e79709fe184ae2bac5f614311 inherit pub_methods_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the schedule type for the add schedule request.  <a href="#a9a81159e79709fe184ae2bac5f614311"></a><br/></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a950316f89654538f66cf56967c7eb579"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html#a950316f89654538f66cf56967c7eb579">Repeat</a></td></tr>
-<tr class="memdesc:a950316f89654538f66cf56967c7eb579"><td class="mdescLeft">&#160;</td><td class="mdescRight">The repeat flag for the add schedule request.  <a href="#a950316f89654538f66cf56967c7eb579"></a><br/></td></tr>
-<tr class="inherit_header pub_attribs_classdvblinkremote_1_1_add_schedule_request"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classdvblinkremote_1_1_add_schedule_request')"><img src="closed.png" alt="-"/>&nbsp;Public Attributes inherited from <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">dvblinkremote::AddScheduleRequest</a></td></tr>
-<tr class="memitem:a5eec01e2e7b71918c8daf6af26728745 inherit pub_attribs_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#a5eec01e2e7b71918c8daf6af26728745">UserParameter</a></td></tr>
-<tr class="memdesc:a5eec01e2e7b71918c8daf6af26728745 inherit pub_attribs_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">The user parameter of the add schedule request.  <a href="#a5eec01e2e7b71918c8daf6af26728745"></a><br/></td></tr>
-<tr class="memitem:af451915aa83ecb17fedfd76c3ee6eca0 inherit pub_attribs_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#af451915aa83ecb17fedfd76c3ee6eca0">ForceAdd</a></td></tr>
-<tr class="memdesc:af451915aa83ecb17fedfd76c3ee6eca0 inherit pub_attribs_classdvblinkremote_1_1_add_schedule_request"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flag indicating that new schedule should be added even if there are other conflicting schedules present.  <a href="#af451915aa83ecb17fedfd76c3ee6eca0"></a><br/></td></tr>
+<tr class="inherit_header pub_methods_classdvblinkremote_1_1_epg_schedule"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdvblinkremote_1_1_epg_schedule')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classdvblinkremote_1_1_epg_schedule.html">dvblinkremote::EpgSchedule</a></td></tr>
+<tr class="memitem:ab58a50fb83e35c00b99454c3215e0f26 inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#ab58a50fb83e35c00b99454c3215e0f26">EpgSchedule</a> (const std::string &amp;channelId, const std::string &amp;programId, const bool repeat=false, const bool newOnly=false, const bool recordSeriesAnytime=false)</td></tr>
+<tr class="memdesc:ab58a50fb83e35c00b99454c3215e0f26 inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_epg_schedule.html" title="Abstract base class for electronic program guide (EPG) schedules.">dvblinkremote::EpgSchedule</a> class.  <a href="#ab58a50fb83e35c00b99454c3215e0f26"></a><br/></td></tr>
+<tr class="memitem:a259d870c9edf907fc6ee079018a86edf inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#a259d870c9edf907fc6ee079018a86edf">EpgSchedule</a> (const std::string &amp;id, const std::string &amp;channelId, const std::string &amp;programId, const bool repeat=false, const bool newOnly=false, const bool recordSeriesAnytime=false)</td></tr>
+<tr class="memdesc:a259d870c9edf907fc6ee079018a86edf inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_epg_schedule.html" title="Abstract base class for electronic program guide (EPG) schedules.">dvblinkremote::EpgSchedule</a> class.  <a href="#a259d870c9edf907fc6ee079018a86edf"></a><br/></td></tr>
+<tr class="memitem:a5594acc480fa087c0bd392ff1db1e03a inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#a5594acc480fa087c0bd392ff1db1e03a">~EpgSchedule</a> ()=0</td></tr>
+<tr class="memdesc:a5594acc480fa087c0bd392ff1db1e03a inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual destructor for cleaning up allocated memory.  <a href="#a5594acc480fa087c0bd392ff1db1e03a"></a><br/></td></tr>
+<tr class="memitem:a4f7288ca25a196a8e4b24daf66fff8d9 inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#a4f7288ca25a196a8e4b24daf66fff8d9">GetProgramID</a> ()</td></tr>
+<tr class="memdesc:a4f7288ca25a196a8e4b24daf66fff8d9 inherit pub_methods_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the program identifier for the schedule.  <a href="#a4f7288ca25a196a8e4b24daf66fff8d9"></a><br/></td></tr>
+<tr class="inherit_header pub_methods_classdvblinkremote_1_1_schedule"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdvblinkremote_1_1_schedule')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classdvblinkremote_1_1_schedule.html">dvblinkremote::Schedule</a></td></tr>
+<tr class="memitem:a8141b7c6fb86f5464a563e85d03e1ac5 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#a8141b7c6fb86f5464a563e85d03e1ac5">Schedule</a> (const <a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfa">DVBLinkScheduleType</a> scheduleType, const std::string &amp;channelId, const int recordingsToKeep=0)</td></tr>
+<tr class="memdesc:a8141b7c6fb86f5464a563e85d03e1ac5 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_schedule.html" title="Abstract base class for schedules.">dvblinkremote::Schedule</a> class.  <a href="#a8141b7c6fb86f5464a563e85d03e1ac5"></a><br/></td></tr>
+<tr class="memitem:a488973eb5a8182e42eb90e767be8b525 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#a488973eb5a8182e42eb90e767be8b525">Schedule</a> (const <a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfa">DVBLinkScheduleType</a> scheduleType, const std::string &amp;id, const std::string &amp;channelId, const int recordingsToKeep=0)</td></tr>
+<tr class="memdesc:a488973eb5a8182e42eb90e767be8b525 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="classdvblinkremote_1_1_schedule.html" title="Abstract base class for schedules.">dvblinkremote::Schedule</a> class.  <a href="#a488973eb5a8182e42eb90e767be8b525"></a><br/></td></tr>
+<tr class="memitem:aed39411b8cd02dba480b8250da5db21b inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#aed39411b8cd02dba480b8250da5db21b">~Schedule</a> ()=0</td></tr>
+<tr class="memdesc:aed39411b8cd02dba480b8250da5db21b inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual destructor for cleaning up allocated memory.  <a href="#aed39411b8cd02dba480b8250da5db21b"></a><br/></td></tr>
+<tr class="memitem:a566574ff46796106fa1a254993d36091 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#a566574ff46796106fa1a254993d36091">GetID</a> ()</td></tr>
+<tr class="memdesc:a566574ff46796106fa1a254993d36091 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the identifier of the schedule.  <a href="#a566574ff46796106fa1a254993d36091"></a><br/></td></tr>
+<tr class="memitem:aea9a6e2ba99a4a874574157a54d0e8cb inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#aea9a6e2ba99a4a874574157a54d0e8cb">GetChannelID</a> ()</td></tr>
+<tr class="memdesc:aea9a6e2ba99a4a874574157a54d0e8cb inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the channel identifier for the schedule.  <a href="#aea9a6e2ba99a4a874574157a54d0e8cb"></a><br/></td></tr>
+<tr class="memitem:ab6fd8c63ac69d2b1c2d6f98a410a3bd9 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfa">DVBLinkScheduleType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#ab6fd8c63ac69d2b1c2d6f98a410a3bd9">GetScheduleType</a> ()</td></tr>
+<tr class="memdesc:ab6fd8c63ac69d2b1c2d6f98a410a3bd9 inherit pub_methods_classdvblinkremote_1_1_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type for the schedule .  <a href="#ab6fd8c63ac69d2b1c2d6f98a410a3bd9"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_classdvblinkremote_1_1_add_schedule_request"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classdvblinkremote_1_1_add_schedule_request')"><img src="closed.png" alt="-"/>&nbsp;Public Types inherited from <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html">dvblinkremote::AddScheduleRequest</a></td></tr>
-<tr class="memitem:aa3c36e3505c5a168a0cedf84f5d3ce24 inherit pub_types_classdvblinkremote_1_1_add_schedule_request"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24">DVBLinkScheduleType</a> { <a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24a2f7d258376a4497ea731b6b6d1f8b421">SCHEDULE_TYPE_MANUAL</a> =  0, 
-<a class="el" href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24a1f7197fed9b754278a8f763b71906660">SCHEDULE_TYPE_BY_EPG</a> =  1
+<tr class="inherit_header pub_types_classdvblinkremote_1_1_schedule"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classdvblinkremote_1_1_schedule')"><img src="closed.png" alt="-"/>&nbsp;Public Types inherited from <a class="el" href="classdvblinkremote_1_1_schedule.html">dvblinkremote::Schedule</a></td></tr>
+<tr class="memitem:a32680a73fd75fdac16519a08c4dbbdfa inherit pub_types_classdvblinkremote_1_1_schedule"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfa">DVBLinkScheduleType</a> { <a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfaa443c2b0bbdde4149785d8aaa70a85b32">SCHEDULE_TYPE_MANUAL</a> =  0, 
+<a class="el" href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfaa77c6a9e8576a68064ef431b07d9c48d5">SCHEDULE_TYPE_BY_EPG</a> =  1
  }</td></tr>
-<tr class="memdesc:aa3c36e3505c5a168a0cedf84f5d3ce24"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum for schedule types.  <a href="classdvblinkremote_1_1_add_schedule_request.html#aa3c36e3505c5a168a0cedf84f5d3ce24">More...</a><br/></td></tr>
+<tr class="memdesc:a32680a73fd75fdac16519a08c4dbbdfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum for schedule types.  <a href="classdvblinkremote_1_1_schedule.html#a32680a73fd75fdac16519a08c4dbbdfa">More...</a><br/></td></tr>
+<tr class="inherit_header pub_attribs_classdvblinkremote_1_1_epg_schedule"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classdvblinkremote_1_1_epg_schedule')"><img src="closed.png" alt="-"/>&nbsp;Public Attributes inherited from <a class="el" href="classdvblinkremote_1_1_epg_schedule.html">dvblinkremote::EpgSchedule</a></td></tr>
+<tr class="memitem:ae39e2554a5fa0b21b1e9d3d3da3f0429 inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#ae39e2554a5fa0b21b1e9d3d3da3f0429">Repeat</a></td></tr>
+<tr class="memdesc:ae39e2554a5fa0b21b1e9d3d3da3f0429 inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">The repeat flag for the schedule.  <a href="#ae39e2554a5fa0b21b1e9d3d3da3f0429"></a><br/></td></tr>
+<tr class="memitem:a3194a2400bc1f51aa41bbbc4386fadba inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#a3194a2400bc1f51aa41bbbc4386fadba">NewOnly</a></td></tr>
+<tr class="memdesc:a3194a2400bc1f51aa41bbbc4386fadba inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag representing if only new programs have to be recorded.  <a href="#a3194a2400bc1f51aa41bbbc4386fadba"></a><br/></td></tr>
+<tr class="memitem:a45b50cd3f72bf0fc44ad126ccc612fda inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_epg_schedule.html#a45b50cd3f72bf0fc44ad126ccc612fda">RecordSeriesAnytime</a></td></tr>
+<tr class="memdesc:a45b50cd3f72bf0fc44ad126ccc612fda inherit pub_attribs_classdvblinkremote_1_1_epg_schedule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag representing whether to record only series starting around original program start time or any of them.  <a href="#a45b50cd3f72bf0fc44ad126ccc612fda"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class for add schedule by electronic program guide (EPG) requests. </p>
 <p>This is used as input parameter for the DVBLinkClient::AddSchedule method. </p>
 <dl class="section see"><dt>See Also</dt><dd>DVBLinkClient::AddSchedule m() </dd></dl>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ade44f253fac84331340619ee5360b23b"></a>
+<a class="anchor" id="a024f8633e59f85ba4422ab6075ea8312"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -184,7 +191,19 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>repeat</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>repeat</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>newOnly</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>recordSeriesAnytime</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -200,6 +219,8 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">channelId</td><td>a constant string reference representing the channel identifier. </td></tr>
     <tr><td class="paramname">programId</td><td>a constant string reference representing the program identifier. </td></tr>
     <tr><td class="paramname">repeat</td><td>an optional constant boolean representing if the schedule should be repeated or not. Default value is <code>false</code>. </td></tr>
+    <tr><td class="paramname">newOnly</td><td>an optional constant boolean representing if only new programs have to be recorded. Default value is <code>false</code>. </td></tr>
+    <tr><td class="paramname">recordSeriesAnytime</td><td>an optional constant boolean representing whether to record only series starting around original program start time or any of them. Default value is <code>false</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -223,47 +244,13 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<h2>Member Function Documentation</h2>
-<a class="anchor" id="aeac6972a2cce95598a1854d5a24d9b6d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string&amp; dvblinkremote::AddScheduleByEpgRequest::GetProgramID </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the program identifier for the add schedule request. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classdvblinkremote_1_1_program.html" title="Represent a program in an electronic program guide (EPG).">Program</a> identifier </dd></dl>
-
-</div>
-</div>
-<h2>Member Data Documentation</h2>
-<a class="anchor" id="a950316f89654538f66cf56967c7eb579"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dvblinkremote::AddScheduleByEpgRequest::Repeat</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The repeat flag for the add schedule request. </p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_add_schedule_by_epg_request.html">AddScheduleByEpgRequest</a></li>
-    <li class="footer">Generated on Wed Aug 22 2012 22:01:12 for libdvblinkremote by
+    <li class="footer">Generated on Sun Oct 21 2012 23:24:11 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

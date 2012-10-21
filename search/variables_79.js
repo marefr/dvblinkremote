@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['year',['Year',['../classdvblinkremote_1_1_program.html#aab6d1cd8ef946f484d2fdc9ba12a4d68',1,'dvblinkremote::Program']]]
+  ['year',['Year',['../classdvblinkremote_1_1_item_metadata.html#ace07d137f4f0e998278e0d885960ff63',1,'dvblinkremote::ItemMetadata']]]
 ];

@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "libdvblinkremote", "index.html", [
+  [ "DVBLink Remote API Library documentation", "index.html", [
     [ "DVBLink Remote API Library", "index.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -17,7 +17,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ]
@@ -29,7 +29,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classdvblinkremotehttp_1_1_http_web_request.html"
+"classdvblinkremote_1_1_playback_item.html#acc01c357052bc96dcf8d9a9d474ecadba3c6b9e3d826fc8d79ff7fc8fd91cdd12",
+"functions_0x70.html"
 ];
 
 var navTreeSubIndices = new Array();

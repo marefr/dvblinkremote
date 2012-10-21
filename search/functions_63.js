@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['channel',['Channel',['../classdvblinkremote_1_1_channel.html#a13e53b28905b3dd20ad7081d76d7475c',1,'dvblinkremote::Channel::Channel(const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const int number=-1, const int subNumber=-1)'],['../classdvblinkremote_1_1_channel.html#ad30dc0918f9a9924f37cc71e5cf00d0c',1,'dvblinkremote::Channel::Channel(Channel &amp;channel)']]],
+  ['channel',['Channel',['../classdvblinkremote_1_1_channel.html#a05bd841744f006b884d59600b0bf90d6',1,'dvblinkremote::Channel::Channel(const std::string &amp;id, const long dvbLinkId, const std::string &amp;name, const DVBLinkChannelType type, const int number=-1, const int subNumber=-1)'],['../classdvblinkremote_1_1_channel.html#ad30dc0918f9a9924f37cc71e5cf00d0c',1,'dvblinkremote::Channel::Channel(Channel &amp;channel)']]],
   ['channelepgdata',['ChannelEpgData',['../classdvblinkremote_1_1_channel_epg_data.html#a68f6c16f14ee525e73b298d549c06842',1,'dvblinkremote::ChannelEpgData::ChannelEpgData(const std::string &amp;channelId)'],['../classdvblinkremote_1_1_channel_epg_data.html#a0b91496fbbf456400a81ff1aa2ac6a9b',1,'dvblinkremote::ChannelEpgData::ChannelEpgData(ChannelEpgData &amp;channelEpgData)']]],
   ['channelidentifierlist',['ChannelIdentifierList',['../classdvblinkremote_1_1_channel_identifier_list.html#a0062cd8850cf11caf822af0f959b27a7',1,'dvblinkremote::ChannelIdentifierList']]],
   ['channellist',['ChannelList',['../classdvblinkremote_1_1_channel_list.html#a6e671fb45ead0c1340e6af7da48508cf',1,'dvblinkremote::ChannelList']]],

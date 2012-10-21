@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['forceadd',['ForceAdd',['../classdvblinkremote_1_1_add_schedule_request.html#af451915aa83ecb17fedfd76c3ee6eca0',1,'dvblinkremote::AddScheduleRequest']]]
+  ['forceadd',['ForceAdd',['../classdvblinkremote_1_1_schedule.html#a651f900e19036adcb540aa294608434c',1,'dvblinkremote::Schedule']]]
 ];

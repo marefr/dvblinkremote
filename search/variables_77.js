@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writers',['Writers',['../classdvblinkremote_1_1_program.html#aa59bfe3e7ce01254ee9a8ba72ac4c6ec',1,'dvblinkremote::Program']]]
+  ['writers',['Writers',['../classdvblinkremote_1_1_item_metadata.html#a07527f736cb48ec9d7d7bceb6178e065',1,'dvblinkremote::ItemMetadata']]]
 ];
