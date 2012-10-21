@@ -258,7 +258,7 @@ namespace dvblinkremote {
     * Represent a program in an electronic program guide (EPG).
     * @see ItemMetadata::ItemMetadata()
     */
-  class Program : ItemMetadata
+  class Program : public ItemMetadata
   {
   public:
     /**
@@ -746,7 +746,7 @@ namespace dvblinkremote {
   /**
     * Class for playback container.
     */
-  class PlaybackContainer : PlaybackObject
+  class PlaybackContainer : public PlaybackObject
   {
   public :
     /**
@@ -856,7 +856,7 @@ namespace dvblinkremote {
   /**
     * Abstract base class for playback items.
     */
-  class PlaybackItem : PlaybackObject
+  class PlaybackItem : public PlaybackObject
   {
   public:
     /**
@@ -953,7 +953,7 @@ namespace dvblinkremote {
     * Represent metadata for a recorded TV item.
     * @see ItemMetadata::ItemMetadata()
     */
-  class RecordedTvItemMetadata : ItemMetadata
+  class RecordedTvItemMetadata : public ItemMetadata
   {
   public:
     /**
@@ -987,7 +987,7 @@ namespace dvblinkremote {
   /**
     * Class for recorded TV items.
     */
-  class RecordedTvItem : PlaybackItem
+  class RecordedTvItem : public PlaybackItem
   {
   public:
     /**
@@ -1041,7 +1041,7 @@ namespace dvblinkremote {
     * Represent metadata for a video.
     * @see ItemMetadata::ItemMetadata()
     */
-  class VideoItemMetadata : ItemMetadata
+  class VideoItemMetadata : public ItemMetadata
   {
   public:
     /**
@@ -1075,7 +1075,7 @@ namespace dvblinkremote {
   /**
     * Class for video items.
     */
-  class VideoItem : PlaybackItem
+  class VideoItem : public PlaybackItem
   {
   public:
     /**
