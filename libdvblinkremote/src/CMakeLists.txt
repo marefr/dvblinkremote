@@ -1,36 +1,36 @@
+#############################################################
+# create version.h
+
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake_templates/version.h.in ${CMAKE_CURRENT_SOURCE_DIR}/version.h)
 
 #############################################################
 # sources
 
 SET(LIBDVBLINKREMOTE_SOURCES
-	add_manual_schedule_request.cpp 
-	add_schedule_by_epg_request.cpp 
-	add_schedule_request.cpp 
-	add_schedule_request_serializer.cpp 
 	channel.cpp 
 	dvblinkremote.cpp 
 	dvblinkremotecommunication.cpp 
 	dvblinkremotehttp.cpp 
-	epg.cpp 
+	epg.cpp 	
 	generic_response.cpp 
-	get_recordings_request.cpp 
-	http_live_stream_request.cpp 
-	parental_lock.cpp 
+	item_metadata.cpp
+	parental_lock.cpp
+	playback_container.cpp
+	playback_item.cpp
+	playback_object.cpp
 	program.cpp 
-	raw_http_stream_request.cpp 
-	raw_udp_stream_request.cpp 
-	recording.cpp 
-	remove_recording_request.cpp 
-	remove_schedule_request.cpp 
-	rtp_stream_request.cpp 
+	recording.cpp
+	recording_settings.cpp
+	remove_playback_object_request.cpp
+	scheduling.cpp
 	stop_stream_request.cpp 
-	stream.cpp stream_request.cpp 
-	stream_request_serializer.cpp 
+	stream.cpp 
+	stream_request.cpp 
+	streaming_capabilities.cpp
 	transcoded_video_stream_request.cpp 
 	transcoding_options.cpp 
 	util.cpp 
-	windows_media_stream_request.cpp 
-	xml_object_serializer.cpp
+	xml_object_serializer_factory.cpp
 )
 
 #############################################################
@@ -40,9 +40,11 @@ SET(LIBDVBLINKREMOTE_SOURCES
 SET(LIBDVBLINKREMOTE_PUBL_HEADERS
 	dvblinkremote.h 
 	dvblinkremotehttp.h 
+	dvblinkremoteserialization.h
 	request.h 
 	response.h 
-	${CMAKE_BINARY_DIR}/version.h 
+	scheduling.h
+	version.h 
 )
 
 IF(WITH_CURL AND CURL_FOUND)
@@ -67,6 +69,7 @@ SET(LIBDVBLINKREMOTE_INT_HEADERS
 	dvblinkremoteconnection.h 
 	generic_response.h 
 	util.h
+	xml_object_serializer.h
 )
 
 INCLUDE_DIRECTORIES(

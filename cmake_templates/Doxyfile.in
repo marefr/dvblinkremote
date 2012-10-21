@@ -670,7 +670,9 @@ INPUT                  = @CMAKE_SOURCE_DIR@/doc/mainpage.dox \
                          @CMAKE_SOURCE_DIR@/libdvblinkremotesrc/version.h \
                          @CMAKE_SOURCE_DIR@/libdvblinkremote/src/request.h \
                          @CMAKE_SOURCE_DIR@/libdvblinkremote/src/response.h \
+						 @CMAKE_SOURCE_DIR@/libdvblinkremote/src/scheduling.h \
                          @CMAKE_SOURCE_DIR@/libdvblinkremote/src/dvblinkremotehttp.h \
+						 @CMAKE_SOURCE_DIR@/libdvblinkremote/src/dvblinkremoteserialization.h \
                          @CMAKE_SOURCE_DIR@/libdvblinkremote/src/version.h
 
 # This tag can be used to specify the character encoding of the source files 
