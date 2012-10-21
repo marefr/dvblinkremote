@@ -113,6 +113,7 @@ COPY /Y "$(SolutionDir)..\..\src\version.h" "$(SolutionDir)..\..\..\dvblinkremot
     <ClCompile Include="..\..\src\generic_response.cpp" />
     <ClCompile Include="..\..\src\curlhttpclient.cpp" />
     <ClCompile Include="..\..\src\item_metadata.cpp" />
+    <ClCompile Include="..\..\src\m3u_playlist.cpp" />
     <ClCompile Include="..\..\src\parental_lock.cpp" />
     <ClCompile Include="..\..\src\playback_container.cpp" />
     <ClCompile Include="..\..\src\playback_item.cpp" />

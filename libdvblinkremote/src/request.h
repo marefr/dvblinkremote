@@ -35,9 +35,9 @@ namespace dvblinkremote {
 
   /**
     * Class for defining a get channels request. 
-    * This is used as input parameter for the DVBLinkClient::GetChannels method.
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetChannels method.
     * @see Channel::Channel()
-    * @see DVBLinkClient::GetChannels()
+    * @see IDVBLinkRemoteConnection::GetChannels()
     */
   class GetChannelsRequest : public Request
   {
@@ -73,8 +73,8 @@ namespace dvblinkremote {
 
   /**
     * Class for defining an electronic program guide (EPG) search request. 
-    * This is used as input parameter for the DVBLinkClient::SearchEpg method.
-    * @see DVBLinkClient::SearchEpg()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::SearchEpg method.
+    * @see IDVBLinkRemoteConnection::SearchEpg()
     */
   class EpgSearchRequest : public Request
   {
@@ -197,8 +197,8 @@ namespace dvblinkremote {
 
   /**
     * Abstract base class for stream requests. 
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class StreamRequest : public Request
   {
@@ -369,8 +369,8 @@ namespace dvblinkremote {
 
   /** 
     * Abstract base class for transcoded video stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class TranscodedVideoStreamRequest : public StreamRequest
   {
@@ -409,8 +409,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for Real-time Transport Protocol (RTP) stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class RealTimeTransportProtocolStreamRequest : public TranscodedVideoStreamRequest
   {
@@ -436,8 +436,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for HTTP Live %Stream (HLS) stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class HttpLiveStreamRequest : public TranscodedVideoStreamRequest
   {
@@ -463,8 +463,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for Windows Media %Stream (ASF) stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class WindowsMediaStreamRequest : public TranscodedVideoStreamRequest
   {
@@ -490,8 +490,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for Raw HTTP stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class RawHttpStreamRequest : public StreamRequest
   {
@@ -515,8 +515,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for Raw UDP stream requests.
-    * This is used as input parameter for the DVBLinkClient::PlayChannel method.
-    * @see DVBLinkClient::PlayChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::PlayChannel method.
+    * @see IDVBLinkRemoteConnection::PlayChannel()
     */
   class RawUdpStreamRequest : public StreamRequest
   {
@@ -565,8 +565,8 @@ namespace dvblinkremote {
 
   /** 
     * Class for stop stream requests.
-    * This is used as input parameter for the DVBLinkClient::StopChannel method.
-    * @see DVBLinkClient::StopChannel()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::StopChannel method.
+    * @see IDVBLinkRemoteConnection::StopChannel()
     */
   class StopStreamRequest : public Request 
   {
@@ -624,8 +624,8 @@ namespace dvblinkremote {
 
   /**
     * Class for add manual schedule requests. 
-    * This is used as input parameter for the DVBLinkClient::AddSchedule method.
-    * @see DVBLinkClient::AddSchedule()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::AddSchedule method.
+    * @see IDVBLinkRemoteConnection::AddSchedule()
     */
   class AddManualScheduleRequest : public ManualSchedule
   {
@@ -650,8 +650,8 @@ namespace dvblinkremote {
 
   /**
     * Class for add schedule by electronic program guide (EPG) requests. 
-    * This is used as input parameter for the DVBLinkClient::AddSchedule method.
-    * @see DVBLinkClient::AddSchedule m()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::AddSchedule method.
+    * @see IDVBLinkRemoteConnection::AddSchedule m()
     */
   class AddScheduleByEpgRequest : public EpgSchedule
   {
@@ -678,8 +678,8 @@ namespace dvblinkremote {
 
   /**
     * Class for get schedules requests. 
-    * This is used as input parameter for the DVBLinkClient::GetSchedules method.
-    * @see DVBLinkClient::GetSchedules()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetSchedules method.
+    * @see IDVBLinkRemoteConnection::GetSchedules()
     */
   class GetSchedulesRequest : public Request
   {
@@ -697,8 +697,8 @@ namespace dvblinkremote {
 
   /**
     * Class for update schedule requests. 
-    * This is used as input parameter for the DVBLinkClient::UpdateSchedule method.
-    * @see DVBLinkClient::UpdateSchedule()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::UpdateSchedule method.
+    * @see IDVBLinkRemoteConnection::UpdateSchedule()
     */
   class UpdateScheduleRequest : public Request
   {
@@ -756,8 +756,8 @@ namespace dvblinkremote {
 
   /**
     * Class for remove schedule requests. 
-    * This is used as input parameter for the DVBLinkClient::RemoveSchedule method.
-    * @see DVBLinkClient::RemoveSchedule()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::RemoveSchedule method.
+    * @see IDVBLinkRemoteConnection::RemoveSchedule()
     */
   class RemoveScheduleRequest : public Request 
   {
@@ -789,8 +789,8 @@ namespace dvblinkremote {
 
   /**
     * Class for get recordings requests. 
-    * This is used as input parameter for the DVBLinkClient::GetRecordings method.
-    * @see DVBLinkClient::GetRecordings()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetRecordings method.
+    * @see IDVBLinkRemoteConnection::GetRecordings()
     */
   class GetRecordingsRequest : public Request
   {
@@ -808,8 +808,8 @@ namespace dvblinkremote {
 
   /**
     * Class for remove recording requests. 
-    * This is used as input parameter for the DVBLinkClient::RemoveRecording method.
-    * @see DVBLinkClient::RemoveRecording()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::RemoveRecording method.
+    * @see IDVBLinkRemoteConnection::RemoveRecording()
     */
   class RemoveRecordingRequest : public Request 
   {
@@ -841,8 +841,8 @@ namespace dvblinkremote {
 
   /**
     * Class for get parental status requests. 
-    * This is used as input parameter for the DVBLinkClient::GetParentalStatus method.
-    * @see DVBLinkClient::GetParentalStatus()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetParentalStatus method.
+    * @see IDVBLinkRemoteConnection::GetParentalStatus()
     */
   class GetParentalStatusRequest : public Request
   {
@@ -877,8 +877,8 @@ namespace dvblinkremote {
 
   /**
     * Class for set parental lock requests. 
-    * This is used as input parameter for the DVBLinkClient::SetParentalLock method.
-    * @see DVBLinkClient::SetParentalLock()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::SetParentalLock method.
+    * @see IDVBLinkRemoteConnection::SetParentalLock()
     */
   class SetParentalLockRequest : public Request
   {
@@ -943,9 +943,28 @@ namespace dvblinkremote {
   };
 
   /**
+    * Class for get M3U playlist requests. 
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetM3uPlaylist method.
+    * @see IDVBLinkRemoteConnection::GetM3uPlaylist()
+    */
+  class GetM3uPlaylistRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::GetM3uPlaylistRequest class.
+      */
+    GetM3uPlaylistRequest();
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~GetM3uPlaylistRequest();
+  };
+
+  /**
     * Class for get playback object requests. 
-    * This is used as input parameter for the DVBLinkClient::GetPlaybackObject method.
-    * @see DVBLinkClient::GetPlaybackObject()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetPlaybackObject method.
+    * @see IDVBLinkRemoteConnection::GetPlaybackObject()
     */
   class GetPlaybackObjectRequest : public Request
   {
@@ -1055,8 +1074,8 @@ namespace dvblinkremote {
 
   /**
     * Class for remove playback object requests. 
-    * This is used as input parameter for the DVBLinkClient::RemovePlaybackObject method.
-    * @see DVBLinkClient::RemovePlaybackObject()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::RemovePlaybackObject method.
+    * @see IDVBLinkRemoteConnection::RemovePlaybackObject()
     */
   class RemovePlaybackObjectRequest : public Request 
   {
@@ -1079,8 +1098,8 @@ namespace dvblinkremote {
 
   /**
     * Class for stop recording requests. 
-    * This is used as input parameter for the DVBLinkClient::StopRecording method.
-    * @see DVBLinkClient::StopRecording()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::StopRecording method.
+    * @see IDVBLinkRemoteConnection::StopRecording()
     */
   class StopRecordingRequest : public Request 
   {
@@ -1112,8 +1131,8 @@ namespace dvblinkremote {
 
   /**
     * Class for get streaming capabilities requests. 
-    * This is used as input parameter for the DVBLinkClient::GetStreamingCapabilities method.
-    * @see DVBLinkClient::GetStreamingCapabilities()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetStreamingCapabilities method.
+    * @see IDVBLinkRemoteConnection::GetStreamingCapabilities()
     */
   class GetStreamingCapabilitiesRequest : public Request
   {
@@ -1131,8 +1150,8 @@ namespace dvblinkremote {
 
   /**
     * Class for get recording settings requests. 
-    * This is used as input parameter for the DVBLinkClient::GetRecordingSettings method.
-    * @see DVBLinkClient::GetRecordingSettings()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::GetRecordingSettings method.
+    * @see IDVBLinkRemoteConnection::GetRecordingSettings()
     */
   class GetRecordingSettingsRequest : public Request
   {
@@ -1150,8 +1169,8 @@ namespace dvblinkremote {
 
   /**
     * Class for set recording settings requests. 
-    * This is used as input parameter for the DVBLinkClient::SetRecordingSettings method.
-    * @see DVBLinkClient::SetRecordingSettings()
+    * This is used as input parameter for the IDVBLinkRemoteConnection::SetRecordingSettings method.
+    * @see IDVBLinkRemoteConnection::SetRecordingSettings()
     */
   class SetRecordingSettingsRequest : public Request
   {

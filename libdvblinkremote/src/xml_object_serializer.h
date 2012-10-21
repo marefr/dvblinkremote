@@ -264,6 +264,13 @@ namespace dvblinkremoteserialization {
     bool WriteObject(std::string& serializedData, SetParentalLockRequest& objectGraph);
   };
 
+  class GetM3uPlaylistRequestSerializer : public XmlObjectSerializer<GetM3uPlaylistRequest>
+  {
+  public:
+    GetM3uPlaylistRequestSerializer() : XmlObjectSerializer<GetM3uPlaylistRequest>() { }
+    bool WriteObject(std::string& serializedData, GetM3uPlaylistRequest& objectGraph);
+  };
+
   class GetPlaybackObjectRequestSerializer : public XmlObjectSerializer<GetPlaybackObjectRequest>
   {
   public:

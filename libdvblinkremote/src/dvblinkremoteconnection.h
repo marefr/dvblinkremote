@@ -50,6 +50,7 @@ namespace dvblinkremote
     DVBLinkRemoteStatusCode RemoveSchedule(const RemoveScheduleRequest& request);
     DVBLinkRemoteStatusCode GetParentalStatus(const GetParentalStatusRequest& request, ParentalStatus& response);
     DVBLinkRemoteStatusCode SetParentalLock(const SetParentalLockRequest& request, ParentalStatus& response);
+    DVBLinkRemoteStatusCode GetM3uPlaylist(const GetM3uPlaylistRequest& request, M3uPlaylist& response);
     DVBLinkRemoteStatusCode GetPlaybackObject(const GetPlaybackObjectRequest& request, GetPlaybackObjectResponse& response);
     DVBLinkRemoteStatusCode RemovePlaybackObject(const RemovePlaybackObjectRequest& request);
     DVBLinkRemoteStatusCode StopRecording(const StopRecordingRequest& request);

@@ -221,6 +221,11 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::SetRecordingSettings(const S
   return status;
 }
 
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetM3uPlaylist(const GetM3uPlaylistRequest& request, M3uPlaylist& response)
+{
+  return GetData(DVBLINK_REMOTE_GET_PLAYLIST_M3U_CMD, request, response);
+}
+
 std::string DVBLinkRemoteCommunication::GetUrl()
 {
   char buffer[2000];
@@ -313,19 +318,26 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::DeserializeResponseData(cons
 {
   DVBLinkRemoteStatusCode status = DVBLINK_REMOTE_STATUS_OK;
 
-  GenericResponseSerializer* genericResponseSerializer = new GenericResponseSerializer();
-  GenericResponse* genericResponse = new GenericResponse();
+  if (command == DVBLINK_REMOTE_GET_PLAYLIST_M3U_CMD) 
+  {
+    ((M3uPlaylist&)responseObject).FileContent.assign(responseData);
+  }
+  else
+  {
+    GenericResponseSerializer* genericResponseSerializer = new GenericResponseSerializer();
+    GenericResponse* genericResponse = new GenericResponse();
     
-  if (genericResponseSerializer->ReadObject(*genericResponse, responseData)) {
-    if ((status = (DVBLinkRemoteStatusCode)genericResponse->GetStatusCode()) == DVBLINK_REMOTE_STATUS_OK) {
-      if (!XmlObjectSerializerFactory::Deserialize(command, genericResponse->GetXmlResult(), responseObject)) {
-        status = DVBLINK_REMOTE_STATUS_INVALID_DATA;
+    if (genericResponseSerializer->ReadObject(*genericResponse, responseData)) {
+      if ((status = (DVBLinkRemoteStatusCode)genericResponse->GetStatusCode()) == DVBLINK_REMOTE_STATUS_OK) {
+        if (!XmlObjectSerializerFactory::Deserialize(command, genericResponse->GetXmlResult(), responseObject)) {
+          status = DVBLINK_REMOTE_STATUS_INVALID_DATA;
+        }
       }
     }
-  }
 
-  delete genericResponse;
-  delete genericResponseSerializer;
+    delete genericResponse;
+    delete genericResponseSerializer;
+  }
 
   return status;
 }

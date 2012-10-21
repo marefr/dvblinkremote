@@ -14,6 +14,7 @@ SET(LIBDVBLINKREMOTE_SOURCES
 	epg.cpp 	
 	generic_response.cpp 
 	item_metadata.cpp
+	m3u_playlist.cpp
 	parental_lock.cpp
 	playback_container.cpp
 	playback_item.cpp

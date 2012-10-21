@@ -184,7 +184,7 @@ namespace dvblinkremote
   /**
     * A constant string representing the DVBLink command for setting recording settings. 
     */
-  const std::string DVBLINK_REMOTE_SET_RECORDING_SETTING_CMD = "set_parental_lock";
+  const std::string DVBLINK_REMOTE_SET_RECORDING_SETTING_CMD = "set_recording_settings";
 
   /**
     * A constant string representing a Real Time Transport Protocol stream type for Android devices.
@@ -387,8 +387,13 @@ namespace dvblinkremote
       */
     virtual DVBLinkRemoteStatusCode SetParentalLock(const SetParentalLockRequest& request, ParentalStatus& response) = 0;
 
-    // To be implemented
-    //virtual DVBLinkRemoteStatusCode GetM3uPlaylist(const GetM3uPlaylistRequest& request, M3uPlaylistFile response) = 0;
+    /**
+      * Gets a M3U playlist with direct HTTP links to all channels.
+      * @param[in]      request   A constant GetM3uPlaylistRequest reference representing the get M3U playlist request criterias.
+      * @param[in,out]  response  A M3uPlaylist reference that will be populated with M3U playlist file content.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetM3uPlaylist(const GetM3uPlaylistRequest& request, M3uPlaylist& response) = 0;
 
     /**
       * Gets a playback object.

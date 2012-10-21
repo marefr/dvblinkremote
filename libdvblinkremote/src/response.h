@@ -680,6 +680,30 @@ namespace dvblinkremote {
   };
 
   /**
+  * Represent M3U playlist which is used as output parameter for the 
+  * IDVBLinkRemoteConnection::GetM3uPlaylist method.
+  * @see IDVBLinkRemoteConnection::GetM3uPlaylist()
+  */
+  class M3uPlaylist : public Response
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::M3uPlaylist class.
+      */
+    M3uPlaylist();
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~M3uPlaylist();
+
+    /**
+      * Represents the M3U playlist file content. 
+      */
+    std::string FileContent;
+  };
+
+  /**
     * Abstract base class for playback objects.
     */
   class PlaybackObject

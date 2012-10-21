@@ -78,6 +78,10 @@ bool XmlObjectSerializerFactory::Serialize(const std::string& dvbLinkCommand, co
     requestSerializer = (XmlObjectSerializer<Request>*)new SetParentalLockRequestSerializer();
     result = ((SetParentalLockRequestSerializer*)requestSerializer)->WriteObject(serializedData, (SetParentalLockRequest&)request);
   }
+  else if (dvbLinkCommand == DVBLINK_REMOTE_GET_PLAYLIST_M3U_CMD) {
+    requestSerializer = (XmlObjectSerializer<Request>*)new GetM3uPlaylistRequestSerializer();
+    result = ((GetM3uPlaylistRequestSerializer*)requestSerializer)->WriteObject(serializedData, (GetM3uPlaylistRequest&)request);
+  }
   else if (dvbLinkCommand == DVBLINK_REMOTE_GET_OBJECT_CMD) {
     requestSerializer = (XmlObjectSerializer<Request>*)new GetPlaybackObjectRequestSerializer();
     result = ((GetPlaybackObjectRequestSerializer*)requestSerializer)->WriteObject(serializedData, (GetPlaybackObjectRequest&)request);
