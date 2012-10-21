@@ -25,6 +25,7 @@
 
 #include <string>
 #include <vector>
+#include "scheduling.h"
 
 namespace dvblinkremote {
   /** 
@@ -68,44 +69,6 @@ namespace dvblinkremote {
       * Destructor for cleaning up allocated memory.
       */
     ~ChannelIdentifierList();
-  };
-
-  //TODO: PAE: Add description
-  class RemoveObjectRequest : public Request 
-  {
-  public:
-    RemoveObjectRequest(const std::string& objectId);
-    ~RemoveObjectRequest();
-    std::string ObjectID;
-  };
-
-
-  enum OBJECT_TYPE{OBJECT_TYPE_UNKNOWN = -1,OBJECT_TYPE_CONTAINER = 0,OBJECT_TYPE_ITEM = 1};
-  enum ITEM_TYPE{ITEM_TYPE_UNKNOWN = -1, ITEM_TYPE_RECORDED_TV = 0, ITEM_TYPE_VIDEO = 1, ITEM_TYPE_AUDIO = 2, ITEM_TYPE_IMAGE = 3};
-
-  class GetObjectRequest : public Request
-  {
-  public:
-
-    GetObjectRequest(const std::string serverAddress,const std::string objectId = "", const OBJECT_TYPE objectType = OBJECT_TYPE_UNKNOWN, const ITEM_TYPE itemType = ITEM_TYPE_UNKNOWN, const int startPosition = 0, const int requestCount = -1, const bool childrenRequest = false);
-
-    ~GetObjectRequest();
-
-  OBJECT_TYPE ObjectType;
-  ITEM_TYPE ItemType;
-
-  int StartPosition;
-  int RequestCount;
-  bool ChildrenRequest;
-
-  std::string GetServerAddress();
-  std::string GetObjectID();
-
-  private:
-    std::string m_serverAddress;
-    std::string m_objectId;
-
-
   };
 
   /**
@@ -652,123 +615,21 @@ namespace dvblinkremote {
     */
     std::string m_clientId;
   };
-
-  /**
-    * Class for get schedules requests. 
-    * This is used as input parameter for the DVBLinkClient::GetSchedules method.
-    * @see DVBLinkClient::GetSchedules()
-    */
-  class GetSchedulesRequest : public Request
-  {
-  public:
-    /**
-      * Initializes a new instance of the dvblinkremote::GetSchedulesRequest class.
-      */
-    GetSchedulesRequest();
-
-    /**
-      * Destructor for cleaning up allocated memory.
-      */
-    ~GetSchedulesRequest();
-  };
-
-
-  /**
-    * Abstract base class for add schedule requests. 
-    * This is used as input parameter for the DVBLinkClient::AddSchedule method.
-    * @see DVBLinkClient::AddSchedule m()
-    */
-  class AddScheduleRequest : public Request
-  {
-  public:
-    /**
-      * An enum for schedule types.
-      */
-    enum DVBLinkScheduleType
-    {
-      SCHEDULE_TYPE_MANUAL = 0, /**< Used for adding manual schedules. */ 
-      SCHEDULE_TYPE_BY_EPG = 1 /**< Used for adding schedules by electronic program guide (EPG). */ 
-    };
-
-    /**
-      * Initializes a new instance of the dvblinkremote::AddScheduleRequest class.
-      * @param scheduleType a constant DVBLinkScheduleType instance representing the type of 
-      * schedule to add.
-      * @param channelId a constant string reference representing the channel identifier.
-      * @param recordingsToKeep an optional constant integer representing how many recordings to 
-      * keep for a repeated recording. Default value is <tt>0</tt>, i.e. keep all recordings.
-      */
-    AddScheduleRequest(const DVBLinkScheduleType scheduleType, const std::string& channelId, const int recordingsToKeep = 0);
-
-    /**
-      * Pure virtual destructor for cleaning up allocated memory.
-      */
-    virtual ~AddScheduleRequest() = 0;
-
-    /**
-      * Gets the channel identifier for the schedule request.
-      * @return Channel identifier
-      */
-    std::string& GetChannelID();
-
-    /**
-      * The user parameter of the add schedule request.
-      */
-    std::string UserParameter;
-
-    /**
-      * A flag indicating that new schedule should be added even if there are other 
-      * conflicting schedules present.
-      */
-    bool ForceAdd;
-
-    /**
-      * Indicates how many recordings to keep for a repeated recording.
-      * (used for series and repeated recordings) (1,2,3,4,5,6,7,10; 0  keep all)
-      */
-    int RecordingsToKeep;
-
-    /**
-      * Gets the schedule type for the add schedule request.
-      * @return DVBLinkScheduleType instance reference
-      */
-    DVBLinkScheduleType& GetScheduleType();
-
-  private:
-    /**
-      * The channel identifier of the manual schedule request.
-      */
-    std::string m_channelId;
-
-    /**
-      * The schedule type of the add schedule request.
-      */
-    DVBLinkScheduleType m_scheduleType;
-  };
   
+  class AddScheduleRequest : public Request, public Schedule
+  {
+  public:
+    virtual ~AddScheduleRequest() = 0;
+  };
+
   /**
     * Class for add manual schedule requests. 
     * This is used as input parameter for the DVBLinkClient::AddSchedule method.
     * @see DVBLinkClient::AddSchedule()
     */
-  class AddManualScheduleRequest : public AddScheduleRequest
+  class AddManualScheduleRequest : public ManualSchedule
   {
   public:
-    /**
-      * An enum to be used for constructing a bitflag for creating a manual schedule.
-      */
-    enum DVBLinkManualScheduleDayMask 
-    {
-      MANUAL_SCHEDULE_DAY_MASK_SUNDAY = 1, /**< Sunday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_MONDAY = 2, /**< Monday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_TUESDAY = 4, /**< Tuesday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_WEDNESDAY = 8, /**< Wednesday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_THURSDAY = 16, /**< Thursday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_FRIDAY = 32, /**< Friday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_SATURDAY = 64, /**< Saturday schedule. */
-      MANUAL_SCHEDULE_DAY_MASK_DAILY = 255 /**< Daily schedule. */
-    };
-
     /**
       * Initializes a new instance of the dvblinkremote::AddManualScheduleRequest class.
       * @param channelId a constant string reference representing the channel identifier.
@@ -785,45 +646,6 @@ namespace dvblinkremote {
       * Destructor for cleaning up allocated memory.
       */
     ~AddManualScheduleRequest();
-
-    /**
-      * The title of the add manual schedule request.
-      */
-    std::string Title;
-
-    /**
-      * Gets the start time for the add manual schedule request.
-      * @return Start time
-      */
-    long GetStartTime();
-
-    /**
-      * Gets the duration for the add manual schedule request.
-      * @return Duration
-      */
-    long GetDuration();
-    
-    /**
-      * Gets the day bitmask for the add manual schedule request.
-      * @return Day bitmask
-      */
-    long GetDayMask();
-
-  private:
-    /**
-      * The start time of the add manual schedule request.
-      */
-    long m_startTime;
-
-    /**
-      * The duration of the add manual schedule request.
-      */
-    long m_duration;
-
-    /**
-      * The day bitmask of the add manual schedule request.
-      */
-    long m_dayMask;
   };
 
   /**
@@ -831,7 +653,7 @@ namespace dvblinkremote {
     * This is used as input parameter for the DVBLinkClient::AddSchedule method.
     * @see DVBLinkClient::AddSchedule m()
     */
-  class AddScheduleByEpgRequest : public AddScheduleRequest
+  class AddScheduleByEpgRequest : public EpgSchedule
   {
   public:
     /**
@@ -852,53 +674,84 @@ namespace dvblinkremote {
       * Destructor for cleaning up allocated memory.
       */
     ~AddScheduleByEpgRequest();
-
-    /**
-      * Gets the program identifier for the add schedule request.
-      * @return Program identifier
-      */
-    std::string& GetProgramID();
-
-    /**
-      * The repeat flag for the add schedule request.
-      */
-    bool Repeat;
-
-    /**
-      * Flag representing if only new programs have to be recorded.
-      */
-    bool NewOnly;
-
-    /**
-      * Flag representing whether to record only series starting around 
-      * original program start time or any of them.
-      */
-    bool RecordSeriesAnytime;
-
-  private:
-    /**
-      * The program identifier for the add schedule request.
-      */
-    std::string m_programId;
   };
 
   /**
-    * Class for get recordings requests. 
-    * This is used as input parameter for the DVBLinkClient::GetRecordings method.
-    * @see DVBLinkClient::GetRecordings()
+    * Class for get schedules requests. 
+    * This is used as input parameter for the DVBLinkClient::GetSchedules method.
+    * @see DVBLinkClient::GetSchedules()
     */
-  class GetRecordingsRequest : public Request
+  class GetSchedulesRequest : public Request
   {
   public:
     /**
-      * Initializes a new instance of the dvblinkremote::GetRecordingsRequest class.
+      * Initializes a new instance of the dvblinkremote::GetSchedulesRequest class.
       */
-    GetRecordingsRequest();
+    GetSchedulesRequest();
 
     /**
       * Destructor for cleaning up allocated memory.
       */
-    ~GetRecordingsRequest();
+    ~GetSchedulesRequest();
+  };
+
+  /**
+    * Class for update schedule requests. 
+    * This is used as input parameter for the DVBLinkClient::UpdateSchedule method.
+    * @see DVBLinkClient::UpdateSchedule()
+    */
+  class UpdateScheduleRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::UpdateScheduleRequest class.
+      * @param scheduleId a constant string reference representing the schedule identifier.
+      * @param newOnly a constant boolean representing if only new programs 
+      * have to be recorded. Default value is <tt>false</tt>.
+      * @param recordSeriesAnytime a constant boolean representing whether to 
+      * record only series starting around original program start time or any of them. 
+      * Default value is <tt>false</tt>.
+      * @param recordingsToKeep a constant integer representing how many recordings to 
+      * keep for a repeated recording. Default value is <tt>0</tt>, i.e. keep all recordings.
+      * \remark \p recordingsToKeep accepted values (1, 2, 3, 4, 5, 6, 7, 10; 0 - keep all)
+      */
+    UpdateScheduleRequest(const std::string& scheduleId, const bool newOnly, const bool recordSeriesAnytime, const int recordingsToKeep);
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~UpdateScheduleRequest();
+
+    /**
+      * Gets the identifier for the schedule to be updated.
+      * @return Schedule identifier
+      */
+    std::string& GetScheduleID();
+
+    /**
+      * Gets if only new programs are going to be recorded for the schedule to be updated or not.
+      * @return boolean value
+      */
+    bool IsNewOnly();
+
+    /**
+      * Gets whether to record only series starting around original program start time or any of 
+      * them for the schedule to be updated.
+      * @return boolean value
+      */
+    bool WillRecordSeriesAnytime();
+
+    /**
+      * Gets how many recordings to keep for a repeated recording.
+      * @return integer value
+      */
+    int GetRecordingsToKeep();
+
+  private:
+    std::string m_scheduleId;
+    bool m_newOnly;
+    bool m_recordSeriesAnytime;
+    int m_recordingsToKeep;
   };
 
   /**
@@ -932,6 +785,25 @@ namespace dvblinkremote {
       * The identifier of the schedule to be removed.
       */
     std::string m_scheduleId;
+  };
+
+  /**
+    * Class for get recordings requests. 
+    * This is used as input parameter for the DVBLinkClient::GetRecordings method.
+    * @see DVBLinkClient::GetRecordings()
+    */
+  class GetRecordingsRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::GetRecordingsRequest class.
+      */
+    GetRecordingsRequest();
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~GetRecordingsRequest();
   };
 
   /**
@@ -1068,5 +940,253 @@ namespace dvblinkremote {
       * The parental lock code if \p m_enabled is \p true.
       */
     std::string m_code;
+  };
+
+  /**
+    * Class for get playback object requests. 
+    * This is used as input parameter for the DVBLinkClient::GetPlaybackObject method.
+    * @see DVBLinkClient::GetPlaybackObject()
+    */
+  class GetPlaybackObjectRequest : public Request
+  {
+  public:
+    /**
+      * An enum for requesting certain object types to be returned.
+      */
+    enum DVBLinkRequestedObjectType {
+      REQUESTED_OBJECT_TYPE_ALL = -1, /**< All requested object types will be returned */ 
+      REQUESTED_OBJECT_TYPE_CONTAINER = 0, /**< Container objects will be returned */ 
+      REQUESTED_OBJECT_TYPE_ITEM = 1 /**< Item objects will be returned */ 
+    };
+
+    /**
+      * An enum for requesting certain item types to be returned.
+      */
+    enum DVBLinkRequestedItemType {
+      REQUESTED_ITEM_TYPE_ALL = -1, /**< All requested item types will be returned */ 
+      REQUESTED_ITEM_TYPE_RECORDED_TV = 0, /**< Recorded TV items will be returned */ 
+      REQUESTED_ITEM_TYPE_VIDEO = 1, /**< Video items will be returned */ 
+      REQUESTED_ITEM_TYPE_AUDIO = 2, /**< Audio items will be returned */ 
+      REQUESTED_ITEM_TYPE_IMAGE = 3 /**< Image items will be returned */ 
+    };
+
+    /**
+      * Initializes a new instance of the dvblinkremote::GetPlaybackObjectRequest class to recieve 
+      * the DVBLink server container, i.e. the top level parent of all objects.
+      * @param serverAddress a constant string reference representing the DVBLink server address.
+      * \remark \p serverAddress is the IP address/server network name of the DVBLink server. 
+      */
+    GetPlaybackObjectRequest(const std::string& serverAddress);
+
+    /**
+      * Initializes a new instance of the dvblinkremote::GetPlaybackObjectRequest class.
+      * @param serverAddress a constant string reference representing the DVBLink server address.
+      * @param objectId a constant string reference representing the identifier of the playback 
+      * object to recieve.
+      * \remark \p serverAddress is the IP address/server network name of the DVBLink server. 
+      */
+    GetPlaybackObjectRequest(const std::string& serverAddress, const std::string& objectId);
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~GetPlaybackObjectRequest();
+
+    /**
+      * Gets the server address for the playback object request.
+      * @return Playback object request server address
+      * \remark Ip address/server network name of the DVBLink server. 
+      */
+    std::string& GetServerAddress();
+
+    /**
+      * Gets the identifier for the playback object to recieve.
+      * @return Playback object identifier
+      * \remark Default value is <tt>empty string</tt> which refers to 
+      * DVBLink server container, i.e. the top level parent of all objects.
+      */
+    std::string& GetObjectID();
+
+    /**
+      * Indicates which type of objects to be requested.
+      * \remark Default value is <tt>REQUESTED_OBJECT_TYPE_ALL</tt>.
+      */
+    DVBLinkRequestedObjectType RequestedObjectType;
+    
+    /**
+      * Indicates which type of items to be requested.
+      * \remark Default value is <tt>REQUESTED_ITEM_TYPE_ALL</tt>.
+      */
+    DVBLinkRequestedItemType RequestedItemType;
+
+    /**
+      * The start position of objects to be requested.
+      * \remark Default value is <tt>0</tt>.
+      */
+    int StartPosition;
+
+    /**
+      * The number of objects to be requested.
+      * \remark Default value is <tt>-1</tt>, e.g. all.
+      */
+    int RequestCount;
+
+    /**
+      * Indicates if child objects of requested <tt>object identifier</tt> 
+      * shall be included in result or not.
+      * \remark Default value is <tt>false</tt>. 
+      * \remark If <tt>false</tt> – returns information about object itself 
+      * as specified by its <tt>object identifier</tt>. 
+      * \remark If <tt>true</tt> – returns objects’ children objects – containers and items.
+      */
+    bool IncludeChildrenObjectsForRequestedObject;
+
+  private:
+    /**
+      * Ip address/server network name of the DVBLink server. 
+      */
+    std::string m_serverAddress;
+
+    /**
+      * Identifier for the playback object to recieve.
+      */
+    std::string m_objectId;
+  };
+
+  /**
+    * Class for remove playback object requests. 
+    * This is used as input parameter for the DVBLinkClient::RemovePlaybackObject method.
+    * @see DVBLinkClient::RemovePlaybackObject()
+    */
+  class RemovePlaybackObjectRequest : public Request 
+  {
+  public:
+    RemovePlaybackObjectRequest(const std::string& objectId);
+    ~RemovePlaybackObjectRequest();
+
+    /**
+      * Gets the identifier for the playback object to be removed.
+      * @return Playback object identifier
+      */
+    std::string& GetObjectID();
+
+  private:
+    /**
+      * The identifier of the playback object to be removed.
+      */
+    std::string m_objectID;
+  };
+
+  /**
+    * Class for stop recording requests. 
+    * This is used as input parameter for the DVBLinkClient::StopRecording method.
+    * @see DVBLinkClient::StopRecording()
+    */
+  class StopRecordingRequest : public Request 
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::GetRecordingsRequest class.
+      * @param objectId a constant string reference representing the object identifier 
+      * of the recording to be stopped.
+      */
+    StopRecordingRequest(const std::string& objectId);
+    
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~StopRecordingRequest();
+
+    /**
+      * Gets the object identifier for the recording to be stopped.
+      * @return Recording object identifier
+      */
+    std::string& GetObjectID();
+
+  private:
+    /**
+      * The identifier of the recording to be stopped.
+      */
+    std::string m_objectId;
+  };
+
+  /**
+    * Class for get streaming capabilities requests. 
+    * This is used as input parameter for the DVBLinkClient::GetStreamingCapabilities method.
+    * @see DVBLinkClient::GetStreamingCapabilities()
+    */
+  class GetStreamingCapabilitiesRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::GetStreamingCapabilitiesRequest class.
+      */
+    GetStreamingCapabilitiesRequest();
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~GetStreamingCapabilitiesRequest();
+  };
+
+  /**
+    * Class for get recording settings requests. 
+    * This is used as input parameter for the DVBLinkClient::GetRecordingSettings method.
+    * @see DVBLinkClient::GetRecordingSettings()
+    */
+  class GetRecordingSettingsRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::GetRecordingSettingsRequest class.
+      */
+    GetRecordingSettingsRequest();
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~GetRecordingSettingsRequest();
+  };
+
+  /**
+    * Class for set recording settings requests. 
+    * This is used as input parameter for the DVBLinkClient::SetRecordingSettings method.
+    * @see DVBLinkClient::SetRecordingSettings()
+    */
+  class SetRecordingSettingsRequest : public Request
+  {
+  public:
+    /**
+      * Initializes a new instance of the dvblinkremote::SetRecordingSettingsRequest class.
+      */
+    SetRecordingSettingsRequest(const int timeMarginBeforeScheduledRecordings, const int timeMarginAfterScheduledRecordings, const std::string& recordingPath);
+
+    /**
+      * Destructor for cleaning up allocated memory.
+      */
+    ~SetRecordingSettingsRequest();
+
+    /**
+      * Gets the configured time margin before a schedule recording is started.
+      * @return Number of seconds before a schedule recording is started
+      */
+    int GetTimeMarginBeforeScheduledRecordings();
+
+    /**
+      * Gets the configured time margin after a schedule recording is stopped.
+      * @return Number of seconds after a schedule recording is stopped
+      */
+    int GetTimeMarginAfterScheduledRecordings();
+
+    /**
+      * Gets the configured file system path where recordings will be stored.
+      * @return Configured file system path 
+      */
+    std::string& GetRecordingPath();
+
+  private:
+    int m_timeMarginBeforeScheduledRecordings;
+    int m_timeMarginAfterScheduledRecordings;
+    std::string m_recordingPath;
   };
 }

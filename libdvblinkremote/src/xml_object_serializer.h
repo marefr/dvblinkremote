@@ -134,12 +134,6 @@ namespace dvblinkremoteserialization {
     };
   };
 
-  class MultimediaInfoSerializer
-  {
-  public:
-    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::MultimediaInfo& multimediaInfo);
-  };
-
   class ProgramSerializer
   {
   public:
@@ -167,6 +161,12 @@ namespace dvblinkremoteserialization {
     bool WriteObject(std::string& serializedData, StopStreamRequest& objectGraph);
   };
 
+  class AddScheduleRequestSerializer : public XmlObjectSerializer<AddScheduleRequest>
+  {
+  public:
+    AddScheduleRequestSerializer() : XmlObjectSerializer<AddScheduleRequest>() { }
+    bool WriteObject(std::string& serializedData, AddScheduleRequest& objectGraph);
+  };
 
   class GetSchedulesRequestSerializer : public XmlObjectSerializer<GetSchedulesRequest>
   {
@@ -175,32 +175,31 @@ namespace dvblinkremoteserialization {
     bool WriteObject(std::string& serializedData, GetSchedulesRequest& objectGraph);
   };
 
-
-  class GetSchedulesResponseSerializer : public XmlObjectSerializer<ScheduleList>
+  class GetSchedulesResponseSerializer : public XmlObjectSerializer<StoredSchedules>
   {
   public:
-    GetSchedulesResponseSerializer() : XmlObjectSerializer<ScheduleList>() { }
-    bool ReadObject(ScheduleList& object, const std::string& xml);
+    GetSchedulesResponseSerializer() : XmlObjectSerializer<StoredSchedules>() { }
+    bool ReadObject(StoredSchedules& object, const std::string& xml);
 
   private:
     class GetSchedulesResponseXmlDataDeserializer : public tinyxml2::XMLVisitor
     {
     private:
       GetSchedulesResponseSerializer& m_parent;
-      ScheduleList& m_scheduleList;
+      StoredSchedules& m_storedSchedules;
 
     public:
-      GetSchedulesResponseXmlDataDeserializer(GetSchedulesResponseSerializer& parent, ScheduleList& scheduleList);
+      GetSchedulesResponseXmlDataDeserializer(GetSchedulesResponseSerializer& parent, StoredSchedules& storedSchedules);
       ~GetSchedulesResponseXmlDataDeserializer();
       bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
     };
   };
 
-  class AddScheduleRequestSerializer : public XmlObjectSerializer<AddScheduleRequest>
+  class UpdateScheduleRequestSerializer : public XmlObjectSerializer<UpdateScheduleRequest>
   {
   public:
-    AddScheduleRequestSerializer() : XmlObjectSerializer<AddScheduleRequest>() { }
-    bool WriteObject(std::string& serializedData, AddScheduleRequest& objectGraph);
+    UpdateScheduleRequestSerializer() : XmlObjectSerializer<UpdateScheduleRequest>() { }
+    bool WriteObject(std::string& serializedData, UpdateScheduleRequest& objectGraph);
   };
 
   class GetRecordingsRequestSerializer : public XmlObjectSerializer<GetRecordingsRequest>
@@ -265,61 +264,101 @@ namespace dvblinkremoteserialization {
     bool WriteObject(std::string& serializedData, SetParentalLockRequest& objectGraph);
   };
 
-  class RemoveObjectRequestSerializer : public XmlObjectSerializer<RemoveObjectRequest>
+  class GetPlaybackObjectRequestSerializer : public XmlObjectSerializer<GetPlaybackObjectRequest>
   {
   public:
-    RemoveObjectRequestSerializer() : XmlObjectSerializer<RemoveObjectRequest>() { }
-    bool WriteObject(std::string& serializedData, RemoveObjectRequest& objectGraph);
+    GetPlaybackObjectRequestSerializer() : XmlObjectSerializer<GetPlaybackObjectRequest>() { }
+    bool WriteObject(std::string& serializedData, GetPlaybackObjectRequest& objectGraph);
   };
 
-
-  class GetObjectRequestSerializer : public XmlObjectSerializer<GetObjectRequest>
+  class GetPlaybackObjectResponseSerializer : public XmlObjectSerializer<GetPlaybackObjectResponse>
   {
   public:
-    GetObjectRequestSerializer() : XmlObjectSerializer<GetObjectRequest>() { }
-    bool WriteObject(std::string& serializedData, GetObjectRequest& objectGraph);
-  };
+    GetPlaybackObjectResponseSerializer() : XmlObjectSerializer<GetPlaybackObjectResponse>() { }
+    bool ReadObject(GetPlaybackObjectResponse& object, const std::string& xml);
 
-  class GetObjectResponseSerializer : public XmlObjectSerializer<GetObjectResult>
-  {
-  public:
-    GetObjectResponseSerializer() : XmlObjectSerializer<GetObjectResult>() { }
-    bool ReadObject(GetObjectResult& object, const std::string& xml);
-
-  private:
-    
-    class ContainerXmlDataDeserializer : public tinyxml2::XMLVisitor
+  private:    
+    class PlaybackContainerXmlDataDeserializer : public tinyxml2::XMLVisitor
     {
     private:
-      GetObjectResponseSerializer& m_parent;
-      ContainerList& m_containers;
+      GetPlaybackObjectResponseSerializer& m_parent;
+      PlaybackContainerList& m_playbackContainerList;
 
     public:
-      ContainerXmlDataDeserializer(GetObjectResponseSerializer& parent, ContainerList& containers);
-      ~ContainerXmlDataDeserializer();
+      PlaybackContainerXmlDataDeserializer(GetPlaybackObjectResponseSerializer& parent, PlaybackContainerList& playbackContainerlist);
+      ~PlaybackContainerXmlDataDeserializer();
       bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
     };
 
-    class ItemXmlDataDeserializer : public tinyxml2::XMLVisitor
+    class PlaybackItemXmlDataDeserializer : public tinyxml2::XMLVisitor
     {
     private:
-      GetObjectResponseSerializer& m_parent;
-      ItemList& m_items;
+      GetPlaybackObjectResponseSerializer& m_parent;
+      PlaybackItemList& m_playbackItemList;
 
     public:
-      ItemXmlDataDeserializer(GetObjectResponseSerializer& parent, ItemList& items);
-      ~ItemXmlDataDeserializer();
+      PlaybackItemXmlDataDeserializer(GetPlaybackObjectResponseSerializer& parent, PlaybackItemList& playbackItemList);
+      ~PlaybackItemXmlDataDeserializer();
       bool VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute);
     };
   };
 
-
-  class VideoInfoSerializer
+  class RemovePlaybackObjectRequestSerializer : public XmlObjectSerializer<RemovePlaybackObjectRequest>
   {
   public:
-    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::VideoInfo& videoinfo);
+    RemovePlaybackObjectRequestSerializer() : XmlObjectSerializer<RemovePlaybackObjectRequest>() { }
+    bool WriteObject(std::string& serializedData, RemovePlaybackObjectRequest& objectGraph);
   };
 
+  class StopRecordingRequestSerializer : public XmlObjectSerializer<StopRecordingRequest>
+  {
+  public:
+    StopRecordingRequestSerializer() : XmlObjectSerializer<StopRecordingRequest>() { }
+    bool WriteObject(std::string& serializedData, StopRecordingRequest& objectGraph);
+  };
+
+  class GetStreamingCapabilitiesRequestSerializer : public XmlObjectSerializer<GetStreamingCapabilitiesRequest>
+  {
+  public:
+    GetStreamingCapabilitiesRequestSerializer() : XmlObjectSerializer<GetStreamingCapabilitiesRequest>() { }
+    bool WriteObject(std::string& serializedData, GetStreamingCapabilitiesRequest& objectGraph);
+  };
+
+  class StreamingCapabilitiesSerializer : public XmlObjectSerializer<StreamingCapabilities>
+  {
+  public:
+    StreamingCapabilitiesSerializer() : XmlObjectSerializer<StreamingCapabilities>() { }
+    bool ReadObject(StreamingCapabilities& object, const std::string& xml);
+  };
+
+  class GetRecordingSettingsRequestSerializer : public XmlObjectSerializer<GetRecordingSettingsRequest>
+  {
+  public:
+    GetRecordingSettingsRequestSerializer() : XmlObjectSerializer<GetRecordingSettingsRequest>() { }
+    bool WriteObject(std::string& serializedData, GetRecordingSettingsRequest& objectGraph);
+  };
+
+  class RecordingSettingsSerializer : public XmlObjectSerializer<RecordingSettings>
+  {
+  public:
+    RecordingSettingsSerializer() : XmlObjectSerializer<RecordingSettings>() { }
+    bool ReadObject(RecordingSettings& object, const std::string& xml);
+  };
+
+  class SetRecordingSettingsRequestSerializer : public XmlObjectSerializer<SetRecordingSettingsRequest>
+  {
+  public:
+    SetRecordingSettingsRequestSerializer() : XmlObjectSerializer<SetRecordingSettingsRequest>() { }
+    bool WriteObject(std::string& serializedData, SetRecordingSettingsRequest& objectGraph);
+  };
+
+  class ItemMetadataSerializer
+  {
+  public:
+    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, ItemMetadata& itemMetadata);
+    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, RecordedTvItemMetadata& metadata);
+    static void Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, VideoItemMetadata& metadata);
+  };
 
   template<class T>
   XmlObjectSerializer<T>::XmlObjectSerializer() 

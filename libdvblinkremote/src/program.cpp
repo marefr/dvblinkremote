@@ -28,22 +28,22 @@ using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
 Program::Program()
-  : m_id(""),
-    MultimediaInfo()
+  : ItemMetadata(),
+    m_id("")
 {
   
 }
 
 Program::Program(const std::string& id, const std::string& title, const long startTime, const long duration)
-  : m_id(id),
-    MultimediaInfo(title, startTime, duration)
+  : ItemMetadata(title, startTime, duration),
+    m_id(id)
 {
   
 }
 
 Program::Program(Program& program) 
-  : m_id(program.GetID()), 
-    MultimediaInfo((MultimediaInfo&)program)
+  : ItemMetadata((ItemMetadata&)program),
+    m_id(program.GetID())
 {
   
 }
@@ -65,6 +65,6 @@ void Program::SetID(const std::string& id)
 
 void ProgramSerializer::Deserialize(XmlObjectSerializer<Response>& objectSerializer, const tinyxml2::XMLElement& element, dvblinkremote::Program& program)
 {
-  MultimediaInfoSerializer::Deserialize(objectSerializer, element, (MultimediaInfo&)program);
+  ItemMetadataSerializer::Deserialize(objectSerializer, element, (ItemMetadata&)program);
   program.SetID(Util::GetXmlFirstChildElementText(&element, "program_id"));
 }

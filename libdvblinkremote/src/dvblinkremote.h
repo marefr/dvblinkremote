@@ -27,6 +27,7 @@
 #include "dvblinkremotehttp.h"
 #include "response.h"
 #include "request.h"
+#include "scheduling.h"
 #include "version.h"
 
 /**
@@ -327,22 +328,26 @@ namespace dvblinkremote
     virtual DVBLinkRemoteStatusCode StopChannel(const StopStreamRequest& request) = 0;
 
     /**
-      * Gets a list of all schedules.
-      * @param[in]      request   A constant GetSchedulesRequest reference representing the get schedules request criterias.
-      * @param[in,out]  response  A ScheduleList reference that will be populated with Schedule objects.
-      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
-      */
-    virtual DVBLinkRemoteStatusCode GetSchedules(const GetSchedulesRequest& request, ScheduleList& response) = 0;
-    
-    /**
       * Add a schedule.
       * @param[in] request A constant AddScheduleRequest reference representing the add schedule request criterias.
       * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
       */
     virtual DVBLinkRemoteStatusCode AddSchedule(const AddScheduleRequest& request) = 0;
+
+    /**
+      * Gets a list of all schedules.
+      * @param[in]      request   A constant GetSchedulesRequest reference representing the get schedules request criterias.
+      * @param[in,out]  response  A ScheduleList reference that will be populated with Schedule objects.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetSchedules(const GetSchedulesRequest& request, StoredSchedules& response) = 0;
     
-    // To be implmented
-    //virtual DVBLinkRemoteStatusCode UpdateSchedule(const UpdateScheduleRequest& request) = 0;
+    /**
+      * Update a schedule.
+      * @param[in] request A constant UpdateScheduleReqest reference representing the update schedule request criterias.
+      * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode UpdateSchedule(const UpdateScheduleRequest& request) = 0;
 
     /**
       * Remove a schedule.
@@ -366,9 +371,6 @@ namespace dvblinkremote
       */
     virtual DVBLinkRemoteStatusCode RemoveRecording(const RemoveRecordingRequest& request) = 0;
 
-    // To be implemented
-    //virtual DVBLinkRemoteStatusCode StopRecording(const StopRecordingRequest& request) = 0;
-
     /**
       * Get parental status.
       * @param[in]      request   A constant GetParentalStatusRequest reference representing the get parental status request criterias.
@@ -388,20 +390,50 @@ namespace dvblinkremote
     // To be implemented
     //virtual DVBLinkRemoteStatusCode GetM3uPlaylist(const GetM3uPlaylistRequest& request, M3uPlaylistFile response) = 0;
 
-    //TODO: PAE: Missing description
-    virtual DVBLinkRemoteStatusCode RemoveObject(const RemoveObjectRequest& request) = 0;
-
-    //TODO: PAE: Missing description
-    virtual DVBLinkRemoteStatusCode GetObject(const GetObjectRequest& request, GetObjectResult & response ) = 0;
+    /**
+      * Gets a playback object.
+      * @param[in]      request   A constant GetPlaybackObjectRequest reference representing the get playback object request criterias.
+      * @param[in,out]  response  A GetObjectResult reference that will be populated with playback object details.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetPlaybackObject(const GetPlaybackObjectRequest& request, GetPlaybackObjectResponse& response ) = 0;
     
-    // To be implemented
-    //virtual DVBLinkRemoteStatusCode GetStreamingCapabilities(const GetStreamingCapabilitiesRequest& request, StreamingCapabilities& response) = 0;
+    /**
+      * Remove a playback object.
+      * @param[in] request A constant RemovePlaybackObjectRequest reference representing the remove playback object request criterias.
+      * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode RemovePlaybackObject(const RemovePlaybackObjectRequest& request) = 0;
 
-    // To be implemented
-    //virtual DVBLinkRemoteStatusCode GetRecordingSettings(const GetRecordingSettingsRequest& request, SavedRecordingSettings& response) = 0;
+    /**
+      * Stops a recording.
+      * @param[in] request A constant StopRecordingRequest reference representing the stop recording request criterias.
+      * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode StopRecording(const StopRecordingRequest& request) = 0;
 
-    // To be implemented
-    //virtual DVBLinkRemoteStatusCode SetRecordingSettings(const SetRecordingSettingsRequest& request) = 0;
+    /**
+      * Gets streams and protocols actually supported by a given instance of DVBLink server.
+      * @param[in]      request   A constant GetStreamingCapabilitiesRequest reference representing the get streaming capabilities request criterias.
+      * @param[in,out]  response  A StreamingCapabilities reference that will be populated with streaming capability details.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetStreamingCapabilities(const GetStreamingCapabilitiesRequest& request, StreamingCapabilities& response) = 0;
+
+    /**
+      * Gets recording settings.
+      * @param[in]      request   A constant GetRecordingSettingsRequest reference representing the get recording settings request criterias.
+      * @param[in,out]  response  A RecordingSettings reference that will be populated with recording settings details.
+      * @return                   A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode GetRecordingSettings(const GetRecordingSettingsRequest& request, RecordingSettings& response) = 0;
+
+    /**
+      * Sets the recording settings.
+      * @param[in] request A constant SetRecordingSettingsRequest reference representing the set recording settings request criterias.
+      * @return            A DVBLinkRemoteStatusCode representing the status of the executed method.
+      */
+    virtual DVBLinkRemoteStatusCode SetRecordingSettings(const SetRecordingSettingsRequest& request) = 0;
 
     /**
       * Gets a description of the last occured error.

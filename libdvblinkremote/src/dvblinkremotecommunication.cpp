@@ -137,25 +137,24 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::RemoveRecording(const Remove
   return status;
 }
 
-
-DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::RemoveObject(const RemoveObjectRequest& request)
-{
-	Response* response = new Response();
-	DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_REMOVE_OBJECT_CMD, request, *response);
-	delete response;
-
-	return status;
-}
-
-DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetSchedules(const GetSchedulesRequest& request, ScheduleList& response)
-{
-	return GetData(DVBLINK_REMOTE_GET_SCHEDULES_CMD, request, response);
-}
-
 DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::AddSchedule(const AddScheduleRequest& request)
 {
   Response* response = new Response();
   DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_ADD_SCHEDULE_CMD, request, *response);
+  delete response;
+
+  return status;
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetSchedules(const GetSchedulesRequest& request, StoredSchedules& response)
+{
+  return GetData(DVBLINK_REMOTE_GET_SCHEDULES_CMD, request, response);
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::UpdateSchedule(const UpdateScheduleRequest& request)
+{
+  Response* response = new Response();
+  DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_UPDATE_SCHEDULE_CMD, request, *response);
   delete response;
 
   return status;
@@ -180,9 +179,46 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::SetParentalLock(const SetPar
   return GetData(DVBLINK_REMOTE_SET_PARENTAL_LOCK_CMD, request, response);
 }
 
-DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetObject(const GetObjectRequest& request, GetObjectResult& response )
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetPlaybackObject(const GetPlaybackObjectRequest& request, GetPlaybackObjectResponse& response )
 {
-	return GetData(DVBLINK_REMOTE_GET_OBJECT_CMD, request,response);
+  return GetData(DVBLINK_REMOTE_GET_OBJECT_CMD, request,response);
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::RemovePlaybackObject(const RemovePlaybackObjectRequest& request)
+{
+  Response* response = new Response();
+  DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_REMOVE_OBJECT_CMD, request, *response);
+  delete response;
+
+  return status;
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::StopRecording(const StopRecordingRequest& request)
+{
+  Response* response = new Response();
+  DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_STOP_RECORDING_CMD, request, *response);
+  delete response;
+
+  return status;
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetStreamingCapabilities(const GetStreamingCapabilitiesRequest& request, StreamingCapabilities& response)
+{
+  return GetData(DVBLINK_REMOTE_GET_STREAMING_CAPABILITIES_CMD, request, response);
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetRecordingSettings(const GetRecordingSettingsRequest& request, RecordingSettings& response)
+{
+  return GetData(DVBLINK_REMOTE_GET_RECORDING_SETTINGS_CMD, request, response);
+}
+
+DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::SetRecordingSettings(const SetRecordingSettingsRequest& request)
+{
+  Response* response = new Response();
+  DVBLinkRemoteStatusCode status = GetData(DVBLINK_REMOTE_SET_RECORDING_SETTING_CMD, request, *response);
+  delete response;
+
+  return status;
 }
 
 std::string DVBLinkRemoteCommunication::GetUrl()

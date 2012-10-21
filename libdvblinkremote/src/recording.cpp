@@ -22,8 +22,10 @@
  ***************************************************************************/
 
 #include "response.h"
+#include "xml_object_serializer.h"
 
 using namespace dvblinkremote;
+using namespace dvblinkremoteserialization;
 
 Recording::Recording(const std::string& id, const std::string& scheduleId, const std::string& channelId, const Program* program)
   : m_id(id), 
@@ -76,4 +78,131 @@ RecordingList::~RecordingList()
   {
     delete (*it);
   }
+}
+
+GetRecordingsRequest::GetRecordingsRequest()
+{
+
+}
+
+GetRecordingsRequest::~GetRecordingsRequest()
+{
+
+}
+
+bool GetRecordingsRequestSerializer::WriteObject(std::string& serializedData, GetRecordingsRequest& objectGraph)
+{
+  PrepareXmlDocumentForObjectSerialization("recordings");    
+  tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    
+  GetXmlDocument().Accept(printer);
+  serializedData = std::string(printer->CStr());
+  
+  return true;
+}
+
+bool GetRecordingsResponseSerializer::ReadObject(RecordingList& object, const std::string& xml)
+{
+  tinyxml2::XMLDocument& doc = GetXmlDocument();
+    
+  if (doc.Parse(xml.c_str()) == tinyxml2::XML_NO_ERROR) {
+    tinyxml2::XMLElement* elRoot = doc.FirstChildElement("recordings");
+    GetRecordingsResponseXmlDataDeserializer* xmlDataDeserializer = new GetRecordingsResponseXmlDataDeserializer(*this, object);
+    elRoot->Accept(xmlDataDeserializer);
+    delete xmlDataDeserializer;
+    
+    return true;
+  }
+
+  return false;
+}
+
+GetRecordingsResponseSerializer::GetRecordingsResponseXmlDataDeserializer::GetRecordingsResponseXmlDataDeserializer(GetRecordingsResponseSerializer& parent, RecordingList& recordingList) 
+  : m_parent(parent), 
+    m_recordingList(recordingList) 
+{ }
+
+GetRecordingsResponseSerializer::GetRecordingsResponseXmlDataDeserializer::~GetRecordingsResponseXmlDataDeserializer()
+{ }
+
+bool GetRecordingsResponseSerializer::GetRecordingsResponseXmlDataDeserializer::VisitEnter(const tinyxml2::XMLElement& element, const tinyxml2::XMLAttribute* attribute)
+{
+  if (strcmp(element.Name(), "recording") == 0) 
+  {    
+    std::string recordingId = Util::GetXmlFirstChildElementText(&element, "recording_id");
+    std::string scheduleId = Util::GetXmlFirstChildElementText(&element, "schedule_id");
+    std::string channelId = Util::GetXmlFirstChildElementText(&element, "channel_id");
+    
+    tinyxml2::XMLElement* pEl = (tinyxml2::XMLElement*)(&element)->FirstChildElement("program");
+    
+    Program* p = new Program();
+    ProgramSerializer::Deserialize((XmlObjectSerializer<Response>&)m_parent, *pEl, *p);
+
+    Recording* r = new Recording(recordingId, scheduleId, channelId, p);
+      
+    if (m_parent.HasChildElement(element, "is_active")) {
+      r->IsActive = Util::GetXmlFirstChildElementTextAsBoolean(&element, "is_active");
+    }
+
+    m_recordingList.push_back(r);
+
+    return false;
+  }
+
+  return true;
+}
+
+RemoveRecordingRequest::RemoveRecordingRequest(const std::string& recordingId) 
+  : m_recordingId(recordingId)
+{
+
+}
+
+RemoveRecordingRequest::~RemoveRecordingRequest()
+{
+
+}
+
+std::string& RemoveRecordingRequest::GetRecordingID() 
+{ 
+  return m_recordingId; 
+}
+
+bool RemoveRecordingRequestSerializer::WriteObject(std::string& serializedData, RemoveRecordingRequest& objectGraph)
+{
+  tinyxml2::XMLElement* rootElement = PrepareXmlDocumentForObjectSerialization("remove_recording");
+  rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "recording_id", objectGraph.GetRecordingID()));
+    
+  tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    
+  GetXmlDocument().Accept(printer);
+  serializedData = std::string(printer->CStr());
+  
+  return true;
+}
+
+StopRecordingRequest::StopRecordingRequest(const std::string& objectId) 
+  : m_objectId(objectId)
+{
+
+}
+
+StopRecordingRequest::~StopRecordingRequest()
+{
+
+}
+
+std::string& StopRecordingRequest::GetObjectID() 
+{ 
+  return m_objectId; 
+}
+
+bool StopRecordingRequestSerializer::WriteObject(std::string& serializedData, StopRecordingRequest& objectGraph)
+{
+  tinyxml2::XMLElement* rootElement = PrepareXmlDocumentForObjectSerialization("stop_recording");
+  rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "object_id", objectGraph.GetObjectID()));
+    
+  tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    
+  GetXmlDocument().Accept(printer);
+  serializedData = std::string(printer->CStr());
+ 
+  return true;
 }

@@ -22,27 +22,36 @@
  ***************************************************************************/
 
 #include "request.h"
+#include "xml_object_serializer.h"
 
 using namespace dvblinkremote;
+using namespace dvblinkremoteserialization;
 
-AddScheduleRequest::AddScheduleRequest(const DVBLinkScheduleType scheduleType, const std::string& channelId, const int recordingsToKeep) 
-  : m_scheduleType(scheduleType), m_channelId(channelId), RecordingsToKeep(recordingsToKeep)
-{ 
-  UserParameter = "";
-  ForceAdd = false;
-}
-
-AddScheduleRequest::~AddScheduleRequest()
+RemovePlaybackObjectRequest::RemovePlaybackObjectRequest(const std::string& objectId) 
+  : m_objectID(objectId)
 {
 
 }
 
-std::string& AddScheduleRequest::GetChannelID() 
+RemovePlaybackObjectRequest::~RemovePlaybackObjectRequest()
 { 
-  return m_channelId; 
+
 }
 
-AddScheduleRequest::DVBLinkScheduleType& AddScheduleRequest::GetScheduleType() 
+std::string& RemovePlaybackObjectRequest::GetObjectID()
 { 
-  return m_scheduleType; 
+  return m_objectID;
 }
+
+bool RemovePlaybackObjectRequestSerializer::WriteObject(std::string& serializedData, RemovePlaybackObjectRequest& objectGraph)
+{
+  tinyxml2::XMLElement* rootElement = PrepareXmlDocumentForObjectSerialization("object_remover");
+  rootElement->InsertEndChild(Util::CreateXmlElementWithText(&GetXmlDocument(), "object_id", objectGraph.GetObjectID()));
+    
+  tinyxml2::XMLPrinter* printer = new tinyxml2::XMLPrinter();    
+  GetXmlDocument().Accept(printer);
+  serializedData = std::string(printer->CStr());
+  
+  return true;
+}
+
