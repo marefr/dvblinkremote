@@ -139,10 +139,6 @@ VideoItem::~VideoItem()
 
 }
 
-PlaybackItemList::PlaybackItemList()
-{
-
-}
 PlaybackItemList::~PlaybackItemList()
 {
   for (std::vector<PlaybackItem*>::iterator it = begin(); it < end(); it++) 

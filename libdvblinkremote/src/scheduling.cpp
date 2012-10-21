@@ -22,8 +22,6 @@
  ***************************************************************************/
 
 #include "scheduling.h"
-#include "request.h"
-#include "response.h"
 #include "xml_object_serializer.h"
 
 using namespace dvblinkremote;
@@ -241,6 +239,40 @@ bool GetSchedulesRequestSerializer::WriteObject(std::string& serializedData, Get
   return true;
 }
 
+StoredManualSchedule::StoredManualSchedule(const std::string& id, const std::string& channelId, const long startTime, const long duration, const long dayMask, const std::string& title)
+  : ManualSchedule(id, channelId, startTime, duration, dayMask, title)
+{
+
+}
+
+StoredManualSchedule::~StoredManualSchedule()
+{ }
+
+StoredManualScheduleList::~StoredManualScheduleList()
+{
+  for (std::vector<StoredManualSchedule*>::const_iterator it = begin(); it < end(); it++) 
+  {
+    delete (*it);
+  }
+}
+
+StoredEpgSchedule::StoredEpgSchedule(const std::string& id, const std::string& channelId, const std::string& programId, const bool repeat, const bool newOnly, const bool recordSeriesAnytime)
+  : EpgSchedule(id, channelId, programId, repeat, newOnly, recordSeriesAnytime)
+{
+
+}
+
+StoredEpgSchedule::~StoredEpgSchedule()
+{ }
+
+StoredEpgScheduleList::~StoredEpgScheduleList()
+{
+  for (std::vector<StoredEpgSchedule*>::const_iterator it = begin(); it < end(); it++) 
+  {
+    delete (*it);
+  }
+}
+
 StoredSchedules::StoredSchedules()
 {
   m_manualScheduleList = new StoredManualScheduleList();
@@ -266,22 +298,6 @@ StoredManualScheduleList& StoredSchedules::GetManualSchedules()
 StoredEpgScheduleList& StoredSchedules::GetEpgSchedules() 
 {
   return *m_epgScheduleList;
-}
-
-StoredManualScheduleList::~StoredManualScheduleList()
-{
-  for (std::vector<StoredManualSchedule*>::const_iterator it = begin(); it < end(); it++) 
-  {
-    delete (*it);
-  }
-}
-
-StoredEpgScheduleList::~StoredEpgScheduleList()
-{
-  for (std::vector<StoredEpgSchedule*>::const_iterator it = begin(); it < end(); it++) 
-  {
-    delete (*it);
-  }
 }
 
 bool GetSchedulesResponseSerializer::ReadObject(StoredSchedules& object, const std::string& xml)

@@ -168,6 +168,11 @@ ItemMetadata::ItemMetadata(ItemMetadata& itemMetadata)
   IsCatAdult = itemMetadata.IsCatAdult;
 }
 
+ItemMetadata::~ItemMetadata() 
+{
+
+}
+
 std::string& ItemMetadata::GetTitle() 
 { 
   return m_title; 

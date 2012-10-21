@@ -71,7 +71,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -97,8 +97,10 @@ if not  exist "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\" mkdi
 COPY /Y "$(SolutionDir)..\..\src\curlhttpclient.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\curlhttpclient.h"
 COPY /Y "$(SolutionDir)..\..\src\dvblinkremote.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\dvblinkremote.h"
 COPY /Y "$(SolutionDir)..\..\src\dvblinkremotehttp.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\dvblinkremotehttp.h"
+COPY /Y "$(SolutionDir)..\..\src\dvblinkremoteserialization.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\dvblinkremoteserialization.h"
 COPY /Y "$(SolutionDir)..\..\src\request.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\request.h"
 COPY /Y "$(SolutionDir)..\..\src\response.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\response.h"
+COPY /Y "$(SolutionDir)..\..\src\scheduling.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\scheduling.h"
 COPY /Y "$(SolutionDir)..\..\src\version.h" "$(SolutionDir)..\..\..\dvblinkremote\include\$(TargetName)\version.h"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

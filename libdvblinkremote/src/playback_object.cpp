@@ -122,6 +122,16 @@ GetPlaybackObjectResponse::~GetPlaybackObjectResponse()
   }
 }
 
+PlaybackContainerList& GetPlaybackObjectResponse::GetPlaybackContainers()
+{
+  return *m_playbackContainerList;
+}
+
+PlaybackItemList& GetPlaybackObjectResponse::GetPlaybackItems() 
+{
+  return *m_playbackItemList;
+}
+
 bool GetPlaybackObjectResponseSerializer::ReadObject(GetPlaybackObjectResponse& object, const std::string& xml)
 {
   tinyxml2::XMLDocument& doc = GetXmlDocument();

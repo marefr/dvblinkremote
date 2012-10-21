@@ -843,11 +843,6 @@ namespace dvblinkremote {
   {
   public:
     /**
-      * Initializes a new instance of the dvblinkremote::PlaybackContainerList class.
-      */
-    PlaybackContainerList();
-
-    /**
       * Destructor for cleaning up allocated memory.
       */
    ~PlaybackContainerList(); 
@@ -1102,11 +1097,6 @@ namespace dvblinkremote {
   class PlaybackItemList : public std::vector<PlaybackItem*>
   {
   public:
-    /**
-      * Initializes a new instance of the dvblinkremote::PlaybackItemList class.
-      */
-    PlaybackItemList();
-
     /**
       * Destructor for cleaning up allocated memory.
       */

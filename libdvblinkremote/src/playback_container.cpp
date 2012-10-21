@@ -58,9 +58,6 @@ PlaybackContainer::DVBLinkPlaybackContainerContentType& PlaybackContainer::GetCo
   return m_containerContentType;
 }
 
-PlaybackContainerList::PlaybackContainerList()
-{ }
-
 PlaybackContainerList::~PlaybackContainerList()
 {
   for (std::vector<PlaybackContainer*>::iterator it = begin(); it < end(); it++) 
