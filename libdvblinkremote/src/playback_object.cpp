@@ -31,8 +31,8 @@ using namespace dvblinkremoteserialization;
 GetPlaybackObjectRequest::GetPlaybackObjectRequest(const std::string& serverAddress)
   : m_serverAddress(serverAddress), 
     m_objectId(""), 
-    RequestedObjectType(DVBLinkRequestedObjectType::REQUESTED_OBJECT_TYPE_ALL), 
-    RequestedItemType(DVBLinkRequestedItemType::REQUESTED_ITEM_TYPE_ALL),
+    RequestedObjectType(GetPlaybackObjectRequest::REQUESTED_OBJECT_TYPE_ALL), 
+    RequestedItemType(GetPlaybackObjectRequest::REQUESTED_ITEM_TYPE_ALL),
     StartPosition(0), 
     RequestCount(-1), 
     IncludeChildrenObjectsForRequestedObject(false)
@@ -43,8 +43,8 @@ GetPlaybackObjectRequest::GetPlaybackObjectRequest(const std::string& serverAddr
 GetPlaybackObjectRequest::GetPlaybackObjectRequest(const std::string& serverAddress, const std::string& objectId)
   : m_serverAddress(serverAddress), 
     m_objectId(objectId), 
-    RequestedObjectType(DVBLinkRequestedObjectType::REQUESTED_OBJECT_TYPE_ALL), 
-    RequestedItemType(DVBLinkRequestedItemType::REQUESTED_ITEM_TYPE_ALL),
+    RequestedObjectType(GetPlaybackObjectRequest::REQUESTED_OBJECT_TYPE_ALL), 
+    RequestedItemType(GetPlaybackObjectRequest::REQUESTED_ITEM_TYPE_ALL),
     StartPosition(0), 
     RequestCount(-1), 
     IncludeChildrenObjectsForRequestedObject(false)

@@ -28,7 +28,7 @@ using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
 PlaybackItem::PlaybackItem(const DVBLinkPlaybackItemType itemType, const std::string& objectId, const std::string& parentId, const std::string& playbackUrl, const std::string& thumbnailUrl, const ItemMetadata* metadata)
-  : PlaybackObject(DVBLinkPlaybackObjectType::PLAYBACK_OBJECT_TYPE_ITEM, objectId, parentId),
+  : PlaybackObject(PlaybackObject::PLAYBACK_OBJECT_TYPE_ITEM, objectId, parentId),
     m_itemType(itemType),
     m_playbackUrl(playbackUrl),
     m_thumbnailUrl(thumbnailUrl),
@@ -91,11 +91,11 @@ RecordedTvItemMetadata::~RecordedTvItemMetadata()
 }
 
 RecordedTvItem::RecordedTvItem(const std::string& objectId, const std::string& parentId, const std::string& playbackUrl, const std::string& thumbnailUrl, const RecordedTvItemMetadata* metadata)
-  : PlaybackItem(DVBLinkPlaybackItemType::PLAYBACK_ITEM_TYPE_RECORDED_TV, objectId, parentId, playbackUrl, thumbnailUrl, (ItemMetadata*)metadata),
+  : PlaybackItem(PlaybackItem::PLAYBACK_ITEM_TYPE_RECORDED_TV, objectId, parentId, playbackUrl, thumbnailUrl, (ItemMetadata*)metadata),
     ChannelName(""),
     ChannelNumber(0),
     ChannelSubNumber(0),
-    State(DVBLinkRecordedTvItemState::RECORDED_TV_ITEM_STATE_IN_PROGRESS)
+    State(RecordedTvItem::RECORDED_TV_ITEM_STATE_IN_PROGRESS)
 {
 
 }
@@ -129,7 +129,7 @@ VideoItemMetadata::~VideoItemMetadata()
 }
 
 VideoItem::VideoItem(const std::string& objectId, const std::string& parentId, const std::string& playbackUrl, const std::string& thumbnailUrl, const VideoItemMetadata* metadata)
-  : PlaybackItem(DVBLinkPlaybackItemType::PLAYBACK_ITEM_TYPE_VIDEO, objectId, parentId, playbackUrl, thumbnailUrl, (ItemMetadata*)metadata)
+  : PlaybackItem(PlaybackItem::PLAYBACK_ITEM_TYPE_VIDEO, objectId, parentId, playbackUrl, thumbnailUrl, (ItemMetadata*)metadata)
 {
 
 }
