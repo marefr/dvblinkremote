@@ -3,6 +3,7 @@ var classdvblinkremote_1_1_i_d_v_b_link_remote_connection =
     [ "AddSchedule", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#aed29d0591bccf8d8545e5bfad1cd7a48", null ],
     [ "GetChannels", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a6670405a52c60548a35e3a6e5ddca8cd", null ],
     [ "GetLastError", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a0210f68cfb6cd5d028583022a47b0de2", null ],
+    [ "GetM3uPlaylist", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a5aaafc631dcc3473453e1c47bffb4fa6", null ],
     [ "GetParentalStatus", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#ae169f58c3d8cf1b9d38cffc8efc3e398", null ],
     [ "GetPlaybackObject", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a9013fd97e5d1e89b669c2c58badd8d5f", null ],
     [ "GetRecordings", "classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a5958ac33ae86a64fa679343bd0c4a553", null ],

@@ -29,8 +29,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classdvblinkremote_1_1_playback_item.html#acc01c357052bc96dcf8d9a9d474ecadba3c6b9e3d826fc8d79ff7fc8fd91cdd12",
-"functions_0x70.html"
+"classdvblinkremote_1_1_playback_item.html#a299ec5853a42d9dea342ffca90a6d284",
+"functions_0x66.html"
 ];
 
 var navTreeSubIndices = new Array();

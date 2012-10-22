@@ -138,6 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae169f58c3d8cf1b9d38cffc8efc3e398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get parental status.  <a href="#ae169f58c3d8cf1b9d38cffc8efc3e398"></a><br/></td></tr>
 <tr class="memitem:a766bf1e350fb575ac6b5d1d61767b270"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a766bf1e350fb575ac6b5d1d61767b270">SetParentalLock</a> (const <a class="el" href="classdvblinkremote_1_1_set_parental_lock_request.html">SetParentalLockRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_parental_status.html">ParentalStatus</a> &amp;response)=0</td></tr>
 <tr class="memdesc:a766bf1e350fb575ac6b5d1d61767b270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parental lock.  <a href="#a766bf1e350fb575ac6b5d1d61767b270"></a><br/></td></tr>
+<tr class="memitem:a5aaafc631dcc3473453e1c47bffb4fa6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a5aaafc631dcc3473453e1c47bffb4fa6">GetM3uPlaylist</a> (const <a class="el" href="classdvblinkremote_1_1_get_m3u_playlist_request.html">GetM3uPlaylistRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_m3u_playlist.html">M3uPlaylist</a> &amp;response)=0</td></tr>
+<tr class="memdesc:a5aaafc631dcc3473453e1c47bffb4fa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a M3U playlist with direct HTTP links to all channels.  <a href="#a5aaafc631dcc3473453e1c47bffb4fa6"></a><br/></td></tr>
 <tr class="memitem:a9013fd97e5d1e89b669c2c58badd8d5f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a9013fd97e5d1e89b669c2c58badd8d5f">GetPlaybackObject</a> (const <a class="el" href="classdvblinkremote_1_1_get_playback_object_request.html">GetPlaybackObjectRequest</a> &amp;request, <a class="el" href="classdvblinkremote_1_1_get_playback_object_response.html">GetPlaybackObjectResponse</a> &amp;response)=0</td></tr>
 <tr class="memdesc:a9013fd97e5d1e89b669c2c58badd8d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a playback object.  <a href="#a9013fd97e5d1e89b669c2c58badd8d5f"></a><br/></td></tr>
 <tr class="memitem:a37160883d8f921b5b96ab5a8f59d3a24"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html#a37160883d8f921b5b96ab5a8f59d3a24">RemovePlaybackObject</a> (const <a class="el" href="classdvblinkremote_1_1_remove_playback_object_request.html">RemovePlaybackObjectRequest</a> &amp;request)=0</td></tr>
@@ -263,6 +265,50 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a5aaafc631dcc3473453e1c47bffb4fa6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespacedvblinkremote.html#abeb3de6555495a00b2640499143c1c8a">DVBLinkRemoteStatusCode</a> dvblinkremote::IDVBLinkRemoteConnection::GetM3uPlaylist </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdvblinkremote_1_1_get_m3u_playlist_request.html">GetM3uPlaylistRequest</a> &amp;&#160;</td>
+          <td class="paramname"><em>request</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdvblinkremote_1_1_m3u_playlist.html">M3uPlaylist</a> &amp;&#160;</td>
+          <td class="paramname"><em>response</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a M3U playlist with direct HTTP links to all channels. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">request</td><td>A constant <a class="el" href="classdvblinkremote_1_1_get_m3u_playlist_request.html" title="Class for get M3U playlist requests.">GetM3uPlaylistRequest</a> reference representing the get M3U playlist request criterias. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">response</td><td>A <a class="el" href="classdvblinkremote_1_1_m3u_playlist.html" title="Represent M3U playlist which is used as output parameter for the IDVBLinkRemoteConnection::GetM3uPlay...">M3uPlaylist</a> reference that will be populated with M3U playlist file content. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A DVBLinkRemoteStatusCode representing the status of the executed method. </dd></dl>
 
 </div>
 </div>
@@ -899,7 +945,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacedvblinkremote.html">dvblinkremote</a></li><li class="navelem"><a class="el" href="classdvblinkremote_1_1_i_d_v_b_link_remote_connection.html">IDVBLinkRemoteConnection</a></li>
-    <li class="footer">Generated on Sun Oct 21 2012 23:24:10 for DVBLink Remote API Library documentation by
+    <li class="footer">Generated on Mon Oct 22 2012 01:10:54 for DVBLink Remote API Library documentation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
