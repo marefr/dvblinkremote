@@ -103,7 +103,15 @@ namespace dvblinkremote {
       */
     DVBLinkScheduleType& GetScheduleType();
 
+  protected:
+
+    /**
+      * Protected constructor used to solve diamond problem in adding schedules
+      */	 
+	Schedule();
+
   private:
+
     /**
       * The identifier for the schedule.
       */
@@ -119,11 +127,11 @@ namespace dvblinkremote {
       */
     DVBLinkScheduleType m_scheduleType;
   };
-
+  
   /**
     * Abstract base class for manual schedules. 
     */
-  class ManualSchedule : public Schedule
+  class ManualSchedule :  public virtual Schedule
   {
   public:
     /**
@@ -214,7 +222,7 @@ namespace dvblinkremote {
   /**
     * Abstract base class for electronic program guide (EPG) schedules. 
     */
-  class EpgSchedule : public Schedule
+  class EpgSchedule : public virtual Schedule
   {
   public:
     /**

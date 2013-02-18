@@ -806,7 +806,7 @@ namespace dvblinkremote {
       * @param containerContentType a constant DVBLinkPlaybackContainerContentType instance representing the content 
       * type of the playback items in this playback container.
       */
-    PlaybackContainer(const std::string& objectId, const std::string& parentId, const std::string& name, const DVBLinkPlaybackContainerType containerType, const DVBLinkPlaybackContainerContentType containerContentType);
+    PlaybackContainer(const std::string& objectId, const std::string& parentId, const std::string& name, DVBLinkPlaybackContainerType& containerType, DVBLinkPlaybackContainerContentType& containerContentType);
 
     /**
       * Destructor for cleaning up allocated memory.

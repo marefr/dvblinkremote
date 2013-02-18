@@ -258,7 +258,7 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetData(const std::string& c
   ClearErrorBuffer();
 
   if ((status = SerializeRequestObject(command, request, xmlData)) != DVBLINK_REMOTE_STATUS_OK) {
-    WriteError("Serialization of request object failed with error code %d (%s).\n", status, GetStatusCodeDescription(status));
+    WriteError("Serialization of request object failed with error code %d (%s).\n", status, GetStatusCodeDescription(status).c_str());
     return status;
   }
 
@@ -274,14 +274,14 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetData(const std::string& c
 
   if (!m_httpClient.SendRequest(*httpRequest)) {
     status = DVBLINK_REMOTE_STATUS_CONNECTION_ERROR;
-    WriteError("HTTP request failed with error code %d (%s).\n", status, GetStatusCodeDescription(status));
+    WriteError("HTTP request failed with error code %d (%s).\n", status, GetStatusCodeDescription(status).c_str());
   }
   else {
     dvblinkremotehttp::HttpWebResponse* httpResponse = m_httpClient.GetResponse();
 
     if (httpResponse->GetStatusCode() == 401) {
       status = DVBLINK_REMOTE_STATUS_UNAUTHORISED;
-      WriteError("HTTP response returned status code %d (%s).\n", httpResponse->GetStatusCode(), GetStatusCodeDescription(status));
+      WriteError("HTTP response returned status code %d (%s).\n", httpResponse->GetStatusCode(), GetStatusCodeDescription(status).c_str());
     }
     else if (httpResponse->GetStatusCode() != 200) {
       status = DVBLINK_REMOTE_STATUS_ERROR;
@@ -291,7 +291,7 @@ DVBLinkRemoteStatusCode DVBLinkRemoteCommunication::GetData(const std::string& c
       std::string responseData = httpResponse->GetResponseData();
       
       if ((status = DeserializeResponseData(command, responseData, responseObject)) != DVBLINK_REMOTE_STATUS_OK) {
-        WriteError("Deserialization of response data failed with error code %d (%s).\n", status, GetStatusCodeDescription(status));
+        WriteError("Deserialization of response data failed with error code %d (%s).\n", status, GetStatusCodeDescription(status).c_str());
       }
     }
 
