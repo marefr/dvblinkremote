@@ -27,11 +27,11 @@
 using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
-PlaybackContainer::PlaybackContainer(const std::string& objectId, const std::string& parentId, const std::string& name, const DVBLinkPlaybackContainerType containerType, const DVBLinkPlaybackContainerContentType containerContentType)
+PlaybackContainer::PlaybackContainer(const std::string& objectId, const std::string& parentId, const std::string& name, DVBLinkPlaybackContainerType& containerType, DVBLinkPlaybackContainerContentType& containerContentType)
   : PlaybackObject(PlaybackObject::PLAYBACK_OBJECT_TYPE_CONTAINER, objectId, parentId),
     m_name(name),
-    m_containerType((DVBLinkPlaybackContainerType)containerType),
-    m_containerContentType((DVBLinkPlaybackContainerContentType)containerContentType),
+    m_containerType((DVBLinkPlaybackContainerType&)containerType),
+    m_containerContentType((DVBLinkPlaybackContainerContentType&)containerContentType),
     Description(""), 
     Logo(""), 
     TotalCount(0),

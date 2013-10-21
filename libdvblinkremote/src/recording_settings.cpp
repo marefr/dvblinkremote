@@ -28,6 +28,12 @@
 using namespace dvblinkremote;
 using namespace dvblinkremoteserialization;
 
+RecordingSettings::RecordingSettings()
+{ }
+
+RecordingSettings::~RecordingSettings()
+{ }
+
 GetRecordingSettingsRequest::GetRecordingSettingsRequest()
 { }
 

@@ -616,9 +616,11 @@ namespace dvblinkremote {
     std::string m_clientId;
   };
   
-  class AddScheduleRequest : public Request, public Schedule
+  class AddScheduleRequest : public Request, public virtual Schedule
   {
   public:
+	//AddScheduleRequest(const DVBLinkScheduleType scheduleType, const std::string& channelId);
+	AddScheduleRequest();
     virtual ~AddScheduleRequest() = 0;
   };
 
@@ -627,7 +629,7 @@ namespace dvblinkremote {
     * This is used as input parameter for the IDVBLinkRemoteConnection::AddSchedule method.
     * @see IDVBLinkRemoteConnection::AddSchedule()
     */
-  class AddManualScheduleRequest : public ManualSchedule
+  class AddManualScheduleRequest : public ManualSchedule, public AddScheduleRequest
   {
   public:
     /**
@@ -653,7 +655,7 @@ namespace dvblinkremote {
     * This is used as input parameter for the IDVBLinkRemoteConnection::AddSchedule method.
     * @see IDVBLinkRemoteConnection::AddSchedule m()
     */
-  class AddScheduleByEpgRequest : public EpgSchedule
+  class AddScheduleByEpgRequest : public EpgSchedule, public AddScheduleRequest
   {
   public:
     /**
